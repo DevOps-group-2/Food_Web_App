@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
-
+import LoginPage from "./client/pages/loginPage/LoginPage.js";
 
 
 function App() {
@@ -20,6 +19,7 @@ function App() {
             >
                 Learn React
             </a>
+            <LoginPage></LoginPage>
         </header>
 
 
