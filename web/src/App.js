@@ -16,7 +16,7 @@ function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    hej freja
+                    hej freja!
                 </a>
                 <button>Login</button>
             </header>
