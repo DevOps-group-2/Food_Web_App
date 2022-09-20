@@ -1,34 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 import LoginPage from "./client/pages/loginPage/LoginPage.js";
-
+import NavigationBar from "./client/components/navigationBar/NavigationBar";
+import {Route, Switch, Routes, Link, useParams, useNavigate} from "react-router-dom";
 
 function App() {
     return(
-        <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-                Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <header>Hello World2</header>
-            <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Learn React
-            </a>
-            <LoginPage></LoginPage>
-        </header>
+        <>
 
+            <NavigationBar></NavigationBar>
+            <div>
+            <Routes>
+                <Route path={"/about"} element={<LoginPage/>}/>
+                <Route path={"/"} element={<h1>home</h1>}/>
+            </Routes>
+            </div>
+
+        </>
 
     );
 }
-
-
-
-
 /*
 function App() {
   return (
@@ -44,7 +35,12 @@ const Greeting = ({userName}) => {
 
 */
 
-
+function About() {
+    return <h1>About</h1>
+}
+function Home() {
+    return
+}
 
 export default App;
 
