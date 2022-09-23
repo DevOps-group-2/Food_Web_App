@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import LoginPage from "./client/pages/loginPage/LoginPage.js";
-import Pay from "./components/payment/Pay.jsx";
+import Pay from "./client/pages/payment/Pay.js";
 
 
 function App() {
