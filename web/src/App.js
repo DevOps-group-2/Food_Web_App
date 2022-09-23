@@ -1,50 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
 import LoginPage from "./client/pages/loginPage/LoginPage.js";
+import Pay from "./client/pages/payment/Pay.js";
 
+import NavigationBar from "./client/components/navigationBar/NavigationBar";
+//import {Route, Switch, Routes, Link, useParams, useNavigate} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 
 function App() {
     return(
-        <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-                Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <header>Hello World2</header>
-            <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Learn React
-            </a>
-            <LoginPage></LoginPage>
-        </header>
+        <>
 
+            <NavigationBar></NavigationBar>
+            <div>
+            <Routes>
+                <Route path={"/about"} element={<h1>About us</h1>}/>
+                <Route path={"/"} element={<h1>Home</h1>}/>
+                <Route path={"/payment"} element={<Pay/>}/>
+                <Route path={"/admin"} element={<LoginPage/>}/>
 
+            </Routes>
+            </div>
+
+        </>
     );
 }
 
-
-
-
-/*
-function App() {
-  return (
-    <div className="App">
-      <Greeting userName={"Christian"}></Greeting>
-      <Greeting userName={"Christian2"}></Greeting>
-    </div>
-  );
+/*function About() {
+    return <h1>About</h1>
 }
-const Greeting = ({userName}) => {
-  return (<h1>Hello, {userName}</h1>)
-}
-
-*/
-
-
+function Home() {
+    return
+}*/
 
 export default App;
 
