@@ -1,5 +1,5 @@
 
-class Food {
+class Item {
     constructor(id, name, price, description) {
         this.id = id;
         this.name = name;
