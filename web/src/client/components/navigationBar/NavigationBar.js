@@ -1,11 +1,5 @@
-import {
-    BrowserRouter as Router,
-    Route,
-    Routes,
-    Link, useParams,useNavigate,
-} from "react-router-dom";
+import {Link} from "react-router-dom";
 import './NavigationBar.css';
-import { Switch } from "react-router-dom";
 
 
 function NavigationBar() {
@@ -22,7 +16,16 @@ function NavigationBar() {
                     <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/about">About Us</Link>
+                    <Link to="/login">Login</Link>
+                </li>
+                <li>
+                    <Link to="/menu">Menu</Link>
+                </li>
+                <li>
+                    <Link to="/order">Order</Link>
+                </li>
+                <li>
+                    <Link to="/contact">Contact Us</Link>
                 </li>
             </ul>
             </div>
@@ -32,13 +35,6 @@ function NavigationBar() {
 
 
     )
-}
-function About() {
-    return <h1>About </h1>
-}
-
-function Users() {
-    return <h2>Contact</h2>;
 }
 
 export default NavigationBar;
