@@ -24,6 +24,10 @@ function NavigationBar() {
                 <li>
                     <Link to="/about">About Us</Link>
                 </li>
+                <li>
+                    <Link to="/pay">Pay with card</Link>
+                </li>
+
             </ul>
             </div>
         </nav>
