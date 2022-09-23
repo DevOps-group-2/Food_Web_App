@@ -19,6 +19,7 @@ class Pay extends Component{
 
 
 function handleToken(token, addresses) {
+    // TODO
 }
 
 
