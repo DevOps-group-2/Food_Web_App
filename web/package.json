@@ -39,8 +39,5 @@
   },
   "devDependencies": {
     "react-stripe-checkout": "^2.6.3"
-  },
-  "rules": {
-    "no-unused-vars": "off"
   }
 }
