@@ -1,5 +1,16 @@
+
 import {Link} from "react-router-dom";
 import './NavigationBar.css';
+
+import {
+/*    BrowserRouter as Router,
+    Route,
+    Routes,*/
+    Link, /*useParams,useNavigate,*/
+} from "react-router-dom";
+import './NavigationBar.css';
+//import { Switch } from "react-router-dom";
+
 
 
 function NavigationBar() {
@@ -27,6 +38,10 @@ function NavigationBar() {
                 <li>
                     <Link to="/contact">Contact Us</Link>
                 </li>
+                <li>
+                    <Link to="/payment">Pay with card</Link>
+                </li>
+
             </ul>
             </div>
         </nav>
@@ -36,5 +51,14 @@ function NavigationBar() {
 
     )
 }
+
+/*function About() {
+    return <h1>About </h1>
+}
+
+function Users() {
+    return <h2>Contact</h2>;
+}*/
+
 
 export default NavigationBar;
