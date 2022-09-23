@@ -3,7 +3,8 @@ import LoginPage from "./client/pages/loginPage/LoginPage.js";
 import Pay from "./client/pages/payment/Pay.js";
 
 import NavigationBar from "./client/components/navigationBar/NavigationBar";
-import {Route, Switch, Routes, Link, useParams, useNavigate} from "react-router-dom";
+//import {Route, Switch, Routes, Link, useParams, useNavigate} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 
 function App() {
     return(
@@ -24,12 +25,12 @@ function App() {
     );
 }
 
-function About() {
+/*function About() {
     return <h1>About</h1>
 }
 function Home() {
     return
-}
+}*/
 
 export default App;
 
