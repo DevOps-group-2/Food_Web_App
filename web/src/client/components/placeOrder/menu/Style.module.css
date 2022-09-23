@@ -1,0 +1,16 @@
+.button {
+    cursor: pointer;
+    font: inherit;
+    background-color: #c6d3b0;
+    color: #000000;
+    display: flex;
+    border-radius: 25px;
+    font-weight: bold;
+    position: relative;
+}
+.text {
+    width: 33rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
