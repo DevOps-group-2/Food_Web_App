@@ -6,6 +6,7 @@ import NavigationBar from "./client/components/navigationBar/NavigationBar";
 //import {Route, Switch, Routes, Link, useParams, useNavigate} from "react-router-dom";
 import {Route, Routes} from "react-router-dom";
 import Menu from "./client/pages/menu/Menu";
+import PlaceOrder from "./client/pages/placeOrder/PlaceOrder";
 
 function App() {
     return (
@@ -24,6 +25,13 @@ function App() {
 
 
                 </Routes>
+            <Routes>
+                <Route path={"/about"} element={<h1>About us</h1>}/>
+                <Route path={"/"} element={<h1>Home</h1>}/>
+                <Route path={"/payment"} element={<Pay/>}/>
+                <Route path={"/placeorder"} element={<PlaceOrder/>}/>
+                <Route path={"/admin"} element={<LoginPage/>}/>
+            </Routes>
             </div>
 
         </>

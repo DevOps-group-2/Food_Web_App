@@ -1,6 +1,8 @@
 
 import {Link} from "react-router-dom";
 import './NavigationBar.css';
+import React from "react";
+import BasketButtonHeader from "../placeOrder/basket/header/BasketButtonHeader";
 //import { Switch } from "react-router-dom";
 
 
@@ -20,6 +22,10 @@ function NavigationBar() {
                 </li>
                 <li>
                     <Link to="/menu">Menu</Link>
+                    <Link to="/placeorder">Place an Order</Link>
+                </li>
+                <li>
+                    <Link to="/about">About Us</Link>
                 </li>
                 <li>
                     <Link to="/order">Order</Link>
@@ -30,6 +36,7 @@ function NavigationBar() {
                 <li>
                     <Link to="/login">Login</Link>
                 </li>
+                <BasketButtonHeader />
             </ul>
             </div>
         </nav>
