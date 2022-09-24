@@ -1,9 +1,8 @@
 //  login page. made using following tutoral https://contactmentor.com/login-form-react-js-code/
 // utilizes usestates and a login form
+//implements the page for admin logins, using forms
 
 import React, { useState } from "react";
-
-
 import "./LoginPage.css";
 
 function LoginPage() {
@@ -11,25 +10,23 @@ function LoginPage() {
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    // User Login info
+    //dummy data for login
+    //todo implement backend and token authentication for security
     const database = [
         {
-            username: "user1",
-            password: "pass1"
+            username: "username",
+            password: "password"
         },
-        {
-            username: "user2",
-            password: "pass2"
-        }
     ];
 
     const errors = {
-        uname: "invalid username",
-        pass: "invalid password"
+        uname: "Invalid username",
+        pass: "Invalid password",
+        //none: "Missing username/password" not needed as input is required
     };
 
     const handleSubmit = (event) => {
-        //Prevent page reload
+        //page reload prevented
         event.preventDefault();
 
         var { uname, pass } = document.forms[0];
