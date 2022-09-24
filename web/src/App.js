@@ -5,54 +5,42 @@ import Pay from "./client/pages/payment/Pay.js";
 import NavigationBar from "./client/components/navigationBar/NavigationBar";
 //import {Route, Switch, Routes, Link, useParams, useNavigate} from "react-router-dom";
 import {Route, Routes} from "react-router-dom";
+import Menu from "./client/pages/menu/Menu";
 
 function App() {
-    return(
+    return (
         <>
 
             <NavigationBar></NavigationBar>
             <div>
-            <Routes>
+                <Routes>
 
-                <Route path={"/"} element={<h1>home</h1>}/>
-                <Route path={"/login"} element={<LoginPage/>}/>
-                <Route path={"/menu"} element={<Menu/>}/>
-                <Route path={"/order"} element={<Order/>}/>
-                <Route path={"/contact"} element={<Contact/>}/>
+                    <Route path={"/"} element={<h1>home</h1>}/>
 
-                <Route path={"/about"} element={<h1>About us</h1>}/>
-                <Route path={"/"} element={<h1>Home</h1>}/>
-                <Route path={"/payment"} element={<Pay/>}/>
-                <Route path={"/admin"} element={<LoginPage/>}/>
+                    <Route path={"/menu"} element={<Menu/>}/>
+                    <Route path={"/contact"} element={<Contact/>}/>
+                    <Route path={"/login"} element={<LoginPage/>}/>
+                    <Route path={"/order"} element={<Pay/>}/>
 
 
-            </Routes>
+                </Routes>
             </div>
 
         </>
     );
 
 
+    function Contact() {
+        return <h1>Contact Us</h1>
+    }
 
-
-
-function Menu() {
-    return <h1>Menu</h1>
+    /*function About() {
+        return <h1>About</h1>
+    }
+    function Home() {
+        return
+    }*/
 }
-function Order() {
-    return <h1>Order</h1>
-}
-function Contact() {
-    return <h1>Contact Us</h1>
-}
-
-/*function About() {
-    return <h1>About</h1>
-}
-function Home() {
-    return
-}*/
-
 
 export default App;
 
