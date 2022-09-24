@@ -37,17 +37,9 @@ function App() {
         </>
     );
 
-
     function Contact() {
         return <h1>Contact Us</h1>
     }
-
-    /*function About() {
-        return <h1>About</h1>
-    }
-    function Home() {
-        return
-    }*/
 }
 
 export default App;

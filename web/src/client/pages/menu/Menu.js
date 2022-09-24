@@ -1,4 +1,3 @@
-import { Image } from 'primereact/image';
 import shawarmaLam from '../../../assets/menu/shawarmaLam.jpg';
 import Picture from "../../components/Image/Picture";
 

@@ -5,8 +5,6 @@ import React from "react";
 import BasketButtonHeader from "../placeOrder/basket/header/BasketButtonHeader";
 //import { Switch } from "react-router-dom";
 
-
-
 function NavigationBar() {
 
     return(
@@ -44,7 +42,5 @@ function NavigationBar() {
 
     )
 }
-
-
 
 export default NavigationBar;
