@@ -3,9 +3,10 @@ import FoodProductAmount from './FoodProductAmount';
 import css from './Style.module.css';
 
 const FoodProduct = (props) => {
-  /*adding to decimals to the prices.*/
+  /*Adding two decimals to the prices.*/
   const price = `${props["price"].toFixed(2)}`;
-  
+
+  /*Showing the food products..*/
   return (
     <><li>
       <div>

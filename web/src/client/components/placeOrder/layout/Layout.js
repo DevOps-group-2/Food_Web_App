@@ -1,6 +1,6 @@
 import React from 'react';
 
-/*Designen af brugergrænsefladen.*/
+/*Design of the user interface.*/
 class Layout extends React.Component {
   render() {
     return (

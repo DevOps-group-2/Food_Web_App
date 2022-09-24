@@ -15,6 +15,7 @@ const BuyableFoodProducts = () => {
           const foodProducts = await response;
           const fetchedFoodProducts = [];
 
+          /*Following details about a menu (foodtype).*/
           for (const key in foodProducts) {
               fetchedFoodProducts.push({
                   id: key,
