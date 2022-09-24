@@ -3,6 +3,9 @@ import {Link} from "react-router-dom";
 import './NavigationBar.css';
 import React from "react";
 import BasketButtonHeader from "../placeOrder/basket/header/BasketButtonHeader";
+import image from '../../../assets/header/logotext_grey.png';
+
+
 //import { Switch } from "react-router-dom";
 
 function NavigationBar() {
@@ -10,7 +13,7 @@ function NavigationBar() {
     return(
         <div style={{ backgroundColor: "silver" }}>
             <div className="header">
-                <h1><Link to="/">Restaurant Group 2</Link></h1>
+                <Link to="/"><img src={image} height={200} width={1000} /></Link>
             </div>
         <nav>
             <div className="body">
