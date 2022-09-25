@@ -14,7 +14,7 @@ function LoginPage() {
     // User Login info
     const database = [
         {
-            username: "username",
+            username: "admin",
             password: "password"
         },
     ];
@@ -34,7 +34,6 @@ function LoginPage() {
         // Find user login info.
         //todo, make a backend login authentication instead of using frontend dummy data
         const userData = database.find((user) => user.username === uname.value);
-
 
         if (userData) {
             if (userData.password !== pass.value) {
@@ -81,7 +80,7 @@ function LoginPage() {
         <div className="app">
             <div className="login-form">
                 <div className="title">Sign In</div>
-                {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+                {isSubmitted ? <div>Admin is logged in</div> : renderForm}
             </div>
         </div>
     );
