@@ -3,61 +3,51 @@
 
 import React, { useState } from "react";
 
-
 import "./LoginPage.css";
 
 function LoginPage() {
-    // React States
+
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    // User Login info
     const database = [
         {
-            username: "user1",
-            password: "pass1"
+            username: "admin",
+            password: "password"
         },
-        {
-            username: "user2",
-            password: "pass2"
-        }
     ];
 
     const errors = {
-        uname: "invalid username",
-        pass: "invalid password"
+        invalidName: "invalid username",
+        pinvalidPass: "invalid password"
+        //note missing username/password not needed as input is required by the input component ex: <input type="text" name="uname" required />
     };
-
     const handleSubmit = (event) => {
-        //Prevent page reload
         event.preventDefault();
 
         var { uname, pass } = document.forms[0];
 
-        // Find user login info
+        //todo, make a backend login authentication instead of using frontend dummy data
         const userData = database.find((user) => user.username === uname.value);
 
-        // Compare user info
         if (userData) {
             if (userData.password !== pass.value) {
-                // Invalid password
-                setErrorMessages({ name: "pass", message: errors.pass });
+
+                setErrorMessages({ name: "invalidPass", message: errors.pass });
             } else {
                 setIsSubmitted(true);
             }
         } else {
-            // Username not found
-            setErrorMessages({ name: "uname", message: errors.uname });
+            setErrorMessages({ name: "invalidNam", message: errors.uname });
         }
     };
 
-    // Generate JSX code for error message
     const renderErrorMessage = (name) =>
         name === errorMessages.name && (
             <div className="error">{errorMessages.message}</div>
         );
 
-    // JSX code for login form
+    //login form
     const renderForm = (
         <div className="form">
             <form onSubmit={handleSubmit}>
@@ -82,7 +72,7 @@ function LoginPage() {
         <div className="app">
             <div className="login-form">
                 <div className="title">Sign In</div>
-                {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+                {isSubmitted ? <div>Admin is logged in</div> : renderForm}
             </div>
         </div>
     );

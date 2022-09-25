@@ -1,7 +1,6 @@
-/*  login page. made using following tutoral https://contactmentor.com/login-form-react-js-code/ */
-/*   utilizes usestates and a login form */
-   .app {
-    font-family: sans-serif;
+/*login page css. made using following tutoral https://contactmentor.com/login-form-react-js-code/
+*/
+.app {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,13 +37,17 @@ input[type="submit"]:hover {
 }
 
 .login-form {
-    background-color: white;
+    background-color: grey;
     padding: 2rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .list-container {
     display: flex;
+}
+
+.label{
+    color: white;
 }
 
 .error {
@@ -54,6 +57,7 @@ input[type="submit"]:hover {
 
 .title {
     font-size: 25px;
+    color: white;
     margin-bottom: 20px;
 }
 

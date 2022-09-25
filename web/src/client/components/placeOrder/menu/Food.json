@@ -1,0 +1,24 @@
+  {"food1": {
+    "menu":"Kyllingesandwich",
+    "info" : "Kyllingestrimler, champignon, peberfrugt, tomat, karrydressing og mix salat. Serveres med steak fries og mayonnaise.",
+    "time" : "Tid: 20 min",
+    "price": 59},
+
+  "food2": {
+    "menu":"Shawarma med Kebab",
+    "info" : "Kebabkød, løg, agurk, tomat og salat. Serveres med steak fries og mayonnaise.",
+    "time" : "Tid: 20 min",
+    "price": 59},
+
+  "food3": {
+    "menu":"Mexi Burger",
+    "info":"Grillet hakkebøf, blandet salat, bløde løg, jalapeños, salsa og guacamole. Serveres med fries, chili cheese tops, onion ring og chilimayo.",
+    "time" : "Tid: 40 min",
+    "price":159},
+
+  "food4": {
+    "menu":"Crispy Chicken Burger",
+    "info":"Sprød kyllingeburger med crispy chicken, salat, mayonnaise, tomat og syltede agurker, serveres med fries og chilimayo.",
+    "time" : "Tid: 35 min",
+    "price":149}
+  }
