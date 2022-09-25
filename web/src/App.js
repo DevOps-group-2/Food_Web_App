@@ -1,5 +1,5 @@
 import './App.css';
-import LoginPage from "./client/pages/loginPage/LoginPage.js";
+// import LoginPage from "./client/pages/loginPage/LoginPage.js";
 import Pay from "./client/pages/payment/Pay.js";
 
 import NavigationBar from "./client/components/navigationBar/NavigationBar";
@@ -7,6 +7,7 @@ import NavigationBar from "./client/components/navigationBar/NavigationBar";
 import {Route, Routes} from "react-router-dom";
 import Menu from "./client/pages/menu/Menu";
 import PlaceOrder from "./client/pages/placeOrder/PlaceOrder";
+import AppendingOrders from "./adminDashboard/appendingOrders";
 
 function App() {
     return (
@@ -20,7 +21,7 @@ function App() {
 
                     <Route path={"/menu"} element={<Menu/>}/>
                     <Route path={"/contact"} element={<Contact/>}/>
-                    <Route path={"/login"} element={<LoginPage/>}/>
+                    {/*<Route path={"/login"} element={<LoginPage/>}/>*/}
                     <Route path={"/order"} element={<Pay/>}/>
 
 
@@ -30,7 +31,7 @@ function App() {
                 <Route path={"/"} element={<h1>Home</h1>}/>
                 <Route path={"/payment"} element={<Pay/>}/>
                 <Route path={"/placeorder"} element={<PlaceOrder/>}/>
-                <Route path={"/admin"} element={<LoginPage/>}/>
+                <Route path={"/admin"} element={<AppendingOrders/>}/>
             </Routes>
             </div>
 
