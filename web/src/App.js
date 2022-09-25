@@ -1,5 +1,5 @@
 import './App.css';
-// import LoginPage from "./client/pages/loginPage/LoginPage.js";
+import LoginPage from "./client/pages/loginPage/LoginPage.js";
 import Pay from "./client/pages/payment/Pay.js";
 
 import NavigationBar from "./client/components/navigationBar/NavigationBar";
@@ -18,12 +18,10 @@ function App() {
                 <Routes>
 
                     <Route path={"/"} element={<h1>home</h1>}/>
-
                     <Route path={"/menu"} element={<Menu/>}/>
                     <Route path={"/contact"} element={<Contact/>}/>
-                    {/*<Route path={"/login"} element={<LoginPage/>}/>*/}
+                    <Route path={"/login"} element={<LoginPage/>}/>
                     <Route path={"/order"} element={<Pay/>}/>
-
 
                 </Routes>
             <Routes>
