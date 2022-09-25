@@ -1,3 +1,7 @@
+//Create with inspiration from following links:
+// https://mui.com/x/react-data-grid/getting-started/
+//https://mui.com/material-ui/react-table/
+
 import * as React from 'react';
 import './appendingOrders.css';
 //import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
