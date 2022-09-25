@@ -13,7 +13,7 @@ function NavigationBar() {
     return(
         <div style={{ backgroundColor: "silver" }}>
             <div className="header">
-                <Link to="/"><img src={image} height={200} width={1000} /></Link>
+                <Link to="/"><img src={image} height={200} width={1000}  alt={""}/></Link>
             </div>
         <nav>
             <div className="body">

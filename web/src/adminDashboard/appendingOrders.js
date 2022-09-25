@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './appendingOrders.css';
-import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
+//import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
 
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
@@ -26,14 +26,14 @@ function createOrder(orderNumber: number, customerName: string, phoneNr: number,
     };
 }
 
-function createProduct(productNumber: number, productName: string, amount: number, price: price){
+/*function createProduct(productNumber: number, productName: string, amount: number, price: price){
     return {
         productNumber: productNumber,
         productName: productName,
         amount: amount,
         price: price,
     };
-}
+}*/
 
 /*function FoldOutRow(props: { foldOutRow: ReturnType<typeof createProduct> }) {
     const { foldOutRow } = props;
