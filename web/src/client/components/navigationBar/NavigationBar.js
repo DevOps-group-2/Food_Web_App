@@ -37,7 +37,6 @@ function NavigationBar() {
                 <li>
                     <Link to="/login">Login</Link>
                 </li>
-                <BasketButtonHeader />
             </ul>
             </div>
         </nav>
