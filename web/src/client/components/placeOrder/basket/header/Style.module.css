@@ -4,8 +4,7 @@
   left: 0;
   width: 100%;
   height: 5rem;
-  background-color: #4b543d;
-  color: white;
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;

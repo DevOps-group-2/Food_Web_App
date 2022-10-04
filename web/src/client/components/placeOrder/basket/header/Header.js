@@ -6,7 +6,7 @@ const Header = (props) => {
   return (
     <>
       <header className={css.header}>
-         <h1>Order Your Food Now!</h1>
+         <h1></h1>
        <BasketButtonHeader onClick={props.onOpen} />
       </header>
     </> 

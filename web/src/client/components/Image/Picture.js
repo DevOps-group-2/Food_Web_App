@@ -8,6 +8,7 @@ function Picture(props) {
              height={props.image.height}
              alt={props.image.name}
         />
+
     );
 }
 export default Picture;
