@@ -9,7 +9,6 @@ import Menu from "./client/pages/menu/Menu";
 import PlaceOrder from "./client/pages/placeOrder/PlaceOrder";
 import AppendingOrders from "./adminDashboard/new orders/newOrders";
 import NewOrders from "./adminDashboard/new orders/newOrders";
-import AppendingOrders from "./adminDashboard/appendingOrders";
 import CustomerForm from "./client/pages/customerForm/CustomerForm";
 
 function App() {
