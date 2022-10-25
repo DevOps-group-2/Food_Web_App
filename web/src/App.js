@@ -9,6 +9,8 @@ import Menu from "./client/pages/menu/Menu";
 import PlaceOrder from "./client/pages/placeOrder/PlaceOrder";
 import AppendingOrders from "./adminDashboard/new orders/newOrders";
 import NewOrders from "./adminDashboard/new orders/newOrders";
+import AppendingOrders from "./adminDashboard/appendingOrders";
+import CustomerForm from "./client/pages/customerForm/CustomerForm";
 
 function App() {
     return (
@@ -27,6 +29,9 @@ function App() {
                     <Route path={"/payment"} element={<Pay/>}/>
                     <Route path={"/placeorder"} element={<PlaceOrder/>}/>
                     <Route path={"/admin"} element={<NewOrders/>}/>
+                    <Route path={"/admin"} element={<AppendingOrders/>}/>
+
+                    <Route path={"/Form"} element={<CustomerForm/>}/>
             </Routes>
             </div>
 
