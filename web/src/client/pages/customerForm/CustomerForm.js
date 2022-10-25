@@ -4,7 +4,7 @@
 //todo tilføj validations
 
 import {useState} from "react";
-import './CustomerForm.css';
+//import './CustomerForm.css';
 
 function CustomerForm(){
     const [date , setDate] = useState('');
