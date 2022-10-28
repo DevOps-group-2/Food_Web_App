@@ -8,7 +8,7 @@ import {Route, Routes} from "react-router-dom";
 import Menu from "./client/pages/menu/Menu";
 import PlaceOrder from "./client/pages/placeOrder/PlaceOrder";
 import CustomerForm from "./client/pages/customerForm/CustomerForm";
-import AdminDashboard from "./adminDashboard/AdminDashboard"
+import AdminDashboard from "./adminDashboard/components/AdminDashboard"
 
 function App() {
     return (

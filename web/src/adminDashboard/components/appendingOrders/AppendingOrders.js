@@ -145,7 +145,6 @@ function appendingOrders() {
         <>
             <div className="newOrdersTable">
                 <TableContainer className="tableContainer">
-                    <h1 align="center">Appending Orders</h1>
                     <Table>
                         <TableHead>
                             <TableRow>
