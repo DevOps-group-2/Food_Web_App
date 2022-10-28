@@ -3,7 +3,7 @@
 //https://mui.com/material-ui/react-table/
 
 import * as React from 'react';
-import './newOrders.css';
+import './AppendingOrders.css';
 //import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
 
 import Box from '@mui/material/Box';
@@ -138,7 +138,7 @@ const rows = [
 
 ];
 
-function newOrders() {
+function appendingOrders() {
 
 
     return (
@@ -171,4 +171,4 @@ function newOrders() {
     );
 }
 
-export default newOrders;
+export default appendingOrders;
