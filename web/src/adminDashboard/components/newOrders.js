@@ -142,27 +142,32 @@ function newOrders() {
 
 
     return (
-        <TableContainer className="tableContainer">
-            <h1 align="center">Appending Orders</h1>
-            <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell />
-                        <TableCell>Order number</TableCell>
-                        <TableCell>Customer name</TableCell>
-                        <TableCell align="right">Phone nr.</TableCell>
-                        <TableCell align="right">Date</TableCell>
-                        <TableCell align="right">Time</TableCell>
-                        <TableCell align="right">Total</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {rows.map((row) => (
-                        <Row key={row.customerName} row={row} />
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+        <>
+            <div className="newOrdersTable">
+                <TableContainer className="tableContainer">
+                    <h1 align="center">Appending Orders</h1>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell />
+                                <TableCell>Order number</TableCell>
+                                <TableCell>Customer name</TableCell>
+                                <TableCell align="right">Phone nr.</TableCell>
+                                <TableCell align="right">Date</TableCell>
+                                <TableCell align="right">Time</TableCell>
+                                <TableCell align="right">Total</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {rows.map((row) => (
+                                <Row key={row.customerName} row={row} />
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </div>
+
+        </>
     );
 }
 

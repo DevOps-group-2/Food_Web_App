@@ -7,9 +7,8 @@ import NavigationBar from "./client/components/navigationBar/NavigationBar";
 import {Route, Routes} from "react-router-dom";
 import Menu from "./client/pages/menu/Menu";
 import PlaceOrder from "./client/pages/placeOrder/PlaceOrder";
-import AppendingOrders from "./adminDashboard/new orders/newOrders";
-import NewOrders from "./adminDashboard/new orders/newOrders";
 import CustomerForm from "./client/pages/customerForm/CustomerForm";
+import Dashboard from "./adminDashboard/components/Dashboard"
 
 function App() {
     return (
@@ -27,8 +26,8 @@ function App() {
                     <Route path={"/about"} element={<h1>About us</h1>}/>
                     <Route path={"/payment"} element={<Pay/>}/>
                     <Route path={"/placeorder"} element={<PlaceOrder/>}/>
-                    <Route path={"/admin"} element={<NewOrders/>}/>
-                    <Route path={"/admin"} element={<AppendingOrders/>}/>
+                    <Route path={"/admin"} element={<Dashboard/>}/>
+                    <Route path={"/admin"} element={<Dashboard/>}/>
 
                     <Route path={"/Form"} element={<CustomerForm/>}/>
             </Routes>
