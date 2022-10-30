@@ -4,7 +4,7 @@ import AppendingOrders from "../appendingOrders/AppendingOrders";
 function MainDash(){
     return(
         <>
-            <div className="cards">
+            <div className="mainDash">
                 <h1>Cards</h1>
                 <Cards  />
                 <h1>Appending Orders</h1>
