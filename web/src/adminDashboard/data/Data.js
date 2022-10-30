@@ -15,3 +15,5 @@ export const SidebarData = [
         heading: "Orders",
     }
 ];
+
+export const CardsData = []

@@ -43,6 +43,7 @@
 .active{
     background: rgba(55, 144, 98, 0.48);
     margin-left: 0;
+    width: 80%;
 
 }
 
