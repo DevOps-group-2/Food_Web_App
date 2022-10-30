@@ -5,6 +5,7 @@ function Card(prop){
         <>
             <div className="Card">
                 Card
+                Hjello
             </div>
         </>
     )
