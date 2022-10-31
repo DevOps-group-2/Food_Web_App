@@ -1,5 +1,6 @@
 import {CardsData} from "../../data/Data";
 import Card from "../card/Card";
+import "../cards/Cards.css"
 
 function Cards(){
     return(
@@ -7,7 +8,7 @@ function Cards(){
             <div className="Cards">
                 {CardsData.map((card,id)=>{
                 return(
-                    <div className="CardsOverview">
+                    <div className="CardContainer">
                         <Card
                             title ={card.title}
                             description ={card.description}

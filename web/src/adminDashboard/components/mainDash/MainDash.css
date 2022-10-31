@@ -1,0 +1,11 @@
+.mainDash{
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.chart{
+    background: whitesmoke;
+    border-radius: 0.7rem;
+    padding: 2rem;
+    overflow: hidden;
+}

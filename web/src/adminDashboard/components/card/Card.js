@@ -1,11 +1,12 @@
-import {CardsData} from "../../data/Data";
+import "../card/Card.css";
 
 function Card(prop){
     return(
         <>
-            <div className="Card">
-                Card
-                Hjello
+            <div className="DataValue">
+                <span>{prop.title}</span>
+                <span>{prop.value}</span>
+                <span>{prop.description}</span>
             </div>
         </>
     )

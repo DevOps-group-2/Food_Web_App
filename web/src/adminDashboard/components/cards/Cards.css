@@ -1,8 +1,14 @@
 .Cards{
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
 
-.CardsOverview{
+.CardContainer{
     width: 100%;
+    height: 100%;
+    display: flex;
+    background: whitesmoke;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    position: relative;
 }
