@@ -2,7 +2,6 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@iconscout/react-unicons": "^1.1.6",
     "@mui/material": "^5.10.11"
   }
 }

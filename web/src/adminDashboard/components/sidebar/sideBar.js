@@ -1,7 +1,7 @@
 import './sideBar.css'
 import { SidebarData} from "../../data/Data";
 import {useState} from "react";
-import {UilSignOutAlt} from "@iconscout/react-unicons";
+//import {UilSignOutAlt} from "@iconscout/react-unicons";
 
 function SideBar(){
     let Logo;
@@ -27,7 +27,7 @@ function SideBar(){
                     );
                 })}
                 <div className="menuItem">
-                    <UilSignOutAlt />
+                    {/*<UilSignOutAlt />*/}
                 </div>
             </div>
         </div>

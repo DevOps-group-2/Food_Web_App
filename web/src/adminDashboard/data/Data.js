@@ -1,18 +1,19 @@
 
 //Sidebar inputs
-import {
+/*import {
     UilEstate,
     UilClipboardAlt,
 } from "@iconscout/react-unicons";
+ */
 
 // Sidebar
 export const SidebarData = [
     {
-        icon: UilEstate,
+        //icon: UilEstate,
         heading: "Dashboard",
     },
     {
-        icon: UilClipboardAlt,
+        //icon: UilClipboardAlt,
         heading: "Orders",
     }
 ];
