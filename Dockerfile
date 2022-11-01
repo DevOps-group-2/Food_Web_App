@@ -7,7 +7,7 @@ RUN mvn package
 FROM node:18-slim AS REACT
 WORKDIR /tmp
 COPY /web/package.json  ./
-RUN yarn install --network-timeout 500000
+RUN yarn install #--network-timeout 500000
 COPY /web/src ./src
 COPY /web/public ./public
 RUN yarn build
