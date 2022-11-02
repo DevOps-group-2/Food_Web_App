@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import './NavigationBar.css';
 import React from "react";
 import BasketButtonHeader from "../placeOrder/basket/header/BasketButtonHeader";
-import image from '../../../assets/header/logotext_grey.png';
+import image from '../../../assets/header/logotext.png';
 
 
 //import { Switch } from "react-router-dom";
