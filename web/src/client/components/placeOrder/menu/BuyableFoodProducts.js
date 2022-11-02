@@ -1,38 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import css from './Style.module.css';
 import Layout from '../layout/Layout';
 import FoodProduct from './FoodProduct';
 import Food from './Food.json';
 
-/*Foodlist fetched from JSON file*/
 const BuyableFoodProducts = () => {
   const [Foods, setFoods] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
       const loadFoodProducts = async() => {
-          const response = await Food;
-          console.log(Food);
+      const response = await Food;
+      console.log(Food);
+      const foodProducts = await response;
+      const fetchedFoodProducts = [];
 
-          const foodProducts = await response;
-          const fetchedFoodProducts = [];
-
-          /*Following details about a menu (foodtype).*/
-          for (const key in foodProducts) {
-              fetchedFoodProducts.push({
-                  id: key,
-                  menu: foodProducts[key].menu,
-                  info: foodProducts[key].info,
-                  time: foodProducts[key].time,
-                  price: foodProducts[key].price,
-              });
+        for (const key in foodProducts) {
+          fetchedFoodProducts.push({
+            id: key,
+            menu: foodProducts[key].menu,
+            info: foodProducts[key].info,
+            time: foodProducts[key].time,
+            price: foodProducts[key].price,
+          });
         }
         setFoods(fetchedFoodProducts);
+        setIsLoading(false);
       }
       loadFoodProducts();
     }, []);
 
     const listOfFood = Foods.map((val) => {
         return (
-            <>{"\u00a0"}
             <FoodProduct
                 id={val.id}
                 key={val.id}
@@ -40,15 +39,15 @@ const BuyableFoodProducts = () => {
                 info={val.info}
                 time={val.time}
                 price={val.price}
-            /></>
+            />
         );
     });
 
     return (
         <>
-          <section>
+          <section className={css.foodproducts}>
             <Layout>
-              <ul>{listOfFood}</ul>}
+              {isLoading ? <div className={css.loading}><p>Loading...</p></div> : <ul>{listOfFood}</ul>}
             </Layout>
           </section>
         </>

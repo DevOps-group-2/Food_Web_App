@@ -1,8 +1,8 @@
-  {"food1": {
-    "menu":"Kyllingesandwich",
-    "info" : "Kyllingestrimler, champignon, peberfrugt, tomat, karrydressing og mix salat. Serveres med steak fries og mayonnaise.",
-    "time" : "Tid: 20 min",
-    "price": 59},
+{"food1": {
+  "menu":"Kyllingesandwich",
+  "info" : "Kyllingestrimler, champignon, peberfrugt, tomat, karrydressing og mix salat. Serveres med steak fries og mayonnaise.",
+  "time" : "Tid: 20 min",
+  "price": 59},
 
   "food2": {
     "menu":"Shawarma med Kebab",
@@ -21,4 +21,4 @@
     "info":"Sprød kyllingeburger med crispy chicken, salat, mayonnaise, tomat og syltede agurker, serveres med fries og chilimayo.",
     "time" : "Tid: 35 min",
     "price":149}
-  }
+}
