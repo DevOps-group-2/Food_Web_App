@@ -1,6 +1,6 @@
 import Cards from "../cards/Cards"
 import "../mainDash/MainDash.css"
-import AppendingOrders from "../appendingOrders/AppendingOrders";
+//import AppendingOrders from "../appendingOrders/AppendingOrders";
 import ReactApexCharts from 'react-apexcharts'
 import {Options} from "../../data/Data";
 
@@ -21,7 +21,7 @@ function MainDash(){
                         />
                     </div>
                 <h1>Appending Orders</h1>
-                <AppendingOrders />
+                {/*<AppendingOrders />*/}
             </div>
         </>
     )
