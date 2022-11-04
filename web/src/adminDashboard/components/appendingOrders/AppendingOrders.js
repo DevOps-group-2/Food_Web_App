@@ -4,6 +4,9 @@
 
 import * as React from 'react';
 import './AppendingOrders.css';
+import CIcon from '@coreui/icons-react';
+import { cilExpandDown, cilExpandUp} from "@coreui/icons";
+
 //import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
 
 import Box from '@mui/material/Box';
@@ -72,12 +75,20 @@ function Row(props: { row: ReturnType<typeof createOrder> }) {
         <>
             <TableRow>
                 <TableCell>
-                    <IconButton
+
+                    <CIcon
+                        icon={cilExpandDown}
+                        size="small"/>
+
+
+
+
+                    {/*<img
                         size="small"
                         onClick={() => setOpen(!open)}
-                    >
-                        {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                    </IconButton>
+                        alt='icon'>
+                        {open ? cilList : cilShieldAlt}
+                    </img>*/}
                 </TableCell>
                 <TableCell >
                     {row.orderNumber}
