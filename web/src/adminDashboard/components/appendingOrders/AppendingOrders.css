@@ -19,3 +19,14 @@
 .tableContainer{
 
 }
+
+.MuiTableRow-root.MuiTableRow-head>*{
+    font-weight: bold !important;
+}
+
+.statusSpan{
+    padding: 8px;
+    border-radius: 14px;
+    background-color: #a6c7a5;
+    width: fit-content;
+}
