@@ -6,6 +6,7 @@ import * as React from 'react';
 import './AppendingOrders.css';
 import CIcon from '@coreui/icons-react';
 import { cilArrowBottom, cilArrowTop} from "@coreui/icons";
+import {classNames} from 'classnames'
 
 //import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
 
@@ -99,8 +100,8 @@ function Row(props: { row: ReturnType<typeof createOrder> }) {
                 <TableCell align="right">{row.phoneNr}</TableCell>
                 <TableCell align="right">{row.date}</TableCell>
                 <TableCell align="right">{row.time}</TableCell>
-                <TableCell align="right">
-                    <span className="statusSpan">
+                <TableCell align="right" >
+                    <span style={{padding: "8px", borderRadius: "13px", width: "fit-content"}} className={row.status}>
                         {row.status}
                     </span>
                 </TableCell>
@@ -148,11 +149,11 @@ function Row(props: { row: ReturnType<typeof createOrder> }) {
 }
 
 const rows = [
-    createOrder(874650, "Freja Nørgaard Jensen", 53881603, "14/09", "14:50", "accepted", 6.5),
-    createOrder(783429, "Hanne Marie Ibsen", 38204932, "14/09", "12:33", "accepted",10),
-    createOrder(251637, "Bo Carlsen", 78432888, "13/09", "9:28", 'waiting',7),
-    createOrder(123994, "Jørgen Rasmussen", 93204002, "13/09", "22:10", "accepted",11.5),
-    createOrder(124455, "Karl Hansen", 27890245, "11/09", "17:42", "denied",7),
+    createOrder(874650, "Freja Nørgaard Jensen", 53881603, "14/09", "14:50", "Denied", 6.5),
+    createOrder(783429, "Hanne Marie Ibsen", 38204932, "14/09", "12:33", "Done",10),
+    createOrder(251637, "Bo Carlsen", 78432888, "13/09", "9:28", 'Pending',7),
+    createOrder(123994, "Jørgen Rasmussen", 93204002, "13/09", "22:10", "Preparing",11.5),
+    createOrder(124455, "Karl Hansen", 27890245, "11/09", "17:42", "Preparing",7),
 
 ];
 
@@ -181,9 +182,9 @@ function appendingOrders() {
 
     return (
         <>
-            <div className="newOrdersTable">
-                <TableContainer className="tableContainer">
-                    <Table>
+            <div className="newOrdersTable"  >
+                <TableContainer className="tableContainer" >
+                    <Table stickyHeader>
                         <TableHead>
                             <TableRow>
                                 <TableCell />
