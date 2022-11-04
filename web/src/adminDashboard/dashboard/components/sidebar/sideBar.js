@@ -23,7 +23,7 @@ function SideBar(){
                         >
                             <item.icon />
                             <span>{item.heading}</span>
-                            {item.heading === "Orders"} ?
+                            {item.heading === "Orders"}
 
                         </div>
                     );
