@@ -1,7 +1,7 @@
 import * as React from 'react';
-import './AdminDashboard.css'
+import './Orders.css'
 
-function AdminDashboard(){
+function Orders(){
     return(
         <>
 
@@ -10,4 +10,4 @@ function AdminDashboard(){
     )
 }
 
-export default AdminDashboard;
+export default Orders;
