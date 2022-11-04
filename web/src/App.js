@@ -8,7 +8,8 @@ import {Route, Routes} from "react-router-dom";
 import Menu from "./client/pages/menu/Menu";
 import PlaceOrder from "./client/pages/placeOrder/PlaceOrder";
 import CustomerForm from "./client/pages/customerForm/CustomerForm";
-import AdminDashboard from "./adminDashboard/components/AdminDashboard"
+import AdminDashboard from "./adminDashboard/dashboard/components/AdminDashboard"
+import Orders from "./adminDashboard/orders/Orders.js";
 
 function App() {
     return (
@@ -27,7 +28,7 @@ function App() {
                     <Route path={"/payment"} element={<Pay/>}/>
                     <Route path={"/placeorder"} element={<PlaceOrder/>}/>
                     <Route path={"/admin"} element={<AdminDashboard/>}/>
-                    <Route path={"/admin"} element={<AdminDashboard/>}/>
+                    <Route path={"/admin/orders"} element={<Orders/>}/>
 
                     <Route path={"/Form"} element={<CustomerForm/>}/>
             </Routes>

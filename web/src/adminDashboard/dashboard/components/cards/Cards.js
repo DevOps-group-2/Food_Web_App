@@ -1,6 +1,6 @@
-import {CardsData} from "../../data/Data";
+import {CardsData} from "../../../data/Data";
 import Card from "../card/Card";
-import "../cards/Cards.css"
+import "./Cards.css"
 
 function Cards(){
     return(
