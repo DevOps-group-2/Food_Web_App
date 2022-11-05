@@ -9,7 +9,7 @@ import Menu from "./client/pages/menu/Menu";
 import LoginPage from "./client/pages/loginPage/LoginPage";
 import PlaceOrder from "./client/pages/placeOrder/PlaceOrder";
 import CustomerForm from "./client/pages/customerForm/CustomerForm";
-//import AdminDashboard from "./adminDashboard/components/AdminDashboard"
+import AdminDashboard from "./adminDashboard/dashboard/components/AdminDashboard"
 
 
 
@@ -29,7 +29,7 @@ function App() {
                     <Route path={"/payment"} element={{/*<Pay/>*/}}/>
                     <Route path={"/placeorder"} element={<PlaceOrder/>}/>
                     <Route path={"/Form"} element={<CustomerForm/>}/>
-                    <Route path={"/admin"} element={{/*<AppendingOrders/>*/}}/>
+                    <Route path={"/admin"} element={<AdminDashboard/>}/>
 
             </Routes>
             </div>
