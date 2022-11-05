@@ -21,7 +21,6 @@ function SideBar(){
                             key={index}
                             onClick={() => setSelected(index)}
                         >
-                            <item.icon />
                             <span>{item.heading}</span>
                             {item.heading === "Orders"}
 

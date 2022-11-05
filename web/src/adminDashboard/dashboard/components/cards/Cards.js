@@ -10,6 +10,7 @@ function Cards(){
                 return(
                     <div className="CardContainer">
                         <Card
+                            key = {id}
                             title ={card.title}
                             description ={card.description}
                             value = {card.value}
