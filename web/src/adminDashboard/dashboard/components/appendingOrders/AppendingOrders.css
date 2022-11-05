@@ -18,11 +18,22 @@
     border: groove;
 }
 
+.MuiTableRow-root.subtable:hover{
+    background-color: whitesmoke ;
+}
+
+.MuiTableRow-root.subtableRow:hover{
+    background-color: whitesmoke;
+}
+
 .tableContainer{
 }
 
 .MuiTableRow-root{
     border-radius: 10px;
+}
+.MuiTableRow-root:hover{
+    background: rgba(239, 239, 239, 0.99);
 }
 
 .MuiTableRow-root.MuiTableRow-head>*{

@@ -4,9 +4,6 @@
 
 import * as React from 'react';
 import './AppendingOrders.css';
-import CIcon from '@coreui/icons-react';
-import { cilArrowBottom, cilArrowTop} from "@coreui/icons";
-import {classNames} from 'classnames'
 
 //import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
 
@@ -72,27 +69,8 @@ function Row(props: { row: ReturnType<typeof createOrder> }) {
 
     return (
         <>
-            <TableRow>
-                <TableCell>
-
-                    <CIcon
-                        icon={cilArrowBottom}
-                        size="lg"
-                        onClick={() => setOpen(!open)}>
-
-                        {/*{open ? cilExpandUp : cilExpandDown }*/}
-
-                    </CIcon>
-
-
-
-                    {/*<IconButton
-                        size="small"
-                        onClick={() => setOpen(!open)}
-                    >
-                        {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                    </IconButton>*/}
-                </TableCell>
+            <TableRow
+                onClick={() => setOpen(!open)}>
                 <TableCell >
                     {row.orderNumber}
                 </TableCell>
@@ -108,7 +86,7 @@ function Row(props: { row: ReturnType<typeof createOrder> }) {
                 <TableCell align="right">{row.subTotal}</TableCell>
             </TableRow>
             {/*Table that folds out*/}
-            <TableRow>
+            <TableRow className="subtable">
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
@@ -117,7 +95,7 @@ function Row(props: { row: ReturnType<typeof createOrder> }) {
                             </Typography>
                             <Table size="small">
                                 <TableHead>
-                                    <TableRow>
+                                    <TableRow className="subtableRow">
                                         <TableCell colSpan={1}/>    
                                         <TableCell>Product nr.</TableCell>
                                         <TableCell>Product Name</TableCell>
@@ -126,14 +104,14 @@ function Row(props: { row: ReturnType<typeof createOrder> }) {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                        <TableRow>
+                                        <TableRow className="subtableRow">
                                             <TableCell colSpan={1}/>
                                             <TableCell >{"46829"}</TableCell>
                                             <TableCell >{"Salmon sanwich"}</TableCell>
                                             <TableCell align="right">{"3"}</TableCell>
                                             <TableCell align="right">{"6.5"}</TableCell>
                                         </TableRow>
-                                    <TableRow>
+                                    <TableRow className="subtableRow">
                                         <TableCell colSpan={2}/>
                                         <TableCell colSpan={2} style={{fontWeight: 'bold'}}>Subtotal</TableCell>
                                         <TableCell colSpan={1} align="right" style={{fontWeight: 'bold'}}>{"6.5"}</TableCell>
@@ -187,7 +165,6 @@ function appendingOrders() {
                     <Table stickyHeader>
                         <TableHead>
                             <TableRow>
-                                <TableCell />
                                 <TableCell>Order number</TableCell>
                                 <TableCell>Customer name</TableCell>
                                 <TableCell align="right">Phone nr.</TableCell>
