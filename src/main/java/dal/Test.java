@@ -1,9 +1,9 @@
-package server;
+package dal;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
+import model.*;
 
 
 public class Test {
