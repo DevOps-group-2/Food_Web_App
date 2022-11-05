@@ -1,5 +1,5 @@
 import './sideBar.css'
-import { SidebarData} from "../../data/Data";
+import { SidebarData} from "../../../data/Data";
 import {useState} from "react";
 //import {UilSignOutAlt} from "@iconscout/react-unicons";
 
@@ -23,6 +23,8 @@ function SideBar(){
                         >
                             <item.icon />
                             <span>{item.heading}</span>
+                            {item.heading === "Orders"}
+
                         </div>
                     );
                 })}
