@@ -10,7 +10,8 @@ import LoginPage from "./client/pages/loginPage/LoginPage";
 import PlaceOrder from "./client/pages/placeOrder/PlaceOrder";
 import CustomerForm from "./client/pages/customerForm/CustomerForm";
 import AdminDashboard from "./adminDashboard/dashboard/components/AdminDashboard"
-
+import AboutUsPage from "./client/pages/aboutPage/AboutUsPage"
+import ContactPage from "./client/pages/contactPage/ContactPage";
 
 
 function App() {
@@ -20,26 +21,20 @@ function App() {
             <NavigationBar></NavigationBar>
             <div>
                 <Routes>
-
                     <Route path={"/"} element={<h1>home</h1>}/>
                     <Route path={"/menu"} element={<Menu/>}/>
-                    <Route path={"/contact"} element={<Contact/>}/>
+                    <Route path={"/contact"} element={<ContactPage/>}/>
                     <Route path={"/login"} element= {<LoginPage/>}/>
-                    <Route path={"/about"} element={<h1>About us</h1>}/>
+                    <Route path={"/AboutUs"} element={<AboutUsPage/>}/>
                     <Route path={"/payment"} element={{/*<Pay/>*/}}/>
                     <Route path={"/placeorder"} element={<PlaceOrder/>}/>
                     <Route path={"/Form"} element={<CustomerForm/>}/>
                     <Route path={"/admin"} element={<AdminDashboard/>}/>
-
             </Routes>
             </div>
 
         </>
     );
-
-    function Contact() {
-        return <h1>Contact Us</h1>
-    }
 }
 
 export default App;
