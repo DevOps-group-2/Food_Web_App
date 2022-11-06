@@ -1,12 +1,7 @@
-
 import {Link} from "react-router-dom";
 import './NavigationBar.css';
 import React from "react";
-import BasketButtonHeader from "../placeOrder/basket/header/BasketButtonHeader";
 import image from '../../../assets/header/logotext.png';
-
-
-//import { Switch } from "react-router-dom";
 
 function NavigationBar() {
     return(
@@ -21,23 +16,19 @@ function NavigationBar() {
                     <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/Menu">Menu</Link>
-                    <Link to="/Bestil">Place an Order</Link>
+                    <Link to="/order">Place an Order</Link>
                 </li>
                 <li>
-                    <Link to="Om os">AboutUsPages</Link>
+                    <Link to="/about">About Us</Link>
                 </li>
                 <li>
-                    <Link to="/Bestil">Order</Link>
+                    <Link to="/pay">Pay</Link>
                 </li>
                 <li>
-                    <Link to="/Kontakt os">Contact Us</Link>
+                    <Link to="/contact">Contact Us</Link>
                 </li>
                 <li>
-                    <Link to="/Login">Login</Link>
-                </li>
-                <li>
-                    <Link to="/aboutUs">AboutUs</Link>
+                    <Link to="/login">Login</Link>
                 </li>
             </ul>
             </div>
