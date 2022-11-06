@@ -1,5 +1,5 @@
 import './App.css';
-//import Pay from "./client/pages/payment/Pay.js";
+import Pay from "./client/pages/payment/Pay.js";
 import NavigationBar from "./client/components/navigationBar/NavigationBar";
 import {Route, Routes} from "react-router-dom";
 import LoginPage from "./client/pages/loginPage/LoginPage";
@@ -20,7 +20,7 @@ function App() {
                     <Route path={"/"} element={<Home/>}/>
                     <Route path={"/order"} element={<PlaceOrder/>}/>
                     <Route path={"/form"} element={<CustomerForm/>}/>
-                    <Route path={"/pay"} element={<h1>Pay</h1>}/>
+                    <Route path={"/pay"} element={<Pay/>}/>
                     <Route path={"/contact"} element={<ContactPage/>}/>
                     <Route path={"/about"} element={<AboutUsPage/>}/>
                     <Route path={"/login"} element= {<LoginPage/>}/>
