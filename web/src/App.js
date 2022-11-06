@@ -18,12 +18,12 @@ function App() {
             <div>
                 <Routes>
                     <Route path={"/"} element={<Home/>}/>
-                    <Route path={"/contact"} element={<ContactPage/>}/>
-                    <Route path={"/login"} element= {<LoginPage/>}/>
-                    <Route path={"/about"} element={<AboutUsPage/>}/>
-                    <Route path={"/pay"} element={{/*<Pay/>*/}}/>
                     <Route path={"/order"} element={<PlaceOrder/>}/>
                     <Route path={"/form"} element={<CustomerForm/>}/>
+                    <Route path={"/pay"} element={<h1>Pay</h1>}/>
+                    <Route path={"/contact"} element={<ContactPage/>}/>
+                    <Route path={"/about"} element={<AboutUsPage/>}/>
+                    <Route path={"/login"} element= {<LoginPage/>}/>
                     <Route path={"/admin"} element={<AdminDashboard/>}/>
             </Routes>
             </div>

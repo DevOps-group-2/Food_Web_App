@@ -19,13 +19,16 @@ function NavigationBar() {
                     <Link to="/order">Place an Order</Link>
                 </li>
                 <li>
-                    <Link to="/about">About Us</Link>
+                    <Link to="/form">CustomerForm</Link>
                 </li>
                 <li>
                     <Link to="/pay">Pay</Link>
                 </li>
                 <li>
                     <Link to="/contact">Contact Us</Link>
+                </li>
+                <li>
+                    <Link to="/about">About Us</Link>
                 </li>
                 <li>
                     <Link to="/login">Login</Link>
