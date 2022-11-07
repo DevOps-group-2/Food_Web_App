@@ -41,17 +41,17 @@ const Basket = (props) => {
 
 
     return (
-        <BasketBox onClose={props.onClose}>
-            {basketProducts}
-            <div className={css.baskettotal}>
-
-                <span>Total Price:</span>
-                <span>{totalPrice} DKK</span>
-            </div>
-            {displayBasket && <CompletedPage onClick={props.onClose}/>}
-            {!displayBasket && basketButton}
-        </BasketBox>
-    )
+    <BasketBox onClose={props.onClose}>
+      {basketProducts}
+     <div className={css.baskettotal}>
+     
+      <span>Total Price:</span>
+      <span>{totalPrice} DKK</span>
+      </div>
+        {displayBasket && <CompletedPage onClick={props.onClose}/>}
+      {!displayBasket && basketButton}
+    </BasketBox>
+  )
 };
 
 export default Basket;
