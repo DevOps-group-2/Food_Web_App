@@ -5,8 +5,8 @@ import './App.css';
 import NavigationBar from "./client/components/navigationBar/NavigationBar";
 //import {Route, Switch, Routes, Link, useParams, useNavigate} from "react-router-dom";
 import {Route, Routes} from "react-router-dom";
-import Menu from "./client/pages/menu/Menu";
 import PlaceOrder from "./client/pages/placeOrder/PlaceOrder";
+import Menu from "./client/pages/menu/Menu";
 
 function App() {
     return (
