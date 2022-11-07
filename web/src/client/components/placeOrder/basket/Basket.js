@@ -1,8 +1,18 @@
-import React, { useState, useContext } from 'react';
+import React, {useContext, useState} from 'react';
 import css from './Style.module.css';
+
 import BasketBox from '../layout/BasketBox';
 import ContextOfBasket from './Context';
 import BasketProduct from './BasketProduct';
+
+function CompletedPage() {
+    setTimeout(function() {
+        window.location.replace('form');
+    }, 3000);
+    console.log("Selecting Food completed..");
+    return <h2>You'll now be redirected to fill out contact informations.</h2>;
+}
+
 
 const Basket = (props) => {
     const [displayBasket, setDisplayBasket] = useState(false), contextOfBasket = useContext(ContextOfBasket),
@@ -38,7 +48,7 @@ const Basket = (props) => {
       <span>Total Price:</span>
       <span>{totalPrice} DKK</span>
       </div>
-      {displayBasket}
+        {displayBasket && <CompletedPage onClick={props.onClose}/>}
       {!displayBasket && basketButton}
     </BasketBox>
   )
