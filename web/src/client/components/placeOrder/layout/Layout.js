@@ -1,10 +1,11 @@
 import React from 'react';
+import css from './Style.module.css';
 
-/*Design of the user interface.*/
+/*The design of the User Interface.*/
 class Layout extends React.Component {
   render() {
     return (
-        <div>
+        <div className={css.layout}>
           {this.props.children}
         </div>
     )

@@ -2,7 +2,7 @@
 .header {
     padding: 30px;
     text-align: center;
-    background: #4ea97e;
+    background: #8d9b82;
     font-size: 30px;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .body {
-    background-color: grey;
+    background-color: #4b543d;
 }
 
 .body ul {
