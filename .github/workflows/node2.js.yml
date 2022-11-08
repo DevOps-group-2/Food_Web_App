@@ -27,7 +27,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: .
           push: true
           tags: img-captain-food-webapp:${{github.run_number}},
       # Install caprover cli
