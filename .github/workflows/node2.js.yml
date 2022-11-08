@@ -28,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: frejajensen/img-captain-food-webapp:${{github.run_number}},
+          tags: img-captain-food-webapp:${{github.run_number}},
       # Install caprover cli
       - name: install caprover cli
         run: npm install -g caprover
@@ -36,7 +36,7 @@ jobs:
       - name: Deploy app
         env: 
           APP_NAME: 'food-webapp'
-          APP_URL: 'https://captain.grp2.diplomportal.dk/'
-          IMAGE_NAME: 'frejajensen/img-captain-food-webapp:${{github.run_number}}'
+          APP_URL: 'https://grp2.diplomportal.dk/'
+          IMAGE_NAME: 'img-captain-food-webapp:${{github.run_number}}'
         run: 
          'caprover deploy --caproverUrl=$APP_URL --caproverPassword=${{ secrets.CAPROVER_PASSWORD }} --imageName=$IMAGE_NAME --appName=$APP_NAME'
