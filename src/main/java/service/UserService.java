@@ -18,7 +18,6 @@ import java.util.List;
 @Path("users")
 public class UserService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
-
     @POST
     public int createUser(User user) {
         Session session = sessionFactory.openSession();
@@ -33,7 +32,6 @@ public class UserService {
         query.from(User.class);
         List<User> data = session.createQuery(query).getResultList();
         return data;
-
     }
 }
 

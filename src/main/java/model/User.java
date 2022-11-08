@@ -12,6 +12,7 @@ import lombok.*;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class User {
+
     @Id @GeneratedValue
     @Column
     private int id;
@@ -21,5 +22,7 @@ public class User {
     private String password;
     @Column @JsonIgnore
     private String hash;
+    public User(String username, String s) {
 
+    }
 }

@@ -2,49 +2,37 @@
 // utilizes usestates and a login form
 
 import React, { useState } from "react";
-
 import "./LoginPage.css";
+import {tokenStore} from "../../stores/TokenStore";
 
 function LoginPage() {
-
-    const [errorMessages, setErrorMessages] = useState({});
-    const [isSubmitted, setIsSubmitted] = useState(false);
-
-    const database = [
-        {
-            username: "admin",
-            password: "password"
-        },
-    ];
-
-    const errors = {
-        invalidName: "invalid username",
-        pinvalidPass: "invalid password"
-        //note missing username/password not needed as input is required by the input component ex: <input type="text" name="uname" required />
-    };
-    const handleSubmit = (event) => {
+    let isSubmitted = false;
+    //"https://localhost8080"
+    //"https://food-webapp.grp2.diplomportal.dk"
+    const baseUrl =   "https://food-webapp.grp2.diplomportal.dk";
+    const [errorMessage, setErrorMessage] = useState({});
+    const handleSubmit = async (event) => {
         event.preventDefault();
-
-        var { uname, pass } = document.forms[0];
-
-        //todo, make a backend login authentication instead of using frontend dummy data
-        const userData = database.find((user) => user.username === uname.value);
-
-        if (userData) {
-            if (userData.password !== pass.value) {
-
-                setErrorMessages({ name: "invalidPass", message: errors.pass });
-            } else {
-                setIsSubmitted(true);
-            }
+        var {uname, pass} = document.forms[0];
+        let token = await fetch(baseUrl + "/api/login", {
+            "method": "POST",
+            "body": JSON.stringify({
+                "username": uname.value,
+                "password": pass.value
+            })
+        })
+        if (token != null) {
+            isSubmitted = true
+            tokenStore.token = token
         } else {
-            setErrorMessages({ name: "invalidNam", message: errors.uname });
+            setErrorMessage({name: "invalid name or password"});
+            renderErrorMessage()
         }
     };
 
     const renderErrorMessage = (name) =>
-        name === errorMessages.name && (
-            <div className="error">{errorMessages.message}</div>
+        name === errorMessage.name && (
+            <div className="error">{errorMessage.message}</div>
         );
 
     //login form
