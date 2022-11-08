@@ -36,7 +36,7 @@ jobs:
       - name: Deploy app
         env: 
           APP_NAME: 'food-webapp'
-          APP_URL: 'https://food-webapp.grp2.diplomportal.dk/'
+          APP_URL: 'https://grp2.diplomportal.dk/'
           IMAGE_NAME: 'frejajensen/img-captain-food-webapp:${{github.run_number}}'
         run: 
          'caprover deploy --caproverUrl=$APP_URL --caproverPassword=${{ secrets.CAPROVER_PASSWORD }} --imageName=$IMAGE_NAME --appName=$APP_NAME'
