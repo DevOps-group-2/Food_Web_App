@@ -9,8 +9,8 @@ import jakarta.ws.rs.core.MediaType;
 import model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.criteria.JpaCriteriaQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Produces(MediaType.APPLICATION_JSON)
@@ -27,11 +27,13 @@ public class UserService {
 
     @GET
     public List<User> getUsers() {
-        Session session = sessionFactory.openSession();
+        /*Session session = sessionFactory.openSession();
         JpaCriteriaQuery<User> query = session.getCriteriaBuilder().createQuery(User.class);
         query.from(User.class);
         List<User> data = session.createQuery(query).getResultList();
-        return data;
+        return data;*/
+
+        return new ArrayList<>();
     }
 }
 

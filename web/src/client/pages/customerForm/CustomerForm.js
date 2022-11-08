@@ -7,7 +7,7 @@
 //todo få phone number feltet til at virke så man kan skrive sit telefon nummer måske tillad text istedte for number. 
 
 import {useReducer, useState} from "react";
-//import './CustomerForm.css';
+//  npm simport './CustomerForm.css';
 
 const formReducer = (state, e) => {
     return {
