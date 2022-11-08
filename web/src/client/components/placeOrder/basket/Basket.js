@@ -4,6 +4,13 @@ import css from './Style.module.css';
 import BasketBox from '../layout/BasketBox';
 import ContextOfBasket from './Context';
 import BasketProduct from './BasketProduct';
+import CustomerForm from "../../../pages/customerForm/CustomerForm";
+
+const myComponent = {
+    width: '800px',
+    height: '320px',
+    overflow: 'scroll'
+};
 
 function CompletedPage() {
     setTimeout(function() {
@@ -48,8 +55,12 @@ const Basket = (props) => {
       <span>Total Price:</span>
       <span>{totalPrice} DKK</span>
       </div>
-        {displayBasket && <CompletedPage onClick={props.onClose}/>}
+        <div style={{ height: '320px' }}>
+            <div style={myComponent}>
+        {displayBasket && <CustomerForm onClick={props.onClose}/>}
       {!displayBasket && basketButton}
+            </div>
+        </div>
     </BasketBox>
   )
 };
