@@ -9,6 +9,7 @@ import AdminDashboard from "./adminDashboard/dashboard/components/AdminDashboard
 import AboutUsPage from "./client/pages/aboutPage/AboutUsPage"
 import ContactPage from "./client/pages/contactPage/ContactPage";
 import Home from "./client/pages/homePage/Home";
+import TestForm from "./client/pages/customerForm/test/TestForm";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                     <Route path={"/"} element={<Home/>}/>
                     <Route path={"/order"} element={<PlaceOrder/>}/>
                     <Route path={"/form"} element={<CustomerForm/>}/>
+                    <Route path={"/testform"} element={<TestForm/>}/>
                     <Route path={"/pay"} element={<Pay/>}/>
                     <Route path={"/contact"} element={<ContactPage/>}/>
                     <Route path={"/about"} element={<AboutUsPage/>}/>
