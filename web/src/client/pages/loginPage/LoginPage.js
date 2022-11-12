@@ -17,8 +17,8 @@ function LoginPage() {
         let token = await fetch(baseUrl + "#/api/login", {
             "method": "POST",
             "body": JSON.stringify({
-                "username": "admin",
-                "password": "password"
+                "username": uname.value,
+                "password": pass.value
             })
         })
         if (token != null) {
