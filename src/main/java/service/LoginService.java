@@ -10,8 +10,6 @@ import model.LoginData;
 import model.User;
 
 @Path("loginService")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
 public class LoginService {
     @POST
     public String postLoginData(LoginData login) throws NotAuthorizedException
