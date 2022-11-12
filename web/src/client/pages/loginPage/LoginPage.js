@@ -14,7 +14,7 @@ function LoginPage() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         var {uname, pass} = document.forms[0];
-        let token = await fetch(baseUrl + "#/api/login", {
+        let token = await fetch(baseUrl + "/api/login", {
             "method": "POST",
             "body": JSON.stringify({
                 "username": uname.value,
