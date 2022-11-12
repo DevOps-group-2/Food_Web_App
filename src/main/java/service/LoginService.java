@@ -9,8 +9,10 @@ import jakarta.ws.rs.core.MediaType;
 import model.LoginData;
 import model.User;
 
-@Path("loginService")
+
+@Path("/")
 public class LoginService {
+    @Path("loginService")
     @POST
     public String postLoginData(LoginData login) throws NotAuthorizedException
     {
