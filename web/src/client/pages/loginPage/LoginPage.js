@@ -9,7 +9,7 @@ function LoginPage() {
     let isSubmitted = false;
     //"https://localhost8080"
     //"https://food-webapp.grp2.diplomportal.dk"
-    const baseUrl =   "https://food-webapp.grp2.diplomportal.dk";
+    const baseUrl =   "https://food-webapp.grp2.diplomportal.dk/#/login";
     const [errorMessage, setErrorMessage] = useState({});
     const handleSubmit = async (event) => {
         event.preventDefault();
