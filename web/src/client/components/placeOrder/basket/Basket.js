@@ -59,7 +59,7 @@ const Basket = (props) => {
 
     const submitOrderHandler = (userData) => {
         setIsSubmitting(true);
-        fetch('/unknownlink/', {
+        fetch('http://localhost:8080/api/orders', {
             method: 'POST',
             body: JSON.stringify({
                 orderedItems: cartCtx.foodProducts
