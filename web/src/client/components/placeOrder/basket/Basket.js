@@ -26,7 +26,7 @@ function CompletedPage() {
 const Basket = (props) => {
 
     const cartCtx = useContext(Context);
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSending, setIsSending] = useState(false);
     const [didSubmit, setDidSubmit] = useState(false);
 
     const [displayBasket, setDisplayBasket] = useState(false), contextOfBasket = useContext(ContextOfBasket),
@@ -57,20 +57,20 @@ const Basket = (props) => {
         setDisplayBasket(true);
     }
 
-    const submitOrderHandler = (userData) => {
-        setIsSubmitting(true);
-        fetch('http://localhost:8080/api/orders', {
+    const submitOrderHandler = () => {
+        setIsSending(true);
+        //fetch('http://localhost:8080/api/orders', {
+        fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
             method: 'POST',
             body: JSON.stringify({
-                orderedItems: cartCtx.foodProducts
+                orderedFoodProducts: cartCtx.foodProducts
             })
         });
-        setIsSubmitting(false);
+        setIsSending(false);
         setDidSubmit(true);
         cartCtx.clearCart();
     };
 
-    //component that includes ORDER and CANCEL BUTTONS
     const basketBoxHandler = (
         <div className={css.styles}>
             <button className={css["button--alt"]} onClick={props.onClose}>
@@ -145,8 +145,8 @@ const Basket = (props) => {
 
     return (
         <BasketBox onClose= {props.onClose}>
-            {isSubmitting && !didSubmit && sendOrderHandler}
-            {!isSubmitting && !didSubmit && basketBoxContent}
+            {isSending && !didSubmit && sendOrderHandler}
+            {!isSending && !didSubmit && basketBoxContent}
             {didSubmit && didSendOrderHandler}
         </BasketBox>
   )

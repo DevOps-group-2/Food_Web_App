@@ -23,5 +23,7 @@ public class Order {
     private String price;
     @Column @JsonIgnore
     private String hash;
+    public Order(int id, String menu, int amount, int price) {
 
+    }
 }
