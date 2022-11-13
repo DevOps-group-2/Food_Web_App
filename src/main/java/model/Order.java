@@ -1,26 +1,27 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-/*
-key={data.id}
-menu={data.menu}
-amount={data.amount}
-price={data.price}
-*/
-
+import lombok.*;
 @Entity
-@Table(name = "DBUSER") //WATCH out  USER is a reserved name!
+@Table(name="DBOrder") //!!WATCH out this is a reserved name!
+@Getter
+@Setter
+@Builder
+@ToString
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class Order {
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private int data;
-    @Column(name = "menu")
+    @Id @GeneratedValue
+    @Column
+    private int id;
+    @Column
     private String menu;
-    @Column(name = "amount")
+    @Column
     private String amount;
-    @Column(name = "price")
+    @Column
     private String price;
+    @Column @JsonIgnore
+    private String hash;
 
 }
-// TODO: Remember Getters and setters as well
