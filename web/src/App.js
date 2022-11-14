@@ -9,7 +9,8 @@ import AdminDashboard from "./adminDashboard/dashboard/components/AdminDashboard
 import AboutUsPage from "./client/pages/aboutPage/AboutUsPage"
 import ContactPage from "./client/pages/contactPage/ContactPage";
 import Home from "./client/pages/homePage/Home";
-import TestForm from "./client/pages/customerForm/test/TestForm";
+import TestForm from "./client/pages/customerForm/Test1/test/TestForm";
+import Form2 from "./client/pages/customerForm/Test2/Form2";
 
 function App() {
     return (
@@ -20,8 +21,7 @@ function App() {
                 <Routes>
                     <Route path={"/"} element={<Home/>}/>
                     <Route path={"/order"} element={<PlaceOrder/>}/>
-                    <Route path={"/form"} element={<CustomerForm/>}/>
-                    <Route path={"/testform"} element={<TestForm/>}/>
+                    <Route path={"/form"} element={<Form2/>}/>
                     <Route path={"/pay"} element={<Pay/>}/>
                     <Route path={"/contact"} element={<ContactPage/>}/>
                     <Route path={"/about"} element={<AboutUsPage/>}/>

@@ -1,3 +1,5 @@
+// hjælp fra: https://therichpost.com/how-to-save-reactjs-form-data-in-nodejs-backend/
+
 import React, { Component } from 'react';
 import axios from 'axios';
 
