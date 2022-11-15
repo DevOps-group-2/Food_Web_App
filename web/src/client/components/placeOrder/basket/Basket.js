@@ -25,7 +25,7 @@ function CompletedPage() {
 
 const Basket = (props) => {
 
-    const cartCtx = useContext(Context);
+    const basketContext = useContext(Context);
     const [isSending, setIsSending] = useState(false);
     const [didSubmit, setDidSubmit] = useState(false);
 
@@ -63,12 +63,12 @@ const Basket = (props) => {
         fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
             method: 'POST',
             body: JSON.stringify({
-                orderedFoodProducts: cartCtx.foodProducts
+                orderedFoodProducts: basketContext.foodProducts
             })
         });
         setIsSending(false);
         setDidSubmit(true);
-        cartCtx.clearCart();
+        basketContext.clearCart();
     };
 
     const basketBoxHandler = (
