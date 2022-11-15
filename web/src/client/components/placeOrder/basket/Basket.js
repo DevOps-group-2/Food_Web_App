@@ -68,7 +68,6 @@ const Basket = (props) => {
         });
         setIsSending(false);
         setDidSubmit(true);
-        basketContext.clearCart();
     };
 
     const basketBoxHandler = (
