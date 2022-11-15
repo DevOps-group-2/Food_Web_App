@@ -10,7 +10,12 @@ import AboutUsPage from "./client/pages/aboutPage/AboutUsPage"
 import ContactPage from "./client/pages/contactPage/ContactPage";
 import Home from "./client/pages/homePage/Home";
 import TestForm from "./client/pages/customerForm/Test1/test/TestForm";
-import Form2 from "./client/pages/customerForm/Test2/Form2";
+//import Form2 from "./client/pages/customerForm/Test2/Form2";
+import Form3 from "./client/pages/customerForm/test3/Form3";
+import {form2Store} from "./client/pages/customerForm/Test2/Form2Store";
+import {Form2} from "./client/pages/customerForm/Test2/Form2";
+import {observer} from "mobx-react-lite";
+import Form4 from "./client/pages/customerForm/Test4/Form4";
 
 function App() {
     return (
@@ -21,7 +26,8 @@ function App() {
                 <Routes>
                     <Route path={"/"} element={<Home/>}/>
                     <Route path={"/order"} element={<PlaceOrder/>}/>
-                    <Route path={"/form"} element={<Form2/>}/>
+                    <Route path={"form"} element={<Form4/>}/>
+
                     <Route path={"/pay"} element={<Pay/>}/>
                     <Route path={"/contact"} element={<ContactPage/>}/>
                     <Route path={"/about"} element={<AboutUsPage/>}/>
