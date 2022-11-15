@@ -8,8 +8,6 @@ import model.User;
 
 
 @Path("auth")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
 public class LoginService {
 
     @GET
