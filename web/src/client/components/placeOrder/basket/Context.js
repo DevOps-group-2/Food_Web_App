@@ -5,7 +5,8 @@ ContextOfBasket = React.createContext({
     foodProducts: [],
     totalAmount: 0,
     addProduct: (item) => {},
-    removeProduct: (id) => {}
+    removeProduct: (id) => {},
+    clearCart : () => {}
 });
 
 export default ContextOfBasket;
