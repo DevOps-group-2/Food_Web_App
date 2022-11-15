@@ -14,6 +14,10 @@ function LoginPage() {
         event.preventDefault();
         var {uname, pass} = document.forms[0];
         let token = await fetch("https://food-webapp.grp2.diplomportal.dk/api/auth/login", {
+            "headers" : {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             "method": "POST",
             "body": JSON.stringify({
                 username: uname.value,
