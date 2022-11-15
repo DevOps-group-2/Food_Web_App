@@ -1,51 +1,82 @@
-import React, {useState} from "react";
-import {tokenStore} from "../../../stores/TokenStore";
+import {useState} from "react";
+
 
 function Form4() {
-    let isSubmitted = false;
+    const [id, setId] = useState("");
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+    const [number, setNumber] = useState("");
+    const [message, setMessage] = useState("");
 
-    const baseUrl = "localhost:8080";
-    const [errorMessage, setErrorMessage] = useState({});
+    let onCreateEmployee;
+    onCreateEmployee=()=>{
+        let empInfo={
+            Id:this.refs.Id.value,
+            Name:this.refs.Name.value,
+            Location:this.refs.Location.value,
+            Salary:this.refs.Salary.value
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-                let token = await fetch(baseUrl + "/api/data", {
-                    "method": "POST",
-                    "body": JSON.stringify({
-                        "email": email.value,
-                        "name": name.value,
-                        "number": number.value
-                    })
-                })
-            };
-
-
-
-        //login form
-        const renderForm = (
-            <div className="form">
-                <form onSubmit={handleSubmit}>
-                    <div className="input-container">
-                        <label>Email </label>
-                        <input type="text" name="email" required/>
-                    </div>
-                    <div className="input-container">
-                        <label>Name </label>
-                        <input type="text" name="name" required/>
-                    </div>
-                    <div className="input-container">
-                        <label>Number </label>
-                        <input type="text" name="number" required/>
-                    </div>
-
-                    <div className="button-container">
-                        <input type="submit"/>
-                    </div>
-                </form>
-            </div>
-        );
-
+        };
     }
+    let handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            let res = await fetch("https://localhost:8080/api/data", {
+                method: "POST",
+                body: JSON.stringify({
+                    id: id,
+                    email: email,
+                    name: name,
+                    number: number,
+                }),
+            });
+            let resJson = await res.json();
+            if (res.status === 200) {
+                setId("");
+                setName("");
+                setEmail("");
+                setMessage("User created successfully");
+            } else {
+                setMessage("Some error occured");
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    return (
+        <div className="App">
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={id}
+                    placeholder="id"
+                    onChange={(e) => setId(e.target.value)}
+                />
+                <input
+                    type="text"
+                    value={email}
+                    placeholder="Email"
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                    type="text"
+                    value={name}
+                    placeholder="Name"
+                    onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                    type="text"
+                    value={number}
+                    placeholder="Number"
+                    onChange={(e) => setNumber(e.target.value)}
+                />
+
+                <button type="submit">Create</button>
+
+                <div className="message">{message ? <p>{message}</p> : null}</div>
+            </form>
+        </div>
+    );
 }
 export default Form4;
