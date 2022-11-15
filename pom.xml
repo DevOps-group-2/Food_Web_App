@@ -13,15 +13,7 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
     <dependencies>
-
-        <!-- JSON Serializer -->
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-jackson</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-
-
+        <!-- Øvelse 4 -->
         <!-- Embedded tomcat server -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -38,14 +30,21 @@
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
-            <version>3.1.0</version>
+            <version>3.0.6</version>
         </dependency>
         <!-- Injection Manager -->
         <dependency>
             <groupId>org.glassfish.jersey.inject</groupId>
             <artifactId>jersey-hk2</artifactId>
-            <version>3.1.0</version>
+            <version>3.0.6</version>
         </dependency>
+        <!-- JSON Serializer -->
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>3.0.6</version>
+        </dependency>
+        <!-- Øvelse 4 -->
 
 
 
