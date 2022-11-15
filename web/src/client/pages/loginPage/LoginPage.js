@@ -13,7 +13,7 @@ function LoginPage() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         var {uname, pass} = document.forms[0];
-        let token = await fetch("https://food-webapp.grp2.diplomportal.dk/api/loginService", {
+        let token = await fetch("https://food-webapp.grp2.diplomportal.dk/api/login", {
             "method": "POST",
             "body": JSON.stringify({
                 "username": uname.value,

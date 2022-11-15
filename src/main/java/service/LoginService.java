@@ -10,9 +10,8 @@ import model.LoginData;
 import model.User;
 
 
-@Path("/")
+@Path("login")
 public class LoginService {
-    @Path("loginService")
     @POST
     public String postLoginData(LoginData login) throws NotAuthorizedException
     {
