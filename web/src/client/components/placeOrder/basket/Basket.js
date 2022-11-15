@@ -27,7 +27,7 @@ const Basket = (props) => {
 
     const cartCtx = useContext(Context);
     const [isSending, setIsSending] = useState(false);
-    const [didSubmit, setDidSubmit] = useState(false);
+    const [didSend, setDidSend] = useState(false);
 
     const [displayBasket, setDisplayBasket] = useState(false), contextOfBasket = useContext(ContextOfBasket),
         totalPrice = `${contextOfBasket.totalAmount.toFixed(2)}`, basketHandler = () => {
@@ -67,7 +67,7 @@ const Basket = (props) => {
             })
         });
         setIsSending(false);
-        setDidSubmit(true);
+        setDidSend(true);
         //cartCtx.clearCart();
     };
 
@@ -145,9 +145,9 @@ const Basket = (props) => {
 
     return (
         <BasketBox onClose= {props.onClose}>
-            {isSending && !didSubmit && sendOrderHandler}
-            {!isSending && !didSubmit && basketBoxContent}
-            {didSubmit && didSendOrderHandler}
+            {isSending && !didSend && sendOrderHandler}
+            {!isSending && !didSend && basketBoxContent}
+            {didSend && didSendOrderHandler}
         </BasketBox>
   )
 };
