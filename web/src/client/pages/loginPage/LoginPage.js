@@ -16,8 +16,9 @@ function LoginPage() {
         let token = await fetch("https://food-webapp.grp2.diplomportal.dk/api/auth/login", {
             "method": "POST",
             "body": JSON.stringify({
-                "username": uname.value,
-                "password": pass.value
+                "username": "admin",
+                "password": "password"
+
             })
         })
         if (token != null) {
