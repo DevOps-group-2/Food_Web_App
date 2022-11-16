@@ -59,8 +59,8 @@ const Basket = (props) => {
 
     const submitOrderHandler = () => {
         setIsSending(true);
-        //fetch('http://localhost:8080/api/orders', {
-        fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
+        fetch('http://localhost:8080/api/orders', {
+        //fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
             method: 'POST',
             body: JSON.stringify({
                 orderedFoodProducts: cartCtx.foodProducts

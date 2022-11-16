@@ -26,4 +26,8 @@ public class Order {
     public Order(int id, String menu, int amount, int price) {
 
     }
+
+    public String menu() {
+        return menu;
+    }
 }

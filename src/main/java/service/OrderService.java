@@ -23,8 +23,9 @@ public class OrderService {
     public int createOrder(Order order) {
         Session session = sessionFactory.openSession();
         session.persist(order);
-        return order.getId();
+       return order.getId();
     }
+
 
     @GET
     public List<Order> getOrders() {
@@ -33,7 +34,6 @@ public class OrderService {
         query.from(Order.class);
         List<Order> data = session.createQuery(query).getResultList();
         return data;
-
     }
 }
 
