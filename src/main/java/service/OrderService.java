@@ -1,10 +1,7 @@
 package service;
 
 import dal.HibernateController;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import model.Order;
 import org.hibernate.Session;
@@ -14,8 +11,9 @@ import org.hibernate.query.criteria.JpaCriteriaQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-@Produces(MediaType.APPLICATION_JSON)
 @Path("orders")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class OrderService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
