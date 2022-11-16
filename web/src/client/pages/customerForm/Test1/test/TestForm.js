@@ -8,9 +8,9 @@ class TestForm extends Component {
         super(props);
 
         this.state = {
-            bookID: '',
-            bookTitle: '',
-            bookAuthor: '',
+            email: '',
+            name: '',
+            number: '',
             data: [],
         };
     }
@@ -24,16 +24,16 @@ class TestForm extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
-        const { bookID, bookTitle, bookAuthor } = this.state;
+        const { email, name, number } = this.state;
 
         const book = {
-            bookID,
-            bookTitle,
-            bookAuthor,
+            email,
+            name,
+            number,
         };
 
         axios
-            .post('http://localhost:3001/create', book)
+            .post('http://localhost:8080/api/data', book)
             .then(() => console.log('Book Created'),
 
 
@@ -45,10 +45,11 @@ class TestForm extends Component {
             console.error(err);
         });
     };
+
     callAPI()
     {
         //API request
-        axios.get("http://localhost:3001/home").then(response => {
+        axios.get("http://localhost:8080/api/data").then(response => {
 
             //getting and setting api data into variable
 
@@ -56,6 +57,8 @@ class TestForm extends Component {
 
         })
     }
+
+
 
     render() {
         return (
@@ -71,8 +74,8 @@ class TestForm extends Component {
                             <input
                                 type="text"
                                 className="form-control"
-                                name="bookID"
-                                placeholder="Book ID"
+                                name="email"
+                                placeholder="Email"
                                 onChange={this.handleInputChange}
                             />
                         </div>
@@ -81,8 +84,8 @@ class TestForm extends Component {
                             <input
                                 type="text"
                                 className="form-control"
-                                name="bookTitle"
-                                placeholder="Book Title"
+                                name="name"
+                                placeholder="Name"
                                 onChange={this.handleInputChange}
                             />
                         </div>
@@ -91,8 +94,8 @@ class TestForm extends Component {
                             <input
                                 type="text"
                                 className="form-control"
-                                name="bookAuthor"
-                                placeholder="Book Author"
+                                name="number"
+                                placeholder="Number"
                                 onChange={this.handleInputChange}
                             />
                         </div>
@@ -108,9 +111,9 @@ class TestForm extends Component {
                     <table className="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Author</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Number</th>
 
                         </tr>
                         </thead>
@@ -118,9 +121,9 @@ class TestForm extends Component {
                         {this.state.data.map((result) => {
                             return (
                                 <tr>
-                                    <td>{result.BookID}</td>
-                                    <td>{result.Title}</td>
-                                    <td>{result.Author}</td>
+                                    <td>{result.Email}</td>
+                                    <td>{result.Name}</td>
+                                    <td>{result.Number}</td>
                                 </tr>
                             )})}
 

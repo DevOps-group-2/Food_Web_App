@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
+@Data
 @Table(name = "CDATA") //WATCH out  USER is a reserved name!
 @Getter
 @Setter

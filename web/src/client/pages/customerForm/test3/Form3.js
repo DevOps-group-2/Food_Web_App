@@ -5,7 +5,6 @@ class Form3 extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            id: props.id,
             email: "",
             name: "",
             number: ""
@@ -33,8 +32,7 @@ class Form3 extends Component{
             url: "http://localhost:8080/api/data",
             method: "POST",
             data: {
-                id: context.state.id,
-                mail: context.state.email,
+                email: context.state.email,
                 name: context.state.name,
                 number: context.state.number
             },

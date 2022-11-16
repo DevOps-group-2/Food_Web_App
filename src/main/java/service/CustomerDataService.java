@@ -1,10 +1,7 @@
 package service;
 
 import dal.HibernateController;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import model.CustomerData;
@@ -22,23 +19,30 @@ public class CustomerDataService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     public Response createCustomerData(CustomerData customerData){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.persist(customerData);
         transaction.commit();
         return Response.ok(customerData.getId()).build();
+
     }
+/*
+    @POST
+    @Path("test2")
 
-    /*
-
-    public int createCustomerData(CustomerData customerData) {
+    public int createCustomerData2(CustomerData customerData) {
         Session session = sessionFactory.openSession();
         session.persist(customerData);
         return customerData.getId();
     }
 
-     */
+ */
+
+
+
+
 
     @GET
     public List<CustomerData> getCustomerData() {

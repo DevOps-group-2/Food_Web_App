@@ -1,40 +1,31 @@
 import {useState} from "react";
 
 
-function Form4() {
+async function Form4() {
     const [id, setId] = useState("");
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
     const [message, setMessage] = useState("");
 
-    let onCreateEmployee;
-    onCreateEmployee=()=>{
-        let empInfo={
-            Id:this.refs.Id.value,
-            Name:this.refs.Name.value,
-            Location:this.refs.Location.value,
-            Salary:this.refs.Salary.value
 
-        };
-    }
+    /*
     let handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let res = await fetch("https://localhost:8080/api/data", {
+            let res = await fetch("https://localhost:8080/api/data/test", {
                 method: "POST",
                 body: JSON.stringify({
-                    id: id,
-                    email: email,
-                    name: name,
-                    number: number,
+                    email: email.value,
+                    name: name.value,
+                    number: number.value,
                 }),
             });
             let resJson = await res.json();
             if (res.status === 200) {
-                setId("");
                 setName("");
                 setEmail("");
+                setNumber("");
                 setMessage("User created successfully");
             } else {
                 setMessage("Some error occured");
@@ -44,15 +35,28 @@ function Form4() {
         }
     };
 
+     */
+
+    // POST request using fetch with async/await
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            email: email,
+            name: name,
+            number: number})
+    };
+    const response = await fetch('https://localhost:8080/api/data', requestOptions);
+    const data = await response.json();
+    this.setState({
+        setEmail: data.email,
+        setName: data.name,
+        setNumber: data.number
+    });
+
     return (
         <div className="App">
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={id}
-                    placeholder="id"
-                    onChange={(e) => setId(e.target.value)}
-                />
+            <form onSubmit={requestOptions}>
                 <input
                     type="text"
                     value={email}

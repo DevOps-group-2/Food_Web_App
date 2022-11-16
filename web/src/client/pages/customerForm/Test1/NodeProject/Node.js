@@ -20,18 +20,18 @@ let books = [];
 
 
 
-app.post('/create', function(req, res) {
+app.post('/data', function(req, res) {
     const newBook = {
-        BookID: req.body.bookID,
-        Title: req.body.bookTitle,
-        Author: req.body.bookAuthor,
+        Email: req.body.email,
+        Name: req.body.name,
+        Number: req.body.number,
     };
 
     books.push(newBook);
     console.log(books);
 });
 
-app.get('/home', function(req, res) {
+app.get('/data', function(req, res) {
     console.log('Inside Home Login');
     res.writeHead(200, {
         'Content-Type': 'application/json',
@@ -41,6 +41,6 @@ app.get('/home', function(req, res) {
 });
 
 //start your server on port 3001
-app.listen(3001, () => {
+app.listen(8080, () => {
     console.log('Server Listening on port 3001');
 });
