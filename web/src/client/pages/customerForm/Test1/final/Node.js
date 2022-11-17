@@ -16,19 +16,18 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-let books = [];
-
+let customerData = [];
 
 
 app.post('/data', function(req, res) {
-    const newBook = {
+    const newData = {
         Email: req.body.email,
         Name: req.body.name,
         Number: req.body.number,
     };
 
-    books.push(newBook);
-    console.log(books);
+    customerData.push(newData);
+    console.log(customerData);
 });
 
 app.get('/data', function(req, res) {
@@ -36,11 +35,11 @@ app.get('/data', function(req, res) {
     res.writeHead(200, {
         'Content-Type': 'application/json',
     });
-    console.log('Books : ', JSON.stringify(books));
-    res.end(JSON.stringify(books));
+    console.log('Customer data : ', JSON.stringify(customerData));
+    res.end(JSON.stringify(customerData));
 });
 
 //start your server on port 3001
 app.listen(8080, () => {
-    console.log('Server Listening on port 3001');
+    console.log('Server Listening on port 8080');
 });

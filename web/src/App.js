@@ -12,7 +12,7 @@ import Home from "./client/pages/homePage/Home";
 
 import Form4 from "./client/pages/customerForm/Test4/Form4";
 import Form3 from "./client/pages/customerForm/test3/Form3";
-import TestForm from "./client/pages/customerForm/Test1/test/TestForm";
+import TestForm from "./client/pages/customerForm/Test1/final/TestForm";
 
 function App() {
     return (
