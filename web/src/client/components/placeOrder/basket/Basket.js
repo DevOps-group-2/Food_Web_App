@@ -7,6 +7,7 @@ import BasketProduct from './BasketProduct';
 import CustomerForm from "../../../pages/customerForm/CustomerForm";
 import Context from "./Context";
 import ConfirmSendOrder from "./ConfirmSendOrder";
+import axios from "axios";
 
 const myComponent = {
     width: '800px',
@@ -57,13 +58,43 @@ const Basket = (props) => {
         setDisplayBasket(true);
     }
 
+   /* const submitOrderHandler = async () => {
+        axios({
+            method: "post",
+            url: "http://localhost:8080/api/orders",
+
+            data: { foodProducts: cartCtx.foodProducts },
+            headers: { "Content-Type": "multipart/form-data" },
+        })
+            .then(function (response) {
+                //handle success
+                setIsSending(false);
+                setDidSend(true);
+                console.log(response);
+            })
+            .catch(function (response) {
+                //handle error
+                setIsSending(false);
+                setDidSend(true);
+                console.log(response);
+            });
+    };
+*/
     const submitOrderHandler = () => {
         setIsSending(true);
         fetch('http://localhost:8080/api/orders', {
         //fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
             method: 'POST',
+            headers: {
+                "Content-type": "application/json",
+                'Accept': 'application/json'
+            },
             body: JSON.stringify({
-                orderedFoodProducts: cartCtx.foodProducts
+                "id" : cartCtx.foodProducts.id,
+                "menu" : cartCtx.foodProducts.menu,
+                "amount" : cartCtx.foodProducts.amount,
+                "price" : cartCtx.foodProducts.price
+                //orderedFoodProducts: cartCtx.foodProducts
             })
         });
         setIsSending(false);

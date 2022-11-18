@@ -9,11 +9,13 @@ import AdminDashboard from "./adminDashboard/dashboard/components/AdminDashboard
 import AboutUsPage from "./client/pages/aboutPage/AboutUsPage"
 import ContactPage from "./client/pages/contactPage/ContactPage";
 import Home from "./client/pages/homePage/Home";
+import Test from "./client/components/placeOrder/Test";
 
 function App() {
     return (
         <>
-
+            <Test />
+            {/*
             <NavigationBar></NavigationBar>
             <div>
                 <Routes>
@@ -27,7 +29,7 @@ function App() {
                     <Route path={"/admin"} element={<AdminDashboard/>}/>
             </Routes>
             </div>
-
+            */}
         </>
     );
 }
