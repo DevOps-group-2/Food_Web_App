@@ -40,10 +40,6 @@ public class CustomerDataService {
 
  */
 
-
-
-
-
     @GET
     public List<CustomerData> getCustomerData() {
         Session session = sessionFactory.openSession();

@@ -7,7 +7,7 @@ const app = express();
 //use cors to allow cross origin resource sharing
 app.use(
     cors({
-        origin: 'http://localhost:3000',
+        origin: 'http://localhost:3000/form',
         credentials: true,
     })
 );
@@ -24,6 +24,7 @@ app.post('/data', function(req, res) {
         Email: req.body.email,
         Name: req.body.name,
         Number: req.body.number,
+        Time: req.body.time
     };
 
     customerData.push(newData);

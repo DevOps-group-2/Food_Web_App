@@ -23,6 +23,8 @@ public class CustomerData {
     private String name;
     @Column
     private int number;
+    @Column
+    private double time;
 
     //public CustomerData();
 }

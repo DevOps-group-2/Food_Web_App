@@ -1,9 +1,12 @@
 // hjælp fra: https://therichpost.com/how-to-save-reactjs-form-data-in-nodejs-backend/
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 
+
 class TestForm extends Component {
+
+
     constructor(props) {
         super(props);
 
@@ -11,9 +14,11 @@ class TestForm extends Component {
             email: '',
             name: '',
             number: '',
+            time: '',
             data: [],
         };
     }
+
 
     handleInputChange = event => {
         this.setState({
@@ -24,18 +29,18 @@ class TestForm extends Component {
     handleSubmit = event => {
         event.preventDefault();
 
-        const {email, name, number} = this.state;
+        const {email, name, number, time} = this.state;
 
         const customerData = {
             email,
             name,
             number,
+            time
         };
 
         axios
             .post('http://localhost:8080/api/data', customerData)
             .then(() => console.log('Book Created'),
-
 
                 //this.callAPI()
 
@@ -67,9 +72,6 @@ class TestForm extends Component {
             <div>
                 <br />
                 <div>
-                    <h1>Insert the following information for the order:</h1>
-                </div>
-                <div>
                     <form onSubmit={this.handleSubmit}>
                         <div>
                             <input
@@ -80,7 +82,7 @@ class TestForm extends Component {
                             />
                         </div>
 
-                        <div className="form-group mb-3">
+                        <div>
                             <input
                                 type="text"
                                 name="name"
@@ -89,13 +91,23 @@ class TestForm extends Component {
                             />
                         </div>
 
-                        <div className="form-group mb-3">
+                        <div>
                             <input
-                                type="number"
+                                type="phone-number"
                                 name="number"
                                 placeholder="Number"
                                 onChange={this.handleInputChange}
                             />
+                        </div>
+
+                        <div>
+                            { /*when user write in name input box , handleChange() function will be called. */}
+                            <select name="time" type="time" onChange={this.handleInputChange} value={this.state.value}>
+                                <option value="">--Please pick an available time--</option>
+                                <option value={15.00}>15:00</option>
+                                <option value={15.30}>15:30</option>
+                                <option value={15.45}>15:45</option>
+                            </select>
                         </div>
 
                         <button type="submit">

@@ -14,6 +14,7 @@ import java.io.IOException;
 
 @Provider
 @Priority(500)
+/*
 public class CORSFilter implements ContainerResponseFilter {
 
     @Override
@@ -31,7 +32,9 @@ public class CORSFilter implements ContainerResponseFilter {
                 "GET, POST, PUT, DELETE, OPTIONS, HEAD");
     }
 }
-/*
+
+ */
+
 public class CORSFilter implements ContainerRequestFilter {
     @Context
     private HttpServletRequest request;
@@ -49,5 +52,5 @@ public class CORSFilter implements ContainerRequestFilter {
         response.setHeader("encoding", "utf-8");
 
     }
-}*/
+}
 

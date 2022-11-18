@@ -7,6 +7,7 @@ import BasketProduct from './BasketProduct';
 import CustomerForm from "../../../pages/customerForm/CustomerForm";
 import Context from "./Context";
 import ConfirmSendOrder from "./ConfirmSendOrder";
+import TestForm from "../../../pages/customerForm/final/TestForm";
 
 const myComponent = {
     width: '800px',
@@ -107,9 +108,9 @@ const Basket = (props) => {
                     Cancel
                 </button>
             </div>
-            <p>Please fill the information so your order will be placed!</p>
+            <p>Please fill the information so your order will be placed:</p>
             <div style={myComponent}>
-            <CustomerForm />
+                <TestForm/>
             </div>
         </BasketBox>);
 
