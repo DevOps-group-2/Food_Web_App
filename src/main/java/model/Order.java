@@ -4,25 +4,30 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 @Entity
-@Table(name="DBUser") //!!WATCH out  USER is a reserved name!
+@Table(name="DBOrder") //!!WATCH out this is a reserved name!
 @Getter
 @Setter
 @Builder
 @ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class User {
-
+public class Order {
     @Id @GeneratedValue
     @Column
     private int id;
     @Column
-    private String username;
-    @Column @Transient
-    private String password;
+    private String menu;
+    @Column
+    private String amount;
+    @Column
+    private String price;
     @Column @JsonIgnore
     private String hash;
-    public User(String username, String s) {
+    public Order(int id, String menu, int amount, int price) {
 
+    }
+
+    public String menu() {
+        return menu;
     }
 }

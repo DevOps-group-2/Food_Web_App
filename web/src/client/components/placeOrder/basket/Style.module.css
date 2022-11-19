@@ -73,3 +73,39 @@
   cursor: pointer;
   margin: 0.5rem;
 }
+
+.styles {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+.styles button {
+  color: #456741FF;
+  border-radius: 10px;
+  padding: 0.7rem 2rem;
+}
+
+.styles button:hover,
+.styles button:active {
+  background-color: #edffe9;
+}
+
+.styles .send {
+  border: 1px solid #456741;
+  background-color: #456741;
+  color: white;
+}
+
+.styles .send:hover,
+.styles .send:active {
+  background-color: #456741;
+}
+
+.check {
+  margin-bottom: 1rem;
+}
+
+.check input {
+  width: 25rem;
+}
