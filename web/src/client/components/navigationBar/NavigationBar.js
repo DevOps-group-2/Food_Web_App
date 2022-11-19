@@ -40,7 +40,6 @@ function NavigationBar() {
             </div>
         </nav>
         </div>
-
     )
 }
 

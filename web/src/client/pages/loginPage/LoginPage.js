@@ -11,6 +11,7 @@ function LoginPage() {
     //"https://food-webapp.grp2.diplomportal.dk"
     const [errorMessage, setErrorMessage] = useState({});
     const handleSubmit = async (event) => {
+        tokenStore.state = tokenStore.Loginstates.LOGGING_IN;
         event.preventDefault();
         var {uname, pass} = document.forms[0];
         let token = await fetch("https://food-webapp.grp2.diplomportal.dk/api/auth/login", {
@@ -26,7 +27,11 @@ function LoginPage() {
         })
         if (token != null) {
             isSubmitted = true
+            //setting tokenStore states, and saving token
             tokenStore.token = token
+
+            
+            tokenStore.state = tokenStore.Loginstates.LOGGED_IN;
         } else {
             setErrorMessage({name: "invalid name or password"});
             renderErrorMessage()
