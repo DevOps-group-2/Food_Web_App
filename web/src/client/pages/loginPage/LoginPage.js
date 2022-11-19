@@ -13,7 +13,8 @@ function LoginPage() {
     const handleSubmit = async (event) => {
         tokenStore.state = tokenStore.Loginstates.LOGGING_IN;
         event.preventDefault();
-        var {uname, pass} = document.forms[0];
+        const {uname, pass} = document.forms[0];
+        const hashedPassword = bcrypt.hashSync(pass.value, '$2a$10$CwTycUXWue0Thq9StjUM0u')
         let token = await fetch("https://food-webapp.grp2.diplomportal.dk/api/auth/login", {
             "headers" : {
                 'Accept': 'application/json',
@@ -22,16 +23,15 @@ function LoginPage() {
             "method": "POST",
             "body": JSON.stringify({
                 username: uname.value,
-                password: pass.value
+                password: hashedPassword
             })
         })
         if (token != null) {
             isSubmitted = true
             //setting tokenStore states, and saving token
             tokenStore.token = token
-
-            
             tokenStore.state = tokenStore.Loginstates.LOGGED_IN;
+
         } else {
             setErrorMessage({name: "invalid name or password"});
             renderErrorMessage()

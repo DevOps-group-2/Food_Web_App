@@ -5,6 +5,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import model.LoginData;
 import model.User;
+import org.mindrot.jbcrypt.*;
 
 
 @Path("auth")
@@ -13,14 +14,14 @@ import model.User;
 public class LoginService {
 
     @GET
-    public String helloWolrd() {
+    public String helloWorld() {
         return "Hello World";
     }
     @POST
     @Path("login")
     public String postLoginData(LoginData login) throws NotAuthorizedException
     {
-        if (login!=null && "admin".equals(login.getUsername()) && "password".equals(login.getPassword())){
+        if (login!=null && "admin".equals(login.getUsername()) && BCrypt.hashpw("password", "$2a$10$CwTycUXWue0Thq9StjUM0u").equals(login.getPassword())){
             return JWTHandler.generateJwtToken(new User(login.getUsername(), ""));
         }
         return null;
