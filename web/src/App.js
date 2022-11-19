@@ -11,6 +11,7 @@ import ContactPage from "./client/pages/contactPage/ContactPage";
 import Home from "./client/pages/homePage/Home";
 import TestForm from "./client/pages/customerForm/final/TestForm";
 
+
 function App() {
     return (
         <>
@@ -21,7 +22,8 @@ function App() {
                     <Route path={"/"} element={<Home/>}/>
                     <Route path={"/order"} element={<PlaceOrder/>}/>
                     <Route path={"form"} element={<TestForm/>}/>
-                    <Route path={"form1"} element={<CustomerForm/>}/>
+
+                    <Route path={"form2"} element={<CustomerForm/>}/>
 
                     <Route path={"/pay"} element={<Pay/>}/>
                     <Route path={"/contact"} element={<ContactPage/>}/>

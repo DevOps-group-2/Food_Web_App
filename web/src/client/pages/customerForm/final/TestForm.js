@@ -3,7 +3,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-
 class TestForm extends Component {
 
 
@@ -18,6 +17,7 @@ class TestForm extends Component {
             data: [],
         };
     }
+
 
 
     handleInputChange = event => {
@@ -100,13 +100,28 @@ class TestForm extends Component {
                             />
                         </div>
 
+                        {/*
+                        <div>
+                                <select name="time" type="time" onChange={this.handleInputChange}
+                                        value={this.state.value} min={'13'}>
+                                    <option value="">--Please pick an available time--</option>
+
+                                    <option value={15.00}>15:00</option>
+                                    <option value={15.30}>15:30</option>
+                                    <option value={15.45}>15:45</option>
+                                </select>
+                            </div>
+                            */}
+
+
                         <div>
                             { /*when user write in name input box , handleChange() function will be called. */}
-                            <select name="time" type="time" onChange={this.handleInputChange} value={this.state.value}>
+                            <select id = "time" class="form-control" data-val="true" data-val="required" name="time">
                                 <option value="">--Please pick an available time--</option>
-                                <option value={15.00}>15:00</option>
-                                <option value={15.30}>15:30</option>
-                                <option value={15.45}>15:45</option>
+                                <option>19:30</option>
+                                <option>19:40</option>
+                                <option>19:50</option>
+
                             </select>
                         </div>
 
