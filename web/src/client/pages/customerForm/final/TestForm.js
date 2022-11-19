@@ -1,9 +1,12 @@
 // hjælp fra: https://therichpost.com/how-to-save-reactjs-form-data-in-nodejs-backend/
 
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import axios from 'axios';
 
+
+
 class TestForm extends Component {
+
 
 
     constructor(props) {
@@ -17,6 +20,7 @@ class TestForm extends Component {
             data: [],
         };
     }
+
 
 
 
@@ -46,9 +50,11 @@ class TestForm extends Component {
 
     )
 
+
     .catch(err => {
             console.error(err);
         });
+
     };
 
     // bruges ikke
@@ -67,7 +73,11 @@ class TestForm extends Component {
 
      */
 
+
+
+
     render() {
+
         return (
             <div>
                 <br />
@@ -121,10 +131,8 @@ class TestForm extends Component {
                                 <option>19:30</option>
                                 <option>19:40</option>
                                 <option>19:50</option>
-
                             </select>
                         </div>
-
                         <button type="submit">
                             Submit information
                         </button>
