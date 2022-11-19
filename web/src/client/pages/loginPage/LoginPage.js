@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
 import {tokenStore} from "../../stores/TokenStore";
+import AdminDashboard from "../../../adminDashboard/dashboard/components/AdminDashboard";
 
 function LoginPage() {
     let isSubmitted = false;
@@ -46,6 +47,7 @@ function LoginPage() {
     //login form
     const renderForm = (
         <div className="form">
+            <div className="title">Sign In</div>
             <form onSubmit={handleSubmit}>
                 <div className="input-container">
                     <label>Username </label>
@@ -61,14 +63,14 @@ function LoginPage() {
                     <input type="submit" />
                 </div>
             </form>
+
         </div>
     );
 
     return (
         <div className="app">
             <div className="login-form">
-                <div className="title">Sign In</div>
-                {isSubmitted ? <div>Admin is logged in</div> : renderForm}
+                {tokenStore.state ===  tokenStore.LoginStates.LOGGED_IN?  <AdminDashboard/> : renderForm}
             </div>
         </div>
     );
