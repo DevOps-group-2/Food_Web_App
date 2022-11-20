@@ -13,7 +13,6 @@ function LoginPage() {
     //"https://food-webapp.grp2.diplomportal.dk"
     const [errorMessage, setErrorMessage] = useState({});
     const handleSubmit = async (event) => {
-        console.log("in submit")
         //logging in
         tokenStore.state = tokenStore?.Loginstates?.indexOf(0);
         event.preventDefault();
@@ -75,6 +74,7 @@ function LoginPage() {
         <div className="app">
             <div className="login-form">
                 {isSubmitted ?  <div>logged in</div> : renderForm}
+                {tokenStore.state === tokenStore?.Loginstates?.indexOf(2) && (<AdminDashboard/>)}
             </div>
         </div>
     );
