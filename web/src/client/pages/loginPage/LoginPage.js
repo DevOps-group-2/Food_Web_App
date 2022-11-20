@@ -8,7 +8,6 @@ import AdminDashboard from "../../../adminDashboard/dashboard/components/AdminDa
 import {Route} from "react-router-dom";
 
 function LoginPage() {
-    const [isSubmitted, setIsSubmitted] = useState(false);
     //"https://localhost8080"
     //"https://food-webapp.grp2.diplomportal.dk"
     const [errorMessage, setErrorMessage] = useState({});
@@ -31,7 +30,6 @@ function LoginPage() {
             })
         })
         if (token != null) {
-            setIsSubmitted(true);
             //setting tokenStore states, and saving token
             tokenStore.token = token
             tokenStore.state = tokenStore?.Loginstates?.indexOf(2);
@@ -73,7 +71,7 @@ function LoginPage() {
     return (
         <div className="app">
             <div className="login-form">
-                {isSubmitted ? <div>logged in</div> : renderForm}
+                {(tokenStore?.state === tokenStore?.Loginstates?.indexOf(2))? <div>logged in</div> : renderForm}
             </div>
         </div>
     );
