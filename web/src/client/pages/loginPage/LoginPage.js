@@ -71,7 +71,7 @@ function LoginPage() {
     return (
         <div className="app">
             <div className="login-form">
-                {tokenStore.state ===  tokenStore.LoginStates.LOGGED_IN?  <AdminDashboard/> : renderForm}
+                {isSubmitted?  <AdminDashboard/> : renderForm}
             </div>
         </div>
     );
