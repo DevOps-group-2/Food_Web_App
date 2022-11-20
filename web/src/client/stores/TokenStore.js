@@ -7,4 +7,4 @@ class TokenStore {
 
 }
 
-export const tokenStore = Object.freeze(new TokenStore());
+export const tokenStore = new TokenStore();
