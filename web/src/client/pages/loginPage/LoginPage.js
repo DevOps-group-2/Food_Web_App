@@ -67,14 +67,13 @@ function LoginPage() {
                     <input type="submit" />
                 </div>
             </form>
-
         </div>
     );
 
     return (
         <div className="app">
             <div className="login-form">
-                {isSubmitted?  <div>logged in</div>: renderForm}
+                {isSubmitted ?  <div>logged in</div> : renderForm}
             </div>
         </div>
     );
