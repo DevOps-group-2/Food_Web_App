@@ -34,7 +34,6 @@ function LoginPage() {
             isSubmitted = true
             //setting tokenStore states, and saving token
             tokenStore.token = token
-            //logged in
             tokenStore.state = tokenStore.Loginstates.indexOf(2);
 
         } else {
