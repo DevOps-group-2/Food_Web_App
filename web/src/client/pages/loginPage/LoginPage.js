@@ -35,6 +35,7 @@ function LoginPage() {
             //setting tokenStore states, and saving token
             tokenStore.token = token
             tokenStore.state = tokenStore?.Loginstates?.indexOf(2);
+            navigate("/admin");
 
         } else {
             setErrorMessage({name: "invalid name or password"});
@@ -74,7 +75,6 @@ function LoginPage() {
         <div className="app">
             <div className="login-form">
                 {isSubmitted ?  <div>logged in</div> : renderForm}
-                {tokenStore.state === tokenStore?.Loginstates?.indexOf(2) && (<AdminDashboard/>)}
             </div>
         </div>
     );
