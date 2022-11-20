@@ -6,7 +6,7 @@ import {tokenStore} from "../../../client/stores/TokenStore";
 
 function AdminDashboard(){
     let isLoggedIn
-    if (tokenStore?.state === 'logged in') {
+    if (tokenStore?.state === 'loggedIn') {
         isLoggedIn = true
     } else {
         isLoggedIn = false
