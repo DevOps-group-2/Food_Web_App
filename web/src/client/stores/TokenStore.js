@@ -3,7 +3,7 @@ const baseUrl = process.env.NODE_ENV === 'development' ?  "http://localhost:8080
 
 const Loginstates = {LOGGING_IN:"Loading", LOGGEDOUT:"Logout", LOGGED_IN:"LoggedIn"};
 class TokenStore {
-    state = Loginstates.LOGGEDOUT;
+    state = Loginstates.indexOf(0);
     token = null;
     logindata = {username:"",password:""};
 
