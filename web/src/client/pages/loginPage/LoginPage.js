@@ -14,7 +14,7 @@ function LoginPage() {
     const handleSubmit = async (event) => {
         tokenStore.state = tokenStore.Loginstates.LOGGING_IN;
         event.preventDefault();
-        const bcrypt = require('bcrypt');
+        var bcrypt = require('bcryptjs');
         const {uname, pass} = document.forms[0];
         const hashedPassword = bcrypt.hashSync(pass.value, '$2a$10$CwTycUXWue0Thq9StjUM0u')
         let token = await fetch("https://food-webapp.grp2.diplomportal.dk/api/auth/login", {
