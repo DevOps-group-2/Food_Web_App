@@ -15,7 +15,7 @@ function LoginPage() {
     const handleSubmit = async (event) => {
         console.log("in submit")
         //logging in
-        tokenStore.state = tokenStore.Loginstates.indexOf(0);
+        tokenStore.state = tokenStore.Loginstates[0];
         event.preventDefault();
         var bcrypt = require('bcryptjs');
         const {uname, pass} = document.forms[0];
@@ -35,7 +35,7 @@ function LoginPage() {
             isSubmitted = true
             //setting tokenStore states, and saving token
             tokenStore.token = token
-            tokenStore.state = tokenStore.Loginstates.indexOf(2);
+            tokenStore.state = tokenStore.Loginstates[2];
 
         } else {
             setErrorMessage({name: "invalid name or password"});
