@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import "./LoginPage.css";
 import {tokenStore} from "../../stores/TokenStore";
 import AdminDashboard from "../../../adminDashboard/dashboard/components/AdminDashboard";
+import {Route} from "react-router-dom";
 
 function LoginPage() {
     let isSubmitted = false;
@@ -71,7 +72,7 @@ function LoginPage() {
     return (
         <div className="app">
             <div className="login-form">
-                {isSubmitted?  <AdminDashboard/> : renderForm}
+                {isSubmitted?  <div>logged in</div>: renderForm}
             </div>
         </div>
     );
