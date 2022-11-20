@@ -1,16 +1,10 @@
-import {useState} from "react";
 
-const [isLoggedIn, setIsLoggedIn] = useState(false);
+const Loginstates = ["loading", "logged out", "loggedIn"]
 class TokenStore {
-    constructor() {
-        this.state = isLoggedIn;
-        this.token = null
-    }
+    state = Loginstates[1];
+    token = null;
+    logindata = {username:"",password:""};
 
-    changeLoginBool(bool) {
-        setIsLoggedIn(bool);
-        this.state = isLoggedIn
-    }
 }
 
 export const tokenStore = new TokenStore();

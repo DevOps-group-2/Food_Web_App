@@ -13,6 +13,8 @@ function LoginPage() {
     //"https://food-webapp.grp2.diplomportal.dk"
     const [errorMessage, setErrorMessage] = useState({});
     const handleSubmit = async (event) => {
+        //logging in
+        tokenStore.state = tokenStore?.Loginstates?.indexOf(0);
         event.preventDefault();
         var bcrypt = require('bcryptjs');
         const {uname, pass} = document.forms[0];
@@ -29,9 +31,10 @@ function LoginPage() {
             })
         })
         if (token != null) {
-            tokenStore.changeLoginBool(true)
+            setIsSubmitted(true);
             //setting tokenStore states, and saving token
             tokenStore.token = token
+            tokenStore.state = tokenStore?.Loginstates?.indexOf(2);
 
         } else {
             setErrorMessage({name: "invalid name or password"});
@@ -70,7 +73,7 @@ function LoginPage() {
     return (
         <div className="app">
             <div className="login-form">
-                {tokenStore.state ? <div>logged in</div> : renderForm}
+                {isSubmitted ? <div>logged in</div> : renderForm}
             </div>
         </div>
     );
