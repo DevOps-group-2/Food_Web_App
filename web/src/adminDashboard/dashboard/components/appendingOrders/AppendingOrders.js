@@ -17,14 +17,15 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 
-function createOrder(orderNumber: number, customerName: string, phoneNr: number, date: string, time: string, status: string, subTotal: number) {
+function createOrder(orderNumber: number, customerName: string, phoneNr: number, date: string, time: string, status_accept: string, status_reject: string, subTotal: number) {
     return {
         orderNumber: orderNumber,
         customerName: customerName,
         phoneNr: phoneNr,
         date: date,
         time: time,
-        status: status,
+        status_accept: status_accept,
+        status_reject: status_reject,
         subTotal: subTotal
     };
 }
@@ -79,8 +80,15 @@ function Row(props: { row: ReturnType<typeof createOrder> }) {
                 <TableCell align="right">{row.date}</TableCell>
                 <TableCell align="right">{row.time}</TableCell>
                 <TableCell align="right" >
-                    <span style={{padding: "8px", borderRadius: "13px", width: "fit-content"}} className={row.status}>
-                        {row.status}
+                    <span >
+                        <button style={{padding: "8px", borderRadius: "13px", width: "fit-content"}} className={row.status_accept}>
+                        {row.status_accept}
+                        </button>
+                    </span>
+                    <span >
+                        <button style={{padding: "8px", borderRadius: "13px", width: "fit-content", marginLeft: "8px"}} className={row.status_reject}>
+                        {row.status_reject}
+                        </button>
                     </span>
                 </TableCell>
                 <TableCell align="right">{row.subTotal}</TableCell>
@@ -127,11 +135,11 @@ function Row(props: { row: ReturnType<typeof createOrder> }) {
 }
 
 const rows = [
-    createOrder(874650, "Freja Nørgaard Jensen", 53881603, "14/09", "14:50", "Denied", 6.5),
-    createOrder(783429, "Hanne Marie Ibsen", 38204932, "14/09", "12:33", "Done",10),
-    createOrder(251637, "Bo Carlsen", 78432888, "13/09", "9:28", 'Pending',7),
-    createOrder(123994, "Jørgen Rasmussen", 93204002, "13/09", "22:10", "Preparing",11.5),
-    createOrder(124455, "Karl Hansen", 27890245, "11/09", "17:42", "Preparing",7),
+    createOrder(874650, "Freja Nørgaard Jensen", 53881603, "14/09", "14:50", "Accept", "Reject",6.5),
+    createOrder(783429, "Hanne Marie Ibsen", 38204932, "14/09", "12:33", "Accept", "Reject",10),
+    createOrder(251637, "Bo Carlsen", 78432888, "13/09", "9:28", "Accept", "Reject",7),
+    createOrder(123994, "Jørgen Rasmussen", 93204002, "13/09", "22:10", "Accept", "Reject",11.5),
+    createOrder(124455, "Karl Hansen", 27890245, "11/09", "17:42", "Accept", "Reject",7),
 
 ];
 
