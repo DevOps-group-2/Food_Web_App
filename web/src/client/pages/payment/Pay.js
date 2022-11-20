@@ -23,10 +23,10 @@ class Pay extends Component{
     }
 }
 
-const [product, setProduct] = useState({
+/*const [product, setProduct] = useState({
     name: 'A product',
     price: 100
-})
+})*/
 
 
 async function handleToken(token, addresses) {

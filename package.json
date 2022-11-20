@@ -4,5 +4,8 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.12"
+  },
+  "devDependencies": {
+    "axios": "^1.1.3"
   }
 }
