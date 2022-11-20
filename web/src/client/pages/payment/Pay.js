@@ -1,6 +1,6 @@
-import React, {Component, useState} from "react";
+import React, {Component} from "react";
 import StripeCheckout from "react-stripe-checkout";
-import axios from 'axios';
+import axios from 'axios'
 
 class Pay extends Component{
     render() {
@@ -23,37 +23,44 @@ class Pay extends Component{
     }
 }
 
-/*const [product, setProduct] = useState({
-    name: 'A product',
-    price: 100
-})*/
+const stripePrice = 10 * 100;
 
 
-async function handleToken(token, addresses) {
-
-    try {
-        const response = await axios({
-            url:'https://localhost:5000/payment',
-            method:'post',
-            data: {
-                amount: product.price * 100,
-                token
-            }
-        })
-
-        if (response.status === 200) {
-            console.log("Payment is successful!")
-        }
-
-    } catch {
-        console.log("Payment error!")
-    }
-
-
-
-
+const handleToken = (token) => {
     // TODO
+
+        console.log("hello there...")
+        axios.post('http: //localhost:8083/payment', {
+            amount: 10 * 100,
+            token
+
+        }).then((response) => {
+            alert('payment success')
+
+        }).catch((error) => {
+                alert('Payment failed' + {error})
+            })
 }
+
+
+
+/*
+return(
+    <StripeCheckout
+        amount={stripePrice}
+        label="Pay Now"
+        name="Wolf Elite"
+        billingAddress
+        shippingAddress
+        image="https://svgshare.com/i/CUz.svg"
+        description="Your total is" ${price}
+        panelLabel="Pay Now"
+        token={handleToken}
+        stripeKey={publishableKey}
+        currency="USD"
+    />
+)
+*/
 
 
 export default Pay;
