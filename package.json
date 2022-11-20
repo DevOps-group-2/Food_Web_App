@@ -1,4 +1,5 @@
 {
+  "private": true,
   "dependencies": {
     "@coreui/icons": "^2.1.0",
     "@emotion/react": "^11.10.5",
