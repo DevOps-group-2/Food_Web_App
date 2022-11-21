@@ -20,7 +20,8 @@ function LoginPage() {
         const {uname, pass} = document.forms[0];
         const hashedPassword = bcrypt.hashSync(pass.value, '$2a$10$CwTycUXWue0Thq9StjUM0u')
         console.log(hashedPassword)
-        let token = await fetch("https://food-webapp.grp2.diplomportal.dk/api/auth/login", {
+        let token
+        token = await fetch("https://food-webapp.grp2.diplomportal.dk/api/auth/login", {
             "headers" : {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
