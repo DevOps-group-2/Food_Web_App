@@ -23,10 +23,11 @@ public class LoginService {
     {
         if (login!=null){
             if("admin".equals(login.getUsername()) && BCrypt.hashpw("password", "$2a$10$CwTycUXWue0Thq9StjUM0u").equals(login.getPassword()) ){
-            return JWTHandler.generateJwtToken(new User(login.getUsername(), ""));
+            return JWTHandler.generateJwtToken(new User(login.getUsername(), login.getPassword()));
             }
         }
-        return null;
+
+        return "";
     }
 }
 
