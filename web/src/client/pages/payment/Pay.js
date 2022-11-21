@@ -29,11 +29,13 @@ const baseUrl = process.env.NODE_ENV === 'development' ?  "http://localhost:8080
 const handleToken = (token) => {
     // TODO
 
+
     fetch(baseUrl + "api/stripe/webhook", {
         method: "POST",
         body: token.id,
         credentials: "same-origin"
     }).then(function(response) {
+
         response.json().then(r => console.log(r))
         console.log(response)
         alert('payment success' + {response})

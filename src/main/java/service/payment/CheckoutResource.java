@@ -9,7 +9,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +16,7 @@ import java.util.Map;
 
 @Path("stripe")
 @Produces(MediaType.APPLICATION_JSON)
+
 public class CheckoutResource {
     public CheckoutResource() {}
 
@@ -24,7 +24,7 @@ public class CheckoutResource {
     @Path(("webhook"))
     public String submitPayment(String tokenId) {
         // TODO: create an env file to save stripe key
-        Stripe.apiKey = System.getenv("MY_KEY");
+        Stripe.apiKey = "sk_test_51Ll7jrJEhBAUpm4sHtsg9Z42vInZmUbNpEEQp9E3qCFTGXIPid4d2viPZRC7HDS1VmYJFP1hz4zkAybr27M98oRM00MJssGfbp";
         Map<String, Object> params = new HashMap<>();
         params.put("amount", 500);
         params.put("currency", "dkk");
@@ -34,7 +34,7 @@ public class CheckoutResource {
         try {
             Charge.create(params);
             System.out.println("Payment success.");
-            return "Payment success";
+            return "Payment success(from backend)";
 
         } catch (AuthenticationException e) {
             System.out.println("Error 1");
