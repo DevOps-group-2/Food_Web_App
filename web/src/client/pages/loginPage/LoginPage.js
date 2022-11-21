@@ -31,8 +31,9 @@ function LoginPage() {
                 password: hashedPassword
             })
         })
-        console.log(await response.text())
-        if (await response.text() !==  '') {
+        let token = await response.text()
+        console.log(token)
+        if (token !==  '') {
             console.log(token)
             setIsSubmitted(true);
             //setting tokenStore states, and saving token
