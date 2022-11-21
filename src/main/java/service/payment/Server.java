@@ -1,6 +1,6 @@
 package service.payment;
 
-import static spark.Spark.get;
+/*import static spark.Spark.get;
 import static spark.Spark.port;
 import static spark.Spark.post;
 import static spark.Spark.staticFiles;
@@ -113,4 +113,4 @@ public class Server {
             this.error.put("message", message);
         }
     }
-}
+}*/

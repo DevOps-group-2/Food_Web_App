@@ -10,6 +10,7 @@ import AboutUsPage from "./client/pages/aboutPage/AboutUsPage"
 import ContactPage from "./client/pages/contactPage/ContactPage";
 import Home from "./client/pages/homePage/Home";
 
+
 function App() {
     return (
         <>
@@ -31,5 +32,5 @@ function App() {
         </>
     );
 }
-
 export default App;
+
