@@ -8,6 +8,7 @@ import CustomerForm from "../../../pages/customerForm/CustomerForm";
 import Context from "./Context";
 import ConfirmSendOrder from "./ConfirmSendOrder";
 import axios from "axios";
+import {tokenStore} from "../../../stores/TokenStore";
 
 const myComponent = {
     width: '800px',
@@ -80,10 +81,45 @@ const Basket = (props) => {
             });
     };
 */
-    const submitOrderHandler = () => {
+    const [errorMessage, setErrorMessage] = useState({});
+
+    const submitOrderHandler = async (event) => {
+        //e.preventDefault();
+        //console.log(data);
+        let token = await fetch("http://localhost:8080/api/orders", {
+            "headers" : {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            mode: "no-cors",
+            "method": "POST",
+            "body": JSON.stringify({
+                amount : cartCtx.foodProducts.amount,
+                foodID : cartCtx.foodProducts.id,
+                menu : cartCtx.foodProducts.menu,
+                price : cartCtx.foodProducts.price
+                //orderedFoodProducts: cartCtx.foodProducts
+            })
+        })
+        if (token != null) {
+            setIsSending(false);
+            setDidSend(true);
+        } else {
+            setErrorMessage({name: "invalid..."});
+            renderErrorMessage()
+        }
+    };
+
+    const renderErrorMessage = (name) =>
+        name === errorMessage.name && (
+            <div className="error">{errorMessage.message}</div>
+        );
+
+    const submitOrderHandlerOLD = async () => {
         setIsSending(true);
-        fetch('http://localhost:8080/api/orders', {
+        let data = await fetch('http://localhost:8080/api/orders', {
         //fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
+            mode: 'no-cors',
             method: 'POST',
             headers: {
                 "Content-type": "application/json",

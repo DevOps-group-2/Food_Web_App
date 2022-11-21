@@ -7,23 +7,25 @@ import model.Order;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.criteria.JpaCriteriaQuery;
-
-import java.util.ArrayList;
+import jakarta.ws.rs.core.Response;
+import org.hibernate.Transaction;
 import java.util.List;
 
-@Path("orders")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+//@Consumes(MediaType.APPLICATION_JSON)
+@Path("orders")
 public class OrderService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
     @POST
-    public int createOrder(Order order) {
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createOrder(Order order){
         Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
         session.persist(order);
-       return order.getId();
+        transaction.commit();
+        return Response.ok(order.getId()).build();
     }
-
 
     @GET
     public List<Order> getOrders() {

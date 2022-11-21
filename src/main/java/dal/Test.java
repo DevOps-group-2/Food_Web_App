@@ -41,8 +41,8 @@ public class Test {
         System.out.println("ORDERID before commit: " + order.getId());
         int i = 1;
         order.setMenu("Kebab Menu");
-        order.setAmount(String.valueOf(i));
-        order.setPrice(String.valueOf(i));
+        order.setAmount(i);
+        order.setPrice(i);
         session.persist(order);
         transaction.commit();
         System.out.println("ORDERID after commit: " + order.getId());

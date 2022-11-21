@@ -8,17 +8,17 @@ const Test = () => {
     const cartCtx = useContext(Context);
 
     const [formValue, setformValue] = React.useState({
-        id: cartCtx.foodProducts.id,
-        menu: cartCtx.foodProducts.menu,
-        amount: cartCtx.foodProducts.amount,
-        price: cartCtx.foodProducts.price
+        foodID: '',
+        amount: '',
+        menu: '',
+        price: ''
     });
 
     const handleSubmit = async() => {
         const formData = new FormData();
-        formData.append("id", formValue.id)
-        formData.append("menu", formValue.menu)
+        formData.append("id", formValue.foodID)
         formData.append("amount", formValue.amount)
+        formData.append("menu", formValue.menu)
         formData.append("price", formValue.price)
 
         try {
@@ -46,7 +46,7 @@ const Test = () => {
             <p>Order Form</p>
             <input
                 type="number"
-                name="id"
+                name="foodID"
                 placeholder="enter an id"
                 value={formValue.id}
                 onChange={handleChange}
