@@ -17,8 +17,8 @@ public class LoginService {
     public String helloWorld() {
         return "Hello World";
     }
-    @POST
     @Path("login")
+    @POST
     public String postLoginData(LoginData login) throws NotAuthorizedException
     {
         if (login!=null){
