@@ -33,6 +33,7 @@ function LoginPage() {
             })
         })
         if (token != null) {
+            console.log(token)
             setIsSubmitted(true);
             //setting tokenStore states, and saving token
             tokenStore.token = token
