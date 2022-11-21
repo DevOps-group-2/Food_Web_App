@@ -9,19 +9,22 @@ import AdminDashboard from "./adminDashboard/dashboard/components/AdminDashboard
 import AboutUsPage from "./client/pages/aboutPage/AboutUsPage"
 import ContactPage from "./client/pages/contactPage/ContactPage";
 import Home from "./client/pages/homePage/Home";
-import Test from "./client/components/placeOrder/Test";
+import TestForm from "./client/pages/customerForm/final/TestForm";
+
 
 function App() {
     return (
         <>
-            <Test />
-            {/*
+
             <NavigationBar></NavigationBar>
             <div>
                 <Routes>
                     <Route path={"/"} element={<Home/>}/>
                     <Route path={"/order"} element={<PlaceOrder/>}/>
-                    <Route path={"/form"} element={<CustomerForm/>}/>
+                    <Route path={"form"} element={<TestForm/>}/>
+
+                    <Route path={"form2"} element={<CustomerForm/>}/>
+
                     <Route path={"/pay"} element={<Pay/>}/>
                     <Route path={"/contact"} element={<ContactPage/>}/>
                     <Route path={"/about"} element={<AboutUsPage/>}/>
@@ -29,7 +32,7 @@ function App() {
                     <Route path={"/admin"} element={<AdminDashboard/>}/>
             </Routes>
             </div>
-            */}
+
         </>
     );
 }

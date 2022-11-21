@@ -1,6 +1,7 @@
 package dal;
 
 import model.Order;
+import model.CustomerData;
 import model.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -12,6 +13,7 @@ public class HibernateController {//Should be a singleton…
         Configuration configuration = new Configuration(); //NB org.hibernate.cfg.Configuration
         configuration.addAnnotatedClass(User.class); //remember to do this for all DB entities
         configuration.addAnnotatedClass(Order.class); //remember to do this for all DB entities
+        configuration.addAnnotatedClass(CustomerData.class);
         configuration.setProperty("hibernate.connection.username", System.getenv("devopse22user"));
         configuration.setProperty("hibernate.connection.password", System.getenv("devopse22pass"));
         configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://" + dbUrl);

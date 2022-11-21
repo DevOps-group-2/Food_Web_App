@@ -14,6 +14,8 @@ class Pay extends Component{
                     currency={"dkk"}
                     name={"Information"}
                 />
+
+                <h1>Hello there</h1>
             </div>
 
         );

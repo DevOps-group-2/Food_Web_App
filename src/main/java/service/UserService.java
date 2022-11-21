@@ -31,5 +31,6 @@ public class UserService {
         List<User> data = session.createQuery(query).getResultList();
         return data;
     }
+
 }
 

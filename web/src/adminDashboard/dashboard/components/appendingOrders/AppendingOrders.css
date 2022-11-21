@@ -47,17 +47,11 @@
     width: fit-content;
 }
 
-.Preparing{
-    background-color: #e5dcb2;
+.Accept{
+    background-color: #c5e5b2;
  }
 
-.Done{
-    background-color: #ceface;
-}
-.Pending{
-    background-color: #b0c9ea;
-}
 
-.Denied{
+.Reject{
     background-color: #efbaba;
 }
