@@ -60,7 +60,7 @@ const Basket = (props) => {
 
     const submitOrderHandler = async () => {
         setIsSending(true);
-        console.log(cartCtx.foodProducts)
+        console.log(cartCtx.foodProducts.menu)
         let response = await fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
             "headers": {
                 'Accept': 'application/json',
