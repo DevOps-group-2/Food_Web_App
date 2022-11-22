@@ -110,7 +110,7 @@ const Basket = (props) => {
             "headers" : {
                 'Content-Type': 'application/json'
             },
-            mode : "no-cors",
+            //mode : "no-cors",
             "method": "POST",
             "body": JSON.stringify({
                 /*amount : 1,
@@ -120,20 +120,17 @@ const Basket = (props) => {
                 /*id : foodProduct.id,
                 menu : foodProduct.menu,
                 price : foodProduct.price,
-                time : foodProduct.time,
                 amount : foodProduct.amount,*/
                 /*id : contextOfBasket.foodProducts.id,
                 menu : contextOfBasket.foodProducts.menu,
                 price : contextOfBasket.foodProducts.price,
-                time : contextOfBasket.foodProducts.time,
-                amount : contextOfBasket.foodProducts.amount,*/
+                amount : contextOfBasket.foodProducts.amount*/
                 orderedFoodProducts: contextOfBasket.foodProducts
             })
         })
         if (token != null) {
             setIsSending(false);
             setDidSend(true);
-            console.log("API worked!");
         } else {
             setErrorMessage({name: "invalid..."});
             renderErrorMessage()

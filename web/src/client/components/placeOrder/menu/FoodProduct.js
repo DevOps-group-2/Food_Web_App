@@ -14,7 +14,6 @@ const FoodProduct = (props) => {
       id: props.id,
       menu: props.menu,
       price: props.price,
-      time: props.time,
       amount: amount
     });
   };
@@ -26,7 +25,6 @@ const FoodProduct = (props) => {
        <h2> {props.menu} </h2>
        <div className={css.info}> {props.info} </div>
        <>{"\u00a0"}
-       <div className={css.time}> {props.time} </div>
        </>
        <>{"\u00a0"}
        <div className={css.price}> {price} DKK</div>

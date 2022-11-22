@@ -19,7 +19,6 @@ const BuyableFoodProducts = () => {
             id: key,
             menu: foodProducts[key].menu,
             info: foodProducts[key].info,
-            time: foodProducts[key].time,
             price: foodProducts[key].price,
           });
         }
@@ -37,7 +36,6 @@ const BuyableFoodProducts = () => {
                 key={val.id}
                 menu={val.menu}
                 info={val.info}
-                time={val.time}
                 price={val.price}
             />
         );

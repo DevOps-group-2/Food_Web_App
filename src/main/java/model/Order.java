@@ -2,6 +2,7 @@ package model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import java.util.List;
 
@@ -14,32 +15,42 @@ import java.util.List;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class Order {
-    @Id @GeneratedValue
-    private int idValue;
 
-    @ElementCollection()
-    @CollectionTable(name="orderedFoodProducts")
-    @Column(name="id")
-    private List<String> id;
-    @ElementCollection()
+    @Id @GeneratedValue
+    @Column
+    private int id;
+
+    @OneToMany(mappedBy="order")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private List<Items> orderedFoodProducts;
+
+    /*private String id;
+    private String menu;
+    private int price;
+    private int amount;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Order> orderedFoodProducts = new ArrayList<>();
+*/
+    //@ElementCollection()
+    //private List<String> orderedFoodProducts;
+
+
+
+    /*@ElementCollection()
     @CollectionTable(name="orderedFoodProducts")
     @Column(name="menu")
-    private List<String> menu;
+    private List<String> orderedFoodProducts;
     @CollectionTable(name="orderedFoodProducts")
     @Column(name="price")
     private int price;
     @CollectionTable(name="orderedFoodProducts")
-    @Column(name="time")
-    private String time;
-    @CollectionTable(name="orderedFoodProducts")
     @Column(name="amount")
-    private int amount;
-
-  /*  private String id;
-    private String menu;
-    private int price;
-    private String time;
     private int amount;*/
+
 
     /*@ElementCollection
     @CollectionTable(

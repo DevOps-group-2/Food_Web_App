@@ -1,5 +1,6 @@
 package dal;
 
+import model.Items;
 import model.Order;
 import model.CustomerData;
 import model.User;
@@ -10,7 +11,8 @@ import org.hibernate.cfg.Configuration;
 public class HibernateController {//Should be a singleton…
     private final SessionFactory sessionFactory;
     public HibernateController(String dbUrl){
-        Configuration configuration = new Configuration(); //NB org.hibernate.cfg.Configuration
+        Configuration configuration = new Configuration();
+        configuration.addAnnotatedClass(Items.class);//NB org.hibernate.cfg.Configuration
         configuration.addAnnotatedClass(User.class); //remember to do this for all DB entities
         configuration.addAnnotatedClass(Order.class); //remember to do this for all DB entities
         configuration.addAnnotatedClass(CustomerData.class);
