@@ -60,15 +60,16 @@ const Basket = (props) => {
 
     const submitOrderHandler = async () => {
         setIsSending(true);
-        console.log(cartCtx.foodProducts)
-        console.log(cartCtx.foodProducts.values())
+        console.log(cartCtx.foodProducts.indexOf(0))
+
         let response = await fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
             "headers": {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }, method: 'POST',
             body: JSON.stringify({
-                orderedFoodProducts: cartCtx.foodProducts.values()
+                //note that the map is just one value, sould fix later if time
+                orderedFoodProducts: cartCtx.foodProducts.indexOf(0)
             })
         });
         setIsSending(false);
