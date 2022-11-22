@@ -3,9 +3,8 @@
 import React, {Component, useState} from 'react';
 import axios from 'axios';
 
-
-
 class TestForm extends Component {
+
 
     constructor(props) {
         super(props);
@@ -14,11 +13,11 @@ class TestForm extends Component {
             email: '',
             name: '',
             number: '',
-            time: '',
+            date: '',
             data: [],
         };
-    }
 
+    }
 
     handleInputChange = event => {
         this.setState({
@@ -29,48 +28,26 @@ class TestForm extends Component {
     handleSubmit = event => {
         event.preventDefault();
 
-        const {email, name, number, time} = this.state;
+        const {email, name, number, date} = this.state;
 
         const customerData = {
             email,
             name,
             number,
-            time
+            date
         };
 
         axios
             .post('http://localhost:8080/api/data', customerData)
-            .then(() => console.log('Book Created'),
+            .then(() => console.log('data created'),
 
                 //this.callAPI()
 
     )
-
-
     .catch(err => {
             console.error(err);
         });
-
     };
-
-    // bruges ikke
-    /*
-    callAPI()
-    {
-        //API request
-        axios.get("http://localhost:8080/api/data").then(response => {
-
-            //getting and setting api data into variable
-
-            this.setState({ data : response.data });
-
-        })
-    }
-
-     */
-
-
-
 
     render() {
 
@@ -106,34 +83,16 @@ class TestForm extends Component {
                             />
                         </div>
 
-                        {/*
                         <div>
-                                <select name="time" type="time" onChange={this.handleInputChange}
-                                        value={this.state.value} min={'13'}>
-                                    <option value="">--Please pick an available time--</option>
-
-                                    <option value={15.00}>15:00</option>
-                                    <option value={15.30}>15:30</option>
-                                    <option value={15.45}>15:45</option>
-                                </select>
-                            </div>
-                            */}
-
-
-                        <div>
-                            <input type={"datetime-local"}/>
-                            { /*when user write in name input box , handleChange() function will be called. */}
-                            <select id = "time" class="form-control" data-val="true" data-val="required" name="time">
-                                <option value="">--Please pick an available time--</option>
-                                <option>19:30</option>
-                                <option>19:40</option>
-                                <option>19:50</option>
-                            </select>
+                        <input
+                            name="date" type="datetime-local"
+                            min={new Date().toISOString().slice(0, -8)}
+                            onChange={this.handleInputChange}
+                        />
                         </div>
                         <button type="submit">
                             Submit information
                         </button>
-
                     </form>
                 </div>
             </div>
