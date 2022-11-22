@@ -7,20 +7,18 @@ function PayWrapper(){
 
     if (buttonClicked) {
         //return <Navigate to={"/pay"}/>
-
-        const data = {
-            email: "unknownemail@gmail.com",
-            address: "København",
+        const customer = {
             name: "My Name",
+            id: "1234aAbB1234",
+            emil: "unknownemail@gmail.com",
             productPrice: 20 * 100
         }
+
         return (
             <div>
-                <Pay>{data}</Pay>
+                <Pay>{customer}</Pay>
             </div>
         );
-
-
     }
 
     return(
@@ -40,10 +38,6 @@ function PayWrapper(){
     }
 
 }
-
-
-
-
 
 
 
