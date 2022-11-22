@@ -18,6 +18,8 @@ function Pay(props) {
 
     return (
         <div>
+            <h1></h1>
+            <h1></h1>
             <StripeCheckout
                 token={handleToken}
                 stripeKey={"pk_test_51Ll7jrJEhBAUpm4shjFR2nezg1jK24pK7XdcovEOeogK4m2HZDdsQITlPVeXromKZoZjHrJO8iWlKhkrDyuOXy8Q00Fv9OdcdE"}

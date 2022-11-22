@@ -1,5 +1,4 @@
 import React from "react";
-import {Navigate} from "react-router-dom";
 import Pay from "./Pay";
 
 
@@ -7,7 +6,7 @@ function PayWrapper(){
     const [buttonClicked, setButtonClicked] = React.useState(false);
 
     if (buttonClicked) {
-        /*return <Navigate to={"/pay"}/>*/
+        //return <Navigate to={"/pay"}/>
 
         const data = {
             email: "unknownemail@gmail.com",
@@ -20,6 +19,8 @@ function PayWrapper(){
                 <Pay>{data}</Pay>
             </div>
         );
+
+
     }
 
     return(
@@ -34,7 +35,7 @@ function PayWrapper(){
     );
 
     function handleSubmit(e) {
-        console.log('You clicked submit.');
+        console.log('You clicked');
         setButtonClicked(true);
     }
 

@@ -27,7 +27,9 @@ function App() {
 
                     <Route path={"form2"} element={<CustomerForm/>}/>
                     <Route path={"/pay2"} element={<PayWrapper/>}/>
-                    <Route path={"/pay"} element={<Pay/>}/>
+{/*
+                    <Route path={"/pay"} element={<Pay></Pay>}/>
+*/}
                     <Route path={"/contact"} element={<ContactPage/>}/>
                     <Route path={"/about"} element={<AboutUsPage/>}/>
                     <Route path={"/login"} element= {<LoginPage/>}/>
