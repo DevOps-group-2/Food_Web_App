@@ -58,17 +58,18 @@ const Basket = (props) => {
         setDisplayBasket(true);
     }
 
-    const submitOrderHandler = () => {
+    const submitOrderHandler = async () => {
         setIsSending(true);
-        fetch('http://localhost:8080/api/orders', {
-        //fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
-            method: 'POST',
+        let response = await fetch('food-webapp.grp2.diplomportal.dk/api/orders', {
+            //fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
+            "headers": {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }, method: 'POST',
             body: JSON.stringify({
                 orderedFoodProducts: cartCtx.foodProducts
             })
         });
-        setIsSending(false);
-        setDidSend(true);
         //cartCtx.clearCart();
     };
 
