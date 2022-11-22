@@ -8,7 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.criteria.JpaCriteriaQuery;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,9 +17,10 @@ public class OrderService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
     @POST
-    public int createOrder(Order order) {
+    public String createOrder(Order order) {
         Session session = sessionFactory.openSession();
         session.persist(order);
+
        return order.getId();
     }
 

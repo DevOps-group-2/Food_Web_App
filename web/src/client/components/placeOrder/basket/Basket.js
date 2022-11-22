@@ -66,6 +66,7 @@ const Basket = (props) => {
                 'Content-Type': 'application/json'
             }, method: 'POST',
             body: JSON.stringify({
+                id: '1',
                 orderedFoodProducts: cartCtx.foodProducts
             })
         });
