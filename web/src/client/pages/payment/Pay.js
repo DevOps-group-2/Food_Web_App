@@ -27,7 +27,7 @@ const baseUrl = process.env.NODE_ENV === 'development' ?  "http://localhost:8080
 
 const handleToken = (token) => {
     // TODO
-    fetch(baseUrl + "api/stripe/webhook", {
+    fetch(baseUrl + "api/stripe/pay", {
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify({
@@ -35,7 +35,7 @@ const handleToken = (token) => {
             name: data.name,
             customerId: data.id,
             amount: data.amount,
-            tokenIId: token.id
+            tokenId: token.id
         }),
         credentials: "same-origin"
     }).then(function(response) {
@@ -46,7 +46,7 @@ const handleToken = (token) => {
         }
         response.json().then(r => console.log(r))
         console.log(response)
-        return response.text()
+        //return response.text()
 
     }, function(error) {
         alert('Payment failed')
