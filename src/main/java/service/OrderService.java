@@ -24,7 +24,7 @@ public class OrderService {
         Transaction transaction = session.beginTransaction();
         session.persist(order);
         transaction.commit();
-        return Response.ok(order.getId()).build();
+        return Response.ok(order.getIdValue()).build();
     }
 
     @GET

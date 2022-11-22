@@ -5,10 +5,10 @@ import BasketBox from '../layout/BasketBox';
 import ContextOfBasket from './Context';
 import BasketProduct from './BasketProduct';
 import CustomerForm from "../../../pages/customerForm/CustomerForm";
-import Context from "./Context";
 import ConfirmSendOrder from "./ConfirmSendOrder";
 import axios from "axios";
 import {tokenStore} from "../../../stores/TokenStore";
+import foodProduct from "../menu/FoodProduct";
 
 const myComponent = {
     width: '800px',
@@ -26,8 +26,6 @@ function CompletedPage() {
 
 
 const Basket = (props) => {
-
-    const cartCtx = useContext(Context);
     const [isSending, setIsSending] = useState(false);
     const [didSend, setDidSend] = useState(false);
 
@@ -38,14 +36,15 @@ const Basket = (props) => {
             contextOfBasket.removeProduct(id);
         }, basketAdd = (item) => {
             contextOfBasket.addProduct({...item, amount: 1});
-        }, hasProducts = contextOfBasket.foodProducts.length > 0, basketProducts = (
-            <ul className={css['basket-products']}> {contextOfBasket.foodProducts.map((data) => (
-                <BasketProduct key={data.id}
-                               menu={data.menu}
-                               amount={data.amount}
-                               price={data.price}
-                               onRemove={basketRemove.bind(null, data.id)}
-                               onAdd={basketAdd.bind(null, data)}
+        }, hasProducts = contextOfBasket.foodProducts.length > 0,
+        basketProducts = (
+            <ul className={css['basket-products']}> {contextOfBasket.foodProducts.map((item) => (
+                <BasketProduct key={item.id}
+                               menu={item.menu}
+                               amount={item.amount}
+                               price={item.price}
+                               onRemove={basketRemove.bind(null, item.id)}
+                               onAdd={basketAdd.bind(null, item)}
                 />
             ))}
             </ul>
@@ -83,27 +82,58 @@ const Basket = (props) => {
 */
     const [errorMessage, setErrorMessage] = useState({});
 
+    /*const submitOrderHandler = event => {
+
+        const orderData = {
+            amount : ContextOfBasket.foodProducts,
+            foodID : ContextOfBasket.foodProducts,
+            menu : ContextOfBasket.foodProducts,
+            price : ContextOfBasket.foodProducts
+        };
+
+        axios
+            .post('http://localhost:8080/api/orders', orderData)
+            .then(() => console.log('Book Created'),
+            )
+
+            .catch(err => {
+                console.error(err);
+            });
+
+    };*/
+
     const submitOrderHandler = async (event) => {
-        //e.preventDefault();
+        console.log(contextOfBasket.foodProducts);
+        //event.preventDefault();
         //console.log(data);
         let token = await fetch("http://localhost:8080/api/orders", {
             "headers" : {
-                'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            mode: "no-cors",
+            mode : "no-cors",
             "method": "POST",
             "body": JSON.stringify({
-                amount : cartCtx.foodProducts.amount,
-                foodID : cartCtx.foodProducts.id,
-                menu : cartCtx.foodProducts.menu,
-                price : cartCtx.foodProducts.price
-                //orderedFoodProducts: cartCtx.foodProducts
+                /*amount : 1,
+                foodID : "foodID",
+                menu : "menu",
+                price : 1,*/
+                /*id : foodProduct.id,
+                menu : foodProduct.menu,
+                price : foodProduct.price,
+                time : foodProduct.time,
+                amount : foodProduct.amount,*/
+                /*id : contextOfBasket.foodProducts.id,
+                menu : contextOfBasket.foodProducts.menu,
+                price : contextOfBasket.foodProducts.price,
+                time : contextOfBasket.foodProducts.time,
+                amount : contextOfBasket.foodProducts.amount,*/
+                orderedFoodProducts: contextOfBasket.foodProducts
             })
         })
         if (token != null) {
             setIsSending(false);
             setDidSend(true);
+            console.log("API worked!");
         } else {
             setErrorMessage({name: "invalid..."});
             renderErrorMessage()
@@ -115,7 +145,7 @@ const Basket = (props) => {
             <div className="error">{errorMessage.message}</div>
         );
 
-    const submitOrderHandlerOLD = async () => {
+   /* const submitOrderHandlerOLD = async () => {
         setIsSending(true);
         let data = await fetch('http://localhost:8080/api/orders', {
         //fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
@@ -126,17 +156,17 @@ const Basket = (props) => {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                "id" : cartCtx.foodProducts.id,
-                "menu" : cartCtx.foodProducts.menu,
-                "amount" : cartCtx.foodProducts.amount,
-                "price" : cartCtx.foodProducts.price
+                "id" : ContextOfBasket.foodProducts.id,
+                "menu" : ContextOfBasket.foodProducts.menu,
+                "amount" : ContextOfBasket.foodProducts.amount,
+                "price" : ContextOfBasket.foodProducts.price
                 //orderedFoodProducts: cartCtx.foodProducts
             })
         });
         setIsSending(false);
         setDidSend(true);
         //cartCtx.clearCart();
-    };
+    };*/
 
     const basketBoxHandler = (
         <div className={css.styles}>
