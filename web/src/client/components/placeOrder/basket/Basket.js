@@ -58,6 +58,7 @@ const Basket = (props) => {
         setDisplayBasket(true);
     }
 
+<<<<<<< HEAD
    /* const submitOrderHandler = async () => {
         axios({
             method: "post",
@@ -146,10 +147,25 @@ const Basket = (props) => {
                 "amount" : ContextOfBasket.foodProducts.amount,
                 "price" : ContextOfBasket.foodProducts.price
                 //orderedFoodProducts: cartCtx.foodProducts
+=======
+    const submitOrderHandler = async () => {
+        setIsSending(true);
+        console.log(cartCtx.foodProducts.indexOf(0))
+
+        let response = await fetch('https://food-webapp.grp2.diplomportal.dk/api/auth/sendOrder', {
+            "headers": {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }, method: 'POST',
+            body: JSON.stringify({
+                //note that the values arent given correct. this is just some dummy data
+                orderedFoodProducts: 'food'
+>>>>>>> Dev
             })
         });
         setIsSending(false);
         setDidSend(true);
+        console.log(response.text())
         //cartCtx.clearCart();
     };*/
 

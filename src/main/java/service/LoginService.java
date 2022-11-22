@@ -17,14 +17,17 @@ public class LoginService {
     public String helloWorld() {
         return "Hello World";
     }
-    @POST
     @Path("login")
+    @POST
     public String postLoginData(LoginData login) throws NotAuthorizedException
     {
-        if (login!=null && "admin".equals(login.getUsername()) && BCrypt.hashpw("password", "$2a$10$CwTycUXWue0Thq9StjUM0u").equals(login.getPassword())){
-            return JWTHandler.generateJwtToken(new User(login.getUsername(), ""));
+        if (login!=null){
+            if("admin".equals(login.getUsername()) && BCrypt.hashpw("password", "$2a$10$CwTycUXWue0Thq9StjUM0u").equals(login.getPassword()) ){
+            return JWTHandler.generateJwtToken(new User(login.getUsername(), login.getPassword()));
+            }
         }
-        return null;
+
+        return "";
     }
 }
 
