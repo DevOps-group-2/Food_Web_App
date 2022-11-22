@@ -68,8 +68,8 @@ const Basket = (props) => {
                 'Content-Type': 'application/json'
             }, method: 'POST',
             body: JSON.stringify({
-                //note that the map is just one value, sould fix later if time
-                orderedFoodProducts: cartCtx.foodProducts.indexOf(0)
+                //note that the values arent given correct. this is just some dummy data
+                orderedFoodProducts: 'food'
             })
         });
         setIsSending(false);
