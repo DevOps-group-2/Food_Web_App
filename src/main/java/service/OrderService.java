@@ -4,6 +4,7 @@ import dal.HibernateController;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import model.Order;
+import model.OrderDTO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.criteria.JpaCriteriaQuery;
@@ -17,11 +18,11 @@ public class OrderService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
     @POST
-    public String createOrder(Order order) {
+    public String createOrder(OrderDTO order) {
         Session session = sessionFactory.openSession();
         session.persist(order);
 
-       return order.getId();
+       return order.getOrderedFoodProducts();
     }
 
     @Path("orders")
