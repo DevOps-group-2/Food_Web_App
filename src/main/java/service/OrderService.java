@@ -11,7 +11,8 @@ import org.hibernate.query.criteria.JpaCriteriaQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-@Path("orders")
+
+@Path("auth")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class OrderService {
@@ -24,7 +25,7 @@ public class OrderService {
        return order.getId();
     }
 
-
+    @Path("orders")
     @GET
     public List<Order> getOrders() {
         Session session = sessionFactory.openSession();

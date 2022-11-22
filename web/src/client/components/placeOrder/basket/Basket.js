@@ -60,8 +60,7 @@ const Basket = (props) => {
 
     const submitOrderHandler = async () => {
         setIsSending(true);
-        let response = await fetch('food-webapp.grp2.diplomportal.dk/api/orders', {
-            //fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
+        let response = await fetch('https://food-webapp.grp2.diplomportal.dk/api/auth/orders', {
             "headers": {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
