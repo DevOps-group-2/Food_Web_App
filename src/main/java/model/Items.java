@@ -12,7 +12,7 @@ import java.util.UUID;
 @ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
-@Table(name="DBItemss") //!!WATCH out this is a reserved name!
+@Table(name="DBItems") //!!WATCH out this is a reserved name!
 public class Items {
 
     @Id
