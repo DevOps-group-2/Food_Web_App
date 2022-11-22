@@ -17,7 +17,7 @@ import java.util.List;
 public class OrderService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
-    @Path("sendOrders")
+    @Path("sendOrder")
     @POST
     public String createOrder(OrderDTO order) {
         Session session = sessionFactory.openSession();
