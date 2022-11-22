@@ -17,7 +17,6 @@ import java.util.List;
 public class Order {
 
     @Id @GeneratedValue
-    @Column
     private int id;
 
     @OneToMany(mappedBy="order")

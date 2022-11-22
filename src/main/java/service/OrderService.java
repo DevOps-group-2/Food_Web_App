@@ -13,20 +13,33 @@ import java.util.List;
 
 @Produces(MediaType.APPLICATION_JSON)
 //@Consumes(MediaType.APPLICATION_JSON)
-@Path("orders")
+@Path("dataorders")
 public class OrderService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createOrder(List<Order> order){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.persist(order);
+        transaction.commit();
+        return Response.ok(getOrders()).build();
+    }
+
+    /*
+    *   @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createOrder(Order order){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.persist(order);
         transaction.commit();
+        Transaction readTransaction = session.beginTransaction();
+        readTransaction.commit();
         session.close();
         return Response.ok(getOrders()).build();
-    }
+    }*/
 
     @GET
     public List<Order> getOrders() {
@@ -37,4 +50,3 @@ public class OrderService {
         return data;
     }
 }
-

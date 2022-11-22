@@ -17,8 +17,7 @@ public class Items {
 
     @Id
     @Column(name="id")
-    private String id;
-    //private String id = UUID.randomUUID().toString();
+    private String id = UUID.randomUUID().toString();
 
     @Column(name="menu")
     private String menu;

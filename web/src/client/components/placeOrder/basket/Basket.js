@@ -106,7 +106,7 @@ const Basket = (props) => {
         console.log(contextOfBasket.foodProducts);
         //event.preventDefault();
         //console.log(data);
-        let token = await fetch("http://localhost:8080/api/orders", {
+        let token = await fetch("http://localhost:8080/api/orderss", {
             "headers" : {
                 'Content-Type': 'application/json'
             },
