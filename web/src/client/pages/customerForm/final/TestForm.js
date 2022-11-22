@@ -121,7 +121,7 @@ class TestForm extends Component {
 
 
                         <div>
-                            <input type={"time"}/>
+                            <input type={"datetime-local"}/>
                             { /*when user write in name input box , handleChange() function will be called. */}
                             <select id = "time" class="form-control" data-val="true" data-val="required" name="time">
                                 <option value="">--Please pick an available time--</option>
