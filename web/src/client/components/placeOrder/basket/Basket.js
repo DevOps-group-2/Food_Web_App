@@ -67,7 +67,7 @@ const Basket = (props) => {
                 'Content-Type': 'application/json'
             }, method: 'POST',
             body: JSON.stringify({
-                orderedFoodProducts: cartCtx.foodProducts
+                orderedFoodProducts: cartCtx.foodProducts.menu
             })
         });
         setIsSending(false);
