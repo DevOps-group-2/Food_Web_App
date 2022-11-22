@@ -18,7 +18,7 @@ public class OrderService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
     @POST
-    @Path("createOrder")
+    //@Path("createOrder")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createOrder(Order order){
         Session session = sessionFactory.openSession();

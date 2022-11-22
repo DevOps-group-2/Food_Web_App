@@ -106,13 +106,16 @@ const Basket = (props) => {
         console.log(contextOfBasket.foodProducts);
         //event.preventDefault();
         //console.log(data);
-        let token = await fetch("http://localhost:8080/api/orderss/createOrder", {
+        let token = await fetch("http://localhost:8080/api/orderss", {
             headers : {
                 'Content-Type': 'application/json'},
             //mode : "no-cors",
             method: "POST",
             body: JSON.stringify({orderedFoodProducts: contextOfBasket.foodProducts})
         })
+        /*.then(function(response){
+            repsonse.json().then
+        })*/
         if (token != null) {
             setIsSending(false);
             setDidSend(true);
