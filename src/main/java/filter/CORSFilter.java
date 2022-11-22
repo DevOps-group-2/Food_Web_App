@@ -50,7 +50,6 @@ public class CORSFilter implements ContainerRequestFilter {
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Expose-Headers", "Authorization");
         response.setHeader("encoding", "utf-8");
-
     }
 }
 

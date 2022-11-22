@@ -53,8 +53,14 @@ public class Test {
         readTransaction.commit();
         session.close();
     }
-    /*
+
+    @org.junit.Test
     public void testCreate2(){
+        HibernateController hibernateController =
+                new HibernateController(HOST);
+        SessionFactory sessionFactory = hibernateController.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
         CustomerData customerData = new CustomerData();
         System.out.println("UserID before commit: " + customerData.getId());
         customerData.setEmail("usernametest@");
@@ -67,7 +73,27 @@ public class Test {
         readTransaction.commit();
         session.close();
     }
+
+    @org.junit.Test
+    public void testQuestion(){
+        HibernateController hibernateController =
+                new HibernateController(HOST);
+        SessionFactory sessionFactory = hibernateController.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Question question = new Question();
+        System.out.println("Question ID before commit: " + question.getId());
+        question.setEmail("test@mail.com");
+        session.persist(question);
+        transaction.commit();
+        System.out.println("Question ID after commit: " + question.getId());
+        Transaction readTransaction = session.beginTransaction();
+        Question readQuestion = session.get(Question.class, question.getId());
+        System.out.println("Read quesiton back: " + readQuestion.toString());
+        readTransaction.commit();
+        session.close();
+    }
     
-     */
+
 
 }
