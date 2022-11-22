@@ -69,6 +69,8 @@ const Basket = (props) => {
                 orderedFoodProducts: cartCtx.foodProducts
             })
         });
+        setIsSending(false);
+        setDidSend(true);
         //cartCtx.clearCart();
     };
 
