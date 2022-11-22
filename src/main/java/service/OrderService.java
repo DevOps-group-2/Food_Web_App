@@ -12,14 +12,15 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 @Produces(MediaType.APPLICATION_JSON)
-//@Consumes(MediaType.APPLICATION_JSON)
-@Path("orders")
+@Consumes(MediaType.APPLICATION_JSON)
+@Path("orderss")
 public class OrderService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
     @POST
+    @Path("createOrder")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response createOrder(List<Order> order){
+    public Response createOrder(Order order){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.persist(order);

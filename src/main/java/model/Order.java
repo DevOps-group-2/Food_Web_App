@@ -7,7 +7,7 @@ import org.hibernate.annotations.Cascade;
 import java.util.List;
 
 @Entity
-@Table(name="DBOrder") //!!WATCH out this is a reserved name!
+@Table(name="DBOrders") //!!WATCH out this is a reserved name!
 @Getter
 @Setter
 @Builder
@@ -17,10 +17,11 @@ import java.util.List;
 public class Order {
 
     @Id @GeneratedValue
+    @Column
     private int id;
 
     @OneToMany(mappedBy="order")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    //@Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Items> orderedFoodProducts;
 
     /*private String id;
