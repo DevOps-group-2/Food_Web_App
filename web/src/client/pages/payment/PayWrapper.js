@@ -1,14 +1,25 @@
 import React from "react";
 import {Navigate} from "react-router-dom";
-
-
+import Pay from "./Pay";
 
 
 function PayWrapper(){
     const [buttonClicked, setButtonClicked] = React.useState(false);
 
     if (buttonClicked) {
-        return <Navigate to={"/pay"}/>
+        /*return <Navigate to={"/pay"}/>*/
+
+        const data = {
+            email: "unknownemail@gmail.com",
+            address: "København",
+            name: "My Name",
+            productPrice: 20 * 100
+        }
+        return (
+            <div>
+                <Pay>{data}</Pay>
+            </div>
+        );
     }
 
     return(
@@ -22,7 +33,7 @@ function PayWrapper(){
         </div>
     );
 
-    function handleSubmit() {
+    function handleSubmit(e) {
         console.log('You clicked submit.');
         setButtonClicked(true);
     }

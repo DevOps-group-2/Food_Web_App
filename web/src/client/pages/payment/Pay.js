@@ -2,17 +2,31 @@ import React, {Component} from "react";
 import StripeCheckout from "react-stripe-checkout";
 
 
-function Pay() {
+/*let price, productName;
+export const data = {
+    price,
+    productName
+}*/
+
+
+
+function Pay(props) {
+
+    console.log("From Pay ")
+    console.log(props.children.name)
+    console.log(props.children.productPrice)
+
     return (
         <div>
             <StripeCheckout
                 token={handleToken}
                 stripeKey={"pk_test_51Ll7jrJEhBAUpm4shjFR2nezg1jK24pK7XdcovEOeogK4m2HZDdsQITlPVeXromKZoZjHrJO8iWlKhkrDyuOXy8Q00Fv9OdcdE"}
-                billingAddress
-                shippingAddress
-                amount={stripePrice}
-                currency={"dkk"}
-                name={"non"}
+                billingAddress={false}
+                shippingAddress={false}
+                email={props.children.email}
+                amount={props.children.productPrice}
+                currency={"DKK"}
+                name={props.children.name}
             />
         </div>
 
