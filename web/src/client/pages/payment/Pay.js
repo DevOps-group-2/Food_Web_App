@@ -14,7 +14,7 @@ function Pay(props) {
                 billingAddress={false}
                 shippingAddress={false}
                 email={props.children.email}
-                amount={props.children.productPrice}
+                amount={props.children.amount}
                 currency={"DKK"}
                 name={props.children.name}
             />
@@ -34,7 +34,7 @@ const handleToken = (token) => {
             email: data.email,
             name: data.name,
             customerId: data.id,
-            price: data.productPrice,
+            amount: data.amount,
             tokenId: token.id
         }),
         credentials: "same-origin"

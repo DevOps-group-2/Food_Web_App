@@ -25,11 +25,10 @@ public class CheckoutResource {
     @POST
     @Path(("webhook"))
     public String submitPayment(Payment payment) {
-        System.out.println("HER");
         // TODO: create an env file to save stripe key
         Stripe.apiKey = "sk_test_51Ll7jrJEhBAUpm4sHtsg9Z42vInZmUbNpEEQp9E3qCFTGXIPid4d2viPZRC7HDS1VmYJFP1hz4zkAybr27M98oRM00MJssGfbp";
         Map<String, Object> params = new HashMap<>();
-        params.put("amount", payment.price);
+        params.put("amount", payment.amount);
         params.put("currency", "dkk");
         params.put("description", "Example charge");
         params.put("source", payment.tokenId);

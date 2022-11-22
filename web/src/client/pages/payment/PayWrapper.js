@@ -11,7 +11,7 @@ function PayWrapper(){
             name: "My Name",
             id: "1234aAbB1234",
             email: "unknownemail@gmail.com",
-            productPrice: 20 * 100
+            amount: 20 * 100
         }
 
         return (
@@ -32,7 +32,7 @@ function PayWrapper(){
         </div>
     );
 
-    function handleSubmit(e) {
+    function handleSubmit() {
         console.log('You clicked');
         setButtonClicked(true);
     }
