@@ -35,16 +35,21 @@ const handleToken = (token) => {
             name: data.name,
             customerId: data.id,
             amount: data.amount,
-            tokenId: token.id
+            tokenIId: token.id
         }),
         credentials: "same-origin"
     }).then(function(response) {
+        if (response.ok) {
+            alert('Payment success')
+        } else {
+            alert('Payment failed')
+        }
         response.json().then(r => console.log(r))
         console.log(response)
-        alert('payment success' + {response})
         return response.text()
+
     }, function(error) {
-        alert('Payment failed' + {error})
+        alert('Payment failed')
         console.log(error.message) ;
     })
 

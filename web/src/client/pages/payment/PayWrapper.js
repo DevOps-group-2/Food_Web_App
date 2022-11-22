@@ -33,7 +33,6 @@ function PayWrapper(){
     );
 
     function handleSubmit() {
-        console.log('You clicked');
         setButtonClicked(true);
     }
 
