@@ -1,5 +1,7 @@
-import React, from "react";
+import React from "react";
 import {Navigate} from "react-router-dom";
+
+
 
 
 function PayWrapper(){
@@ -11,8 +13,11 @@ function PayWrapper(){
 
     return(
         <div>
+            <h2>This is a temporary payment button</h2>
+            <h2>Click the button to go to payment page</h2>
+
             <form onSubmit={handleSubmit}>
-                <button type="submit">Submit</button>
+                <button type="">Click here</button>
             </form>
         </div>
     );
