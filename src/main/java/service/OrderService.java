@@ -23,7 +23,7 @@ public class OrderService {
         Session session = sessionFactory.openSession();
         session.persist(order);
 
-       return order.getOrderedFoodProducts();
+       return "done";
     }
 
     @Path("getOrders")
