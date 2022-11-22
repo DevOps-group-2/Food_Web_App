@@ -32,7 +32,8 @@ const handleToken = (token) => {
 
     fetch(baseUrl + "api/stripe/webhook", {
         method: "POST",
-        body: token.id,
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({amount:5000,tokenId: token.id}),
         credentials: "same-origin"
     }).then(function(response) {
 
