@@ -60,14 +60,15 @@ const Basket = (props) => {
 
     const submitOrderHandler = async () => {
         setIsSending(true);
-        console.log(cartCtx.foodProducts.menu)
+        console.log(cartCtx.foodProducts)
+        console.log(cartCtx.foodProducts.values())
         let response = await fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
             "headers": {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }, method: 'POST',
             body: JSON.stringify({
-                orderedFoodProducts: cartCtx.foodProducts.menu
+                orderedFoodProducts: cartCtx.foodProducts.values()
             })
         });
         setIsSending(false);
