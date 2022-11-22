@@ -6,11 +6,11 @@ function PayWrapper(){
     const [buttonClicked, setButtonClicked] = React.useState(false);
 
     if (buttonClicked) {
-        //return <Navigate to={"/pay"}/>
+        //return <Navigate to={"/pay"}/
         const customer = {
             name: "My Name",
             id: "1234aAbB1234",
-            emil: "unknownemail@gmail.com",
+            email: "unknownemail@gmail.com",
             productPrice: 20 * 100
         }
 
