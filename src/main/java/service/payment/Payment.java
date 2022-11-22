@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class Payment {
-    public int amount;
-    public String tokenId;
+    public String email, name, customerId, tokenId;
+    public int price;
+
 }
