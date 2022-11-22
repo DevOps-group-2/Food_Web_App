@@ -17,6 +17,7 @@ import java.util.List;
 public class OrderService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
+    @Path("sendOrders")
     @POST
     public String createOrder(OrderDTO order) {
         Session session = sessionFactory.openSession();
@@ -25,7 +26,7 @@ public class OrderService {
        return order.getOrderedFoodProducts();
     }
 
-    @Path("orders")
+    @Path("getOrders")
     @GET
     public List<Order> getOrders() {
         Session session = sessionFactory.openSession();
