@@ -13,7 +13,7 @@ import java.util.List;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Path("orderss")
+@Path("orders")
 public class OrderService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 

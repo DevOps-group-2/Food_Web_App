@@ -58,7 +58,6 @@ const Basket = (props) => {
         setDisplayBasket(true);
     }
 
-<<<<<<< HEAD
    /* const submitOrderHandler = async () => {
         axios({
             method: "post",
@@ -107,7 +106,7 @@ const Basket = (props) => {
         console.log(contextOfBasket.foodProducts);
         //event.preventDefault();
         //console.log(data);
-        let token = await fetch("http://localhost:8080/api/orderss", {
+        let token = await fetch("http://localhost:8080/api/orders", {
             headers : {
                 'Content-Type': 'application/json'},
             //mode : "no-cors",
