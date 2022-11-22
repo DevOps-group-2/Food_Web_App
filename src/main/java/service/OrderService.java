@@ -11,7 +11,7 @@ import org.hibernate.query.criteria.JpaCriteriaQuery;
 
 import java.util.List;
 
-
+@Path("auth")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class OrderService {
