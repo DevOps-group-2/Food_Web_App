@@ -71,6 +71,7 @@ const Basket = (props) => {
         });
         setIsSending(false);
         setDidSend(true);
+        console.log(response.text())
         //cartCtx.clearCart();
     };
 
