@@ -3,9 +3,11 @@ package model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
+
 @Entity
 @Data
-@Table(name = "CDATA") //WATCH out  USER is a reserved name!
+@Table(name = "test") //WATCH out  USER is a reserved name!
 @Getter
 @Setter
 @Builder
@@ -24,7 +26,7 @@ public class CustomerData {
     @Column
     private int number;
     @Column
-    private double time;
-
+    static String DATE_PATTERN = "dd.MM.yyyy HH:mm:ss";
+    private Date date;
     //public CustomerData();
 }
