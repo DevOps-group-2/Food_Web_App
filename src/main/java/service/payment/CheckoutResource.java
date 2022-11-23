@@ -26,6 +26,7 @@ public class CheckoutResource {
     @POST
     @Path(("pay"))
     public Response submitPayment(Payment payment) {
+        boolean status = false;
         // TODO: create an env file to save stripe key
         Stripe.apiKey = "sk_test_51Ll7jrJEhBAUpm4sHtsg9Z42vInZmUbNpEEQp9E3qCFTGXIPid4d2viPZRC7HDS1VmYJFP1hz4zkAybr27M98oRM00MJssGfbp";
         Map<String, Object> params = new HashMap<>();
@@ -36,6 +37,7 @@ public class CheckoutResource {
         try {
             Charge.create(params);
             System.out.println("Payment success.");
+            return Response.ok().build();
         } catch (AuthenticationException e) {
             System.out.println("Error 1");
             e.printStackTrace();
@@ -49,7 +51,8 @@ public class CheckoutResource {
             System.out.println("Error 4");
             e.printStackTrace();
         }
-        return Response.ok().build();
+
+        return Response.serverError().build();
     }
 
 }
