@@ -20,7 +20,7 @@ public class Order {
     @Column
     private int id;
 
-    @OneToMany(mappedBy="order")
+    @OneToMany(mappedBy="order",cascade = CascadeType.ALL)
     //@Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Items> orderedFoodProducts;
 

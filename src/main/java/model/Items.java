@@ -1,5 +1,6 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,8 +17,9 @@ import java.util.UUID;
 public class Items {
 
     @Id
+    //@GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")
-    private String id = UUID.randomUUID().toString();
+    private String id; // = UUID.randomUUID().toString();
 
     @Column(name="menu")
     private String menu;
@@ -29,7 +31,8 @@ public class Items {
     private int amount;
 
     @ManyToOne
-    @JoinColumn(nullable=false)
+    @JoinColumn
+    @JsonIgnore
     private Order order;
 
     //Hibernate requires no-args constructor
