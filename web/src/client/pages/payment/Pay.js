@@ -44,13 +44,12 @@ const handleToken = (token) => {
         } else {
             alert('Payment failed')
         }
-        response.json().then(r => console.log(r))
         console.log(response)
-        //return response.text()
+        return response.text()
 
     }, function(error) {
         alert('Payment failed')
-        console.log(error.message) ;
+        console.log(error.message);
     })
 
 }

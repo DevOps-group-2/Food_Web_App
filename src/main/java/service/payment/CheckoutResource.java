@@ -9,6 +9,8 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +25,7 @@ public class CheckoutResource {
 
     @POST
     @Path(("pay"))
-    public void submitPayment(Payment payment) {
+    public Response submitPayment(Payment payment) {
         // TODO: create an env file to save stripe key
         Stripe.apiKey = "sk_test_51Ll7jrJEhBAUpm4sHtsg9Z42vInZmUbNpEEQp9E3qCFTGXIPid4d2viPZRC7HDS1VmYJFP1hz4zkAybr27M98oRM00MJssGfbp";
         Map<String, Object> params = new HashMap<>();
@@ -31,11 +33,9 @@ public class CheckoutResource {
         params.put("currency", "dkk");
         params.put("description", "Example charge");
         params.put("source", payment.tokenId);
-
         try {
             Charge.create(params);
             System.out.println("Payment success.");
-
         } catch (AuthenticationException e) {
             System.out.println("Error 1");
             e.printStackTrace();
@@ -49,6 +49,7 @@ public class CheckoutResource {
             System.out.println("Error 4");
             e.printStackTrace();
         }
+        return Response.ok().build();
     }
 
 }
