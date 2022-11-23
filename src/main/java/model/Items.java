@@ -29,7 +29,7 @@ public class Items {
     private int amount;
 
     @ManyToOne
-    @JoinColumn(name="item_id", nullable=false)
+    @JoinColumn(nullable=false)
     private Order order;
 
     //Hibernate requires no-args constructor
