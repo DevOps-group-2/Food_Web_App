@@ -11,13 +11,14 @@ const FoodProduct = (props) => {
 
   const addToBasket = (amount) => {
       /*Only one foodtype can be added.*/
-      if(contextOfBasket.foodProducts <= 0)
+      if(contextOfBasket.foodProducts <= 0) {
           contextOfBasket.addProduct({
               id: props.id,
               menu: props.menu,
               price: props.price,
               amount: amount
           });
+      }
   };
   
   return (
