@@ -21,8 +21,8 @@ import java.util.Map;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 
-public class CheckoutResource {
-    public CheckoutResource() {}
+public class Checkout {
+    public Checkout() {}
 
     @POST
     @Path(("pay"))
@@ -55,7 +55,7 @@ public class CheckoutResource {
 
         PaymentDal paymentDal = new PaymentDal(payment.customerId);
         if (status) {
-            paymentDal.setPaymentStatusDB(payment, status);
+            paymentDal.createCheckoutDB(payment, status);
             return Response.ok().build();
         }
 

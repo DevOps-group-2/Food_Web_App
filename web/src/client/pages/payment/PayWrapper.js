@@ -9,7 +9,7 @@ function PayWrapper(){
         //return <Navigate to={"/pay"}/
         const customer = {
             name: "My Name",
-            id: "1234aAbB1234",
+            id: Math.random(),
             email: "unknownemail@gmail.com",
             amount: 20 * 100
         }

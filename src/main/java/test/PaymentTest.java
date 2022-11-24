@@ -28,7 +28,7 @@ public class PaymentTest {
         payment.email = "zeeeeee45@gmail.com";
         payment.tokenId = "myTockenId";
         payment.name = "Customer Name";
-        paymentDal.setPaymentStatusDB(payment, false);
+        paymentDal.createCheckoutDB(payment, false);
 
 
         String HOST = GlobalVariable.HOST;
@@ -48,7 +48,7 @@ public class PaymentTest {
     @Test
     public void updateTest(){
         PaymentDal paymentDal = new PaymentDal(id);
-        paymentDal.wrapperTest(id);
+        paymentDal.setPaymentSuccessDB(id);
 
 
         String HOST = GlobalVariable.HOST;
