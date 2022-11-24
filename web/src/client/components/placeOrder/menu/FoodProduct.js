@@ -10,12 +10,14 @@ const FoodProduct = (props) => {
   const price = `${props.price.toFixed(2)}`;
 
   const addToBasket = (amount) => {
-    contextOfBasket.addProduct({
-      id: props.id,
-      menu: props.menu,
-      price: props.price,
-      amount: amount
-    });
+      /*Only one foodtype can be added.*/
+      if(contextOfBasket.foodProducts <= 0)
+          contextOfBasket.addProduct({
+              id: props.id,
+              menu: props.menu,
+              price: props.price,
+              amount: amount
+          });
   };
   
   return (
@@ -30,8 +32,13 @@ const FoodProduct = (props) => {
        <div className={css.price}> {price} DKK</div>
        </>
       </div>
-
-        <div><FoodProductAmount onAddToCart={addToBasket} /></div>
+         <div className={contextOfBasket.foodProducts <= 1 ? 'item active' : 'item'}>
+             <div><FoodProductAmount onAddToCart={addToBasket} /></div>
+         </div>
+         {/*{(this.contextOfBasket.foodProducts <= 1 ?
+                 ( <div><FoodProductAmount onAddToCart={addToBasket} /></div>)
+                 : (<h1>Message..</h1>)
+         )}*/}
       
     </li>
     </>
