@@ -6,6 +6,7 @@ import org.hibernate.Transaction;
 import model.*;
 
 import java.util.Collections;
+import java.util.List;
 
 
 public class Test {
@@ -41,10 +42,9 @@ public class Test {
         Order order = new Order();
         System.out.println("ORDERID before commit: " + order.getIdOrder());
         int i = 1;
-        /*order.setId(Collections.singletonList("Food1"));
-        order.setMenu(Collections.singletonList("Lasagne"));
-        order.setPrice(i);
-        order.setAmount(i);*/
+        order.setIdOrder(i);
+        order.setOrderedTotalPrice(i+100);
+        //order.setOrderedFoodProducts(List.of());
         //order.setOrderedFoodProducts();
         session.persist(order);
         transaction.commit();
