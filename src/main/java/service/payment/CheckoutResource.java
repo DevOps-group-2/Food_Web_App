@@ -4,6 +4,7 @@ package service.payment;
 import com.stripe.Stripe;
 import com.stripe.exception.*;
 import com.stripe.model.Charge;
+import dal.PaymentDal;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -37,7 +38,7 @@ public class CheckoutResource {
         try {
             Charge.create(params);
             System.out.println("Payment success.");
-            return Response.ok().build();
+            status = true;
         } catch (AuthenticationException e) {
             System.out.println("Error 1");
             e.printStackTrace();
@@ -50,6 +51,12 @@ public class CheckoutResource {
         } catch (StripeException e) {
             System.out.println("Error 4");
             e.printStackTrace();
+        }
+
+        PaymentDal paymentDal = new PaymentDal(payment.customerId);
+        if (status) {
+            paymentDal.setPaymentStatusDB(payment, status);
+            return Response.ok().build();
         }
 
         return Response.serverError().build();
