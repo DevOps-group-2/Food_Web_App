@@ -90,7 +90,7 @@
             <version>6.1.4.Final</version>
         </dependency>
         <!-- connection pool NOTE: Error in maven dependency causes connection pool to fail -->
-               <!-- connection pool -->
+        <!-- connection pool -->
         <!--        <dependency>-->
         <!--            <groupId>org.hibernate.orm</groupId>-->
         <!--            <artifactId>hibernate-c3p0</artifactId>-->

@@ -4,29 +4,44 @@ import dal.HibernateController;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import model.Order;
-import model.OrderDTO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.criteria.JpaCriteriaQuery;
-
+import jakarta.ws.rs.core.Response;
+import org.hibernate.Transaction;
 import java.util.List;
 
-@Path("auth")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@Path("orders")
 public class OrderService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
-    @Path("sendOrder")
     @POST
-    public String createOrder(OrderDTO order) {
+    //@Path("createOrder")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createOrder(Order order){
         Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
         session.persist(order);
-
-       return "done";
+        transaction.commit();
+        return Response.ok(getOrders()).build();
     }
 
-    @Path("getOrders")
+    /*
+    *   @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createOrder(Order order){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.persist(order);
+        transaction.commit();
+        Transaction readTransaction = session.beginTransaction();
+        readTransaction.commit();
+        session.close();
+        return Response.ok(getOrders()).build();
+    }*/
+
     @GET
     public List<Order> getOrders() {
         Session session = sessionFactory.openSession();
@@ -36,4 +51,3 @@ public class OrderService {
         return data;
     }
 }
-

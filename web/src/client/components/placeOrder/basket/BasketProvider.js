@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import ContextOfBasket from './Context';
 
 const defaultBasketState = {
-  items: [],
+  foodProducts: [],
   totalAmount: 0
 };
 
@@ -11,45 +11,45 @@ const basketReducer = (state, action) => {
   if (action.type !== 'add-product') {
     if (action.type === 'remove-product') {
       /*BasketProducts are meant to be inside the basket.*/
-      const IndexOfBasketProducts = state.items.findIndex(
+      const IndexOfBasketProducts = state.foodProducts.findIndex(
           (item) => item.id === action.id
       );
-      const BasketProduct = state.items[IndexOfBasketProducts];
+      const BasketProduct = state.foodProducts[IndexOfBasketProducts];
       const newTotalPrice = state.totalAmount - BasketProduct.price;
       let newBasketItems;
 
       if (BasketProduct.amount !== 1) {
         const newProduct = {...BasketProduct, amount: BasketProduct.amount - 1};
-        newBasketItems = [...state.items];
+        newBasketItems = [...state.foodProducts];
         newBasketItems[IndexOfBasketProducts] = newProduct;
       } else {
-        newBasketItems = state.items.filter(item => item.id !== action.id);
+        newBasketItems = state.foodProducts.filter(item => item.id !== action.id);
       }
 
       return {
-        items: newBasketItems,
+        foodProducts: newBasketItems,
         totalAmount: newTotalPrice
       };
     }
     return defaultBasketState;
   } else {
     const newTotalPrice = state.totalAmount + action.item.price * action.item.amount,
-        BasketProductIndex = state.items.findIndex((item) => item.id === action.item.id),
-        BasketProduct = state.items[BasketProductIndex];
+        BasketProductIndex = state.foodProducts.findIndex((item) => item.id === action.item.id),
+        BasketProduct = state.foodProducts[BasketProductIndex];
     let newBasketItems;
 
     if (!BasketProduct) {
-      newBasketItems = state.items.concat(action.item);
+      newBasketItems = state.foodProducts.concat(action.item);
     } else {
       const newProduct = {
         ...BasketProduct,
         amount: BasketProduct.amount + action.item.amount,
       };
-      newBasketItems = [...state.items];
+      newBasketItems = [...state.foodProducts];
       newBasketItems[BasketProductIndex] = newProduct;
     }
     return {
-      items: newBasketItems,
+      foodProducts: newBasketItems,
       totalAmount: newTotalPrice,
     };
   }
@@ -68,7 +68,7 @@ const BasketProvider = (props) => {
   };
 
   const contextOfBasket = {
-    foodProducts: basketState.items,
+    foodProducts: basketState.foodProducts,
     totalAmount: basketState.totalAmount,
     addProduct: addProductToBasket,
     removeProduct: removeProductFromBasket,

@@ -11,7 +11,6 @@ const BuyableFoodProducts = () => {
   useEffect(() => {
       const loadFoodProducts = async() => {
       const response = await Food;
-      console.log(Food);
       const foodProducts = await response;
       const fetchedFoodProducts = [];
 
@@ -20,7 +19,6 @@ const BuyableFoodProducts = () => {
             id: key,
             menu: foodProducts[key].menu,
             info: foodProducts[key].info,
-            time: foodProducts[key].time,
             price: foodProducts[key].price,
           });
         }
@@ -28,6 +26,7 @@ const BuyableFoodProducts = () => {
         setIsLoading(false);
       }
       loadFoodProducts();
+      console.log(Food);
     }, []);
 
     const listOfFood = Foods.map((val) => {
@@ -37,7 +36,6 @@ const BuyableFoodProducts = () => {
                 key={val.id}
                 menu={val.menu}
                 info={val.info}
-                time={val.time}
                 price={val.price}
             />
         );

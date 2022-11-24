@@ -5,9 +5,10 @@ import BasketBox from '../layout/BasketBox';
 import ContextOfBasket from './Context';
 import BasketProduct from './BasketProduct';
 import CustomerForm from "../../../pages/customerForm/CustomerForm";
-import Context from "./Context";
 import ConfirmSendOrder from "./ConfirmSendOrder";
-import TestForm from "../../../pages/customerForm/final/TestForm";
+import axios from "axios";
+import {tokenStore} from "../../../stores/TokenStore";
+import foodProduct from "../menu/FoodProduct";
 
 const myComponent = {
     width: '800px',
@@ -25,8 +26,6 @@ function CompletedPage() {
 
 
 const Basket = (props) => {
-
-    const cartCtx = useContext(Context);
     const [isSending, setIsSending] = useState(false);
     const [didSend, setDidSend] = useState(false);
 
@@ -37,14 +36,15 @@ const Basket = (props) => {
             contextOfBasket.removeProduct(id);
         }, basketAdd = (item) => {
             contextOfBasket.addProduct({...item, amount: 1});
-        }, hasProducts = contextOfBasket.foodProducts.length > 0, basketProducts = (
-            <ul className={css['basket-products']}> {contextOfBasket.foodProducts.map((data) => (
-                <BasketProduct key={data.id}
-                               menu={data.menu}
-                               amount={data.amount}
-                               price={data.price}
-                               onRemove={basketRemove.bind(null, data.id)}
-                               onAdd={basketAdd.bind(null, data)}
+        }, hasProducts = contextOfBasket.foodProducts.length > 0,
+        basketProducts = (
+            <ul className={css['basket-products']}> {contextOfBasket.foodProducts.map((item) => (
+                <BasketProduct key={item.id}
+                               menu={item.menu}
+                               amount={item.amount}
+                               price={item.price}
+                               onRemove={basketRemove.bind(null, item.id)}
+                               onAdd={basketAdd.bind(null, item)}
                 />
             ))}
             </ul>
@@ -58,25 +58,39 @@ const Basket = (props) => {
         setDisplayBasket(true);
     }
 
-    const submitOrderHandler = async () => {
-        setIsSending(true);
-        console.log(cartCtx.foodProducts.indexOf(0))
+    const [errorMessage, setErrorMessage] = useState({});
 
-        let response = await fetch('https://food-webapp.grp2.diplomportal.dk/api/auth/sendOrder', {
-            "headers": {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }, method: 'POST',
+    const submitOrderHandler = async (event) => {
+        console.log(contextOfBasket.foodProducts);
+        //event.preventDefault();
+        //console.log(data);
+        //let token = await fetch("http://localhost:8080/api/orders", {
+        let fetching = await fetch("https://food-webapp.grp2.diplomportal.dk/api/orders", {
+            headers : {
+                'Content-Type': 'application/json'},
+            //mode : "no-cors",
+            method: "POST",
             body: JSON.stringify({
-                //note that the values arent given correct. this is just some dummy data
-                orderedFoodProducts: 'food'
+                orderedFoodProducts: contextOfBasket.foodProducts,
+                orderedTotalPrice: contextOfBasket.totalAmount
             })
-        });
-        setIsSending(false);
-        setDidSend(true);
-        console.log(response.text())
-        //cartCtx.clearCart();
+        })
+        /*.then(function(response){
+            repsonse.json().then
+        })*/
+        if (fetching != null) {
+            setIsSending(false);
+            setDidSend(true);
+        } else {
+            setErrorMessage("Invalid");
+            renderErrorMessage()
+        }
     };
+
+    const renderErrorMessage = (name) =>
+        name === errorMessage.name && (
+            <div className="error">{errorMessage.message}</div>
+        );
 
     const basketBoxHandler = (
         <div className={css.styles}>
@@ -96,18 +110,6 @@ const Basket = (props) => {
         <p>Being working on the order.</p>
     </BasketBox>
 
-    /*
-    * const didSendOrderHandler = (
-        <BasketBox>
-            <p>Your order has been placed!</p>
-            <div className={css.styles}>
-                <button className={css.button} onClick={props.onClose}>
-                    Close
-                </button>
-            </div>
-            <CustomerForm />
-        </BasketBox>);*/
-
     const didSendOrderHandler = (
         <BasketBox>
             <div className={css.styles}>
@@ -115,29 +117,11 @@ const Basket = (props) => {
                     Cancel
                 </button>
             </div>
-            <p>Please fill the information so your order will be placed:</p>
+            <p>Please fill the information so your order will be placed!</p>
             <div style={myComponent}>
-                <TestForm/>
+            <CustomerForm />
             </div>
         </BasketBox>);
-
-    /*const basketBoxContent = (
-        <BasketBox onClose={props.onClose}>
-            {basketProducts}
-            <div className={css.baskettotal}>
-
-                <span>Total Price:</span>
-                <span>{totalPrice} DKK</span>
-            </div>
-            <div style={{ height: '320px' }}>
-                <div style={myComponent}>
-                    {displayBasket && <ConfirmSendOrder onConfirm={submitOrderHandler} onClose= {props.onClose}/> }
-
-                    {!displayBasket && basketButton && modalActions}
-                </div>
-            </div>
-        </BasketBox>);
-*/
 
     const basketBoxContent = (
         <BasketBox>
