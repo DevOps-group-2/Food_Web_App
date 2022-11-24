@@ -43,14 +43,4 @@ public class Items {
     @JsonIgnore
     private Order order;
 
-    //Hibernate requires no-args constructor
-    //public Items(){}
-/*
-    public Items(int id, String menu, Double price, int qty, Order c){
-        this.id=id;
-        this.menu=menu;
-        this.price=price;
-        this.amount=qty;
-        this.order1=c;
-    }*/
 }
