@@ -1,6 +1,6 @@
 package dal;
 
-import model.MyCustomer;
+import model.PaymentDB;
 import model.Order;
 import model.CustomerData;
 import model.User;
@@ -15,7 +15,7 @@ public class HibernateController {//Should be a singleton…
         configuration.addAnnotatedClass(User.class); //remember to do this for all DB entities
         configuration.addAnnotatedClass(Order.class); //remember to do this for all DB entities
         configuration.addAnnotatedClass(CustomerData.class);
-        configuration.addAnnotatedClass(MyCustomer.class);
+        configuration.addAnnotatedClass(PaymentDB.class);
         configuration.setProperty("hibernate.connection.username", System.getenv("devopse22user"));
         configuration.setProperty("hibernate.connection.password", System.getenv("devopse22pass"));
         configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://" + dbUrl);

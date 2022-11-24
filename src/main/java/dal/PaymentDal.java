@@ -1,6 +1,6 @@
 package dal;
 
-import model.MyCustomer;
+import model.PaymentDB;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -15,28 +15,28 @@ public class PaymentDal {
     }
 
 
-    public void setPaymentStatusDB(Payment payment, boolean status){
+    public void createCheckoutDB(Payment payment, boolean status){
         String HOST = GlobalVariable.HOST;
         HibernateController hibernateController = new HibernateController(HOST);
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        MyCustomer myCustomer = new MyCustomer();
-        myCustomer.setName(payment.name);
-        myCustomer.setEmail(payment.email);
-        myCustomer.setCustomerId(payment.customerId);
-        myCustomer.setTokenId(payment.tokenId);
-        myCustomer.setAmount(payment.amount);
-        myCustomer.setPaymentSuccess(false);
+        PaymentDB paymentDB = new PaymentDB();
+        paymentDB.setName(payment.name);
+        paymentDB.setEmail(payment.email);
+        paymentDB.setCustomerId(payment.customerId);
+        paymentDB.setTokenId(payment.tokenId);
+        paymentDB.setAmount(payment.amount);
+        paymentDB.setPaymentSuccess(false);
 
-        session.persist(myCustomer);
+        session.persist(paymentDB);
         transaction.commit();
         session.close();
 
     }
 
-    public void wrapperTest(String customerId) {
+    public void setPaymentSuccessDB(String customerId) {
 
         String HOST = GlobalVariable.HOST;
         HibernateController hibernateController = new HibernateController(HOST);
@@ -44,9 +44,9 @@ public class PaymentDal {
         Session session = sessionFactory.openSession();
         Transaction readTransaction = session.beginTransaction();
 
-        MyCustomer readMyCustomer = session.get(MyCustomer.class,  customerId);
-        readMyCustomer.setPaymentSuccess(true);
-        session.update(readMyCustomer);
+        PaymentDB readPaymentDB = session.get(PaymentDB.class,  customerId);
+        readPaymentDB.setPaymentSuccess(true);
+        session.update(readPaymentDB);
         readTransaction.commit();
         session.close();
 
