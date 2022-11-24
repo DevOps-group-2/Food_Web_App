@@ -20,6 +20,9 @@ public class Order {
     @Column(name="idOrder")
     private int idOrder;
 
+    @Column(name="orderedTotalPrice")
+    private int orderedTotalPrice;
+
     @OneToMany(mappedBy="order",cascade = CascadeType.ALL)
     //@Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Items> orderedFoodProducts;

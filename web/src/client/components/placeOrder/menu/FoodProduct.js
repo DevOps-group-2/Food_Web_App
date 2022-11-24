@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import css from './Style.module.css';
 import FoodProductAmount from './FoodProductAmount';
 import ContextOfBasket from '../basket/Context';
+import Basket from "../basket/Basket";
 
 const FoodProduct = (props) => {
 
@@ -16,7 +17,7 @@ const FoodProduct = (props) => {
               id: props.id,
               menu: props.menu,
               price: props.price,
-              amount: amount
+              amount: amount,
           });
       }
   };

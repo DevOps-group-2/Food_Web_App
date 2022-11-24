@@ -111,7 +111,10 @@ const Basket = (props) => {
                 'Content-Type': 'application/json'},
             //mode : "no-cors",
             method: "POST",
-            body: JSON.stringify({orderedFoodProducts: contextOfBasket.foodProducts})
+            body: JSON.stringify({
+                orderedFoodProducts: contextOfBasket.foodProducts,
+                orderedTotalPrice: contextOfBasket.totalAmount
+            })
         })
         /*.then(function(response){
             repsonse.json().then
