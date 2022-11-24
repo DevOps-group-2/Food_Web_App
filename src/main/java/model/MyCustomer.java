@@ -22,9 +22,9 @@ public class MyCustomer {
     @Column
     private String tokenId;
     @Column
-    private String amount;
+    private int amount;
     @Column
-    private String paymentSuccess;
+    private boolean paymentSuccess;
 
 /*    public Customer(String customerId, String email, String name, String tokenId, int amount, boolean paymentSuccess) {
 

@@ -27,21 +27,29 @@ public class PaymentDal {
         myCustomer.setEmail(payment.email);
         myCustomer.setCustomerId(payment.customerId);
         myCustomer.setTokenId(payment.tokenId);
-        myCustomer.setAmount(String.valueOf(payment.amount));
-        myCustomer.setPaymentSuccess("false");
+        myCustomer.setAmount(payment.amount);
+        myCustomer.setPaymentSuccess(false);
 
         session.persist(myCustomer);
         transaction.commit();
+        session.close();
 
+    }
 
-        System.out.println("UserID after commit: ");
+    public void wrapperTest(String customerId) {
+
+        String HOST = GlobalVariable.HOST;
+        HibernateController hibernateController = new HibernateController(HOST);
+        SessionFactory sessionFactory = hibernateController.getSessionFactory();
+        Session session = sessionFactory.openSession();
         Transaction readTransaction = session.beginTransaction();
 
-        MyCustomer readMyCustomer = session.get(MyCustomer.class, myCustomer.getCustomerId());
-
-        System.out.println("Read user back: " + readMyCustomer.toString());
+        MyCustomer readMyCustomer = session.get(MyCustomer.class,  customerId);
+        readMyCustomer.setPaymentSuccess(true);
+        session.update(readMyCustomer);
         readTransaction.commit();
         session.close();
+
     }
 }
 
