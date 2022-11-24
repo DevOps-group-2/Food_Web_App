@@ -28,7 +28,7 @@ public class PaymentDal {
         paymentDB.setCustomerId(payment.customerId);
         paymentDB.setTokenId(payment.tokenId);
         paymentDB.setAmount(payment.amount);
-        paymentDB.setPaymentSuccess(false);
+        paymentDB.setPaymentSuccess(""+status);
 
         session.persist(paymentDB);
         transaction.commit();
@@ -36,7 +36,7 @@ public class PaymentDal {
 
     }
 
-    public void setPaymentSuccessDB(String customerId) {
+    public void setPaymentSuccessDB(String customerId, boolean status) {
 
         String HOST = GlobalVariable.HOST;
         HibernateController hibernateController = new HibernateController(HOST);
@@ -45,7 +45,7 @@ public class PaymentDal {
         Transaction readTransaction = session.beginTransaction();
 
         PaymentDB readPaymentDB = session.get(PaymentDB.class,  customerId);
-        readPaymentDB.setPaymentSuccess(true);
+        readPaymentDB.setPaymentSuccess("" + status);
         session.update(readPaymentDB);
         readTransaction.commit();
         session.close();

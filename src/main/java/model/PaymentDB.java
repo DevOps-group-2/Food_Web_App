@@ -24,7 +24,7 @@ public class PaymentDB {
     @Column
     private int amount;
     @Column
-    private boolean paymentSuccess;
+    private String paymentSuccess;
 
 /*    public Customer(String customerId, String email, String name, String tokenId, int amount, boolean paymentSuccess) {
 

@@ -14,7 +14,7 @@ function Pay(props) {
                 billingAddress={false}
                 shippingAddress={false}
                 email={props.children.email}
-                amount={props.children.amount}
+                amount={props.children.amount * 100}
                 currency={"DKK"}
                 name={props.children.name}
             />
@@ -26,7 +26,9 @@ function Pay(props) {
 const baseUrl = process.env.NODE_ENV === 'development' ?  "http://localhost:8080/":""; //Check if dev environment
 
 const handleToken = (token) => {
-    // TODO
+    if (data.amount < 3) {
+        return alert("Amount must be at least 3kr.")
+    }
     fetch(baseUrl + "api/stripe/pay", {
         method: "POST",
         headers: {"Content-Type":"application/json"},

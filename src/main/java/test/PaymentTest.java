@@ -40,7 +40,8 @@ public class PaymentTest {
         assertEquals(payment.name, paymentDB.getName());
         assertEquals(payment.email, paymentDB.getEmail());
         assertEquals(payment.customerId, paymentDB.getCustomerId());
-        assertFalse(paymentDB.isPaymentSuccess());
+        assertEquals(paymentDB.getPaymentSuccess(), "false");
+        session.close();
 
     }
 
@@ -48,7 +49,7 @@ public class PaymentTest {
     @Test
     public void updateTest(){
         PaymentDal paymentDal = new PaymentDal(id);
-        paymentDal.setPaymentSuccessDB(id);
+        paymentDal.setPaymentSuccessDB(id, true);
 
 
         String HOST = GlobalVariable.HOST;
@@ -60,7 +61,7 @@ public class PaymentTest {
         assertEquals(payment.name, paymentDB.getName());
         assertEquals(payment.email, paymentDB.getEmail());
         assertEquals(payment.customerId, paymentDB.getCustomerId());
-        assertTrue(paymentDB.isPaymentSuccess());
+        assertEquals(paymentDB.getPaymentSuccess(), "true");
 
 
     }

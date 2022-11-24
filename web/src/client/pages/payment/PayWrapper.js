@@ -11,7 +11,7 @@ function PayWrapper(){
             name: "My Name",
             id: Math.random(),
             email: "unknownemail@gmail.com",
-            amount: 20 * 100
+            amount: 100
         }
 
         return (
