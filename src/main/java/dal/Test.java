@@ -4,11 +4,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import model.*;
+import utility.GlobalVariable;
 
 
 public class Test {
-    final static String HOST = "pgtest.grp2.diplomportal.dk:5432/pg";
-
+    final static String HOST = GlobalVariable.HOST;
 
     @org.junit.Test
     public void testCreate(){
