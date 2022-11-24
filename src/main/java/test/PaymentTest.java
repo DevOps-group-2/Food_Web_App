@@ -2,10 +2,9 @@ package test;
 
 import dal.HibernateController;
 import dal.PaymentDal;
-import model.MyCustomer;
+import model.PaymentDB;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.testng.annotations.Test;
 import service.payment.Payment;
 import utility.GlobalVariable;
@@ -36,12 +35,12 @@ public class PaymentTest {
         HibernateController hibernateController = new HibernateController(HOST);
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
         Session session = sessionFactory.openSession();
-        MyCustomer myCustomer = session.get(MyCustomer.class, this.id);
+        PaymentDB paymentDB = session.get(PaymentDB.class, this.id);
 
-        assertEquals(payment.name, myCustomer.getName());
-        assertEquals(payment.email, myCustomer.getEmail());
-        assertEquals(payment.customerId, myCustomer.getCustomerId());
-        assertFalse(myCustomer.isPaymentSuccess());
+        assertEquals(payment.name, paymentDB.getName());
+        assertEquals(payment.email, paymentDB.getEmail());
+        assertEquals(payment.customerId, paymentDB.getCustomerId());
+        assertFalse(paymentDB.isPaymentSuccess());
 
     }
 
@@ -56,12 +55,12 @@ public class PaymentTest {
         HibernateController hibernateController = new HibernateController(HOST);
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
         Session session = sessionFactory.openSession();
-        MyCustomer myCustomer = session.get(MyCustomer.class, this.id);
+        PaymentDB paymentDB = session.get(PaymentDB.class, this.id);
 
-        assertEquals(payment.name, myCustomer.getName());
-        assertEquals(payment.email, myCustomer.getEmail());
-        assertEquals(payment.customerId, myCustomer.getCustomerId());
-        assertTrue(myCustomer.isPaymentSuccess());
+        assertEquals(payment.name, paymentDB.getName());
+        assertEquals(payment.email, paymentDB.getEmail());
+        assertEquals(payment.customerId, paymentDB.getCustomerId());
+        assertTrue(paymentDB.isPaymentSuccess());
 
 
     }

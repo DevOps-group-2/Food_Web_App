@@ -3,7 +3,7 @@ package model;
 import jakarta.persistence.*;
 import lombok.*;
 @Entity
-@Table(name="DBorderTest")
+@Table(name="payment")
 @Getter
 @Setter
 @Builder
@@ -11,7 +11,7 @@ import lombok.*;
 @RequiredArgsConstructor
 @AllArgsConstructor
 
-public class MyCustomer {
+public class PaymentDB {
     @Id
     @Column
     private String customerId;
