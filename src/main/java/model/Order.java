@@ -17,8 +17,8 @@ import java.util.List;
 public class Order {
 
     @Id @GeneratedValue
-    @Column
-    private int id;
+    @Column(name="idOrder")
+    private int idOrder;
 
     @OneToMany(mappedBy="order",cascade = CascadeType.ALL)
     //@Cascade(org.hibernate.annotations.CascadeType.ALL)
