@@ -58,55 +58,14 @@ const Basket = (props) => {
         setDisplayBasket(true);
     }
 
-   /* const submitOrderHandler = async () => {
-        axios({
-            method: "post",
-            url: "http://localhost:8080/api/orders",
-
-            data: { foodProducts: cartCtx.foodProducts },
-            headers: { "Content-Type": "multipart/form-data" },
-        })
-            .then(function (response) {
-                //handle success
-                setIsSending(false);
-                setDidSend(true);
-                console.log(response);
-            })
-            .catch(function (response) {
-                //handle error
-                setIsSending(false);
-                setDidSend(true);
-                console.log(response);
-            });
-    };
-*/
     const [errorMessage, setErrorMessage] = useState({});
-
-    /*const submitOrderHandler = event => {
-
-        const orderData = {
-            amount : ContextOfBasket.foodProducts,
-            foodID : ContextOfBasket.foodProducts,
-            menu : ContextOfBasket.foodProducts,
-            price : ContextOfBasket.foodProducts
-        };
-
-        axios
-            .post('http://localhost:8080/api/orders', orderData)
-            .then(() => console.log('Book Created'),
-            )
-
-            .catch(err => {
-                console.error(err);
-            });
-
-    };*/
 
     const submitOrderHandler = async (event) => {
         console.log(contextOfBasket.foodProducts);
         //event.preventDefault();
         //console.log(data);
-        let token = await fetch("http://localhost:8080/api/orders", {
+        //let token = await fetch("http://localhost:8080/api/orders", {
+        let fetching = await fetch("https://food-webapp.grp2.diplomportal.dk/api/orders", {
             headers : {
                 'Content-Type': 'application/json'},
             //mode : "no-cors",
@@ -119,11 +78,11 @@ const Basket = (props) => {
         /*.then(function(response){
             repsonse.json().then
         })*/
-        if (token != null) {
+        if (fetching != null) {
             setIsSending(false);
             setDidSend(true);
         } else {
-            setErrorMessage({name: "invalid..."});
+            setErrorMessage("Invalid");
             renderErrorMessage()
         }
     };
@@ -132,44 +91,6 @@ const Basket = (props) => {
         name === errorMessage.name && (
             <div className="error">{errorMessage.message}</div>
         );
-
-   /* const submitOrderHandlerOLD = async () => {
-        setIsSending(true);
-        let data = await fetch('http://localhost:8080/api/orders', {
-        //fetch('https://food-webapp.grp2.diplomportal.dk/api/orders', {
-            mode: 'no-cors',
-            method: 'POST',
-            headers: {
-                "Content-type": "application/json",
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                "id" : ContextOfBasket.foodProducts.id,
-                "menu" : ContextOfBasket.foodProducts.menu,
-                "amount" : ContextOfBasket.foodProducts.amount,
-                "price" : ContextOfBasket.foodProducts.price
-                //orderedFoodProducts: cartCtx.foodProducts
-=======
-    const submitOrderHandler = async () => {
-        setIsSending(true);
-        console.log(cartCtx.foodProducts.indexOf(0))
-
-        let response = await fetch('https://food-webapp.grp2.diplomportal.dk/api/auth/sendOrder', {
-            "headers": {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }, method: 'POST',
-            body: JSON.stringify({
-                //note that the values arent given correct. this is just some dummy data
-                orderedFoodProducts: 'food'
->>>>>>> Dev
-            })
-        });
-        setIsSending(false);
-        setDidSend(true);
-        console.log(response.text())
-        //cartCtx.clearCart();
-    };*/
 
     const basketBoxHandler = (
         <div className={css.styles}>
@@ -189,18 +110,6 @@ const Basket = (props) => {
         <p>Being working on the order.</p>
     </BasketBox>
 
-    /*
-    * const didSendOrderHandler = (
-        <BasketBox>
-            <p>Your order has been placed!</p>
-            <div className={css.styles}>
-                <button className={css.button} onClick={props.onClose}>
-                    Close
-                </button>
-            </div>
-            <CustomerForm />
-        </BasketBox>);*/
-
     const didSendOrderHandler = (
         <BasketBox>
             <div className={css.styles}>
@@ -213,24 +122,6 @@ const Basket = (props) => {
             <CustomerForm />
             </div>
         </BasketBox>);
-
-    /*const basketBoxContent = (
-        <BasketBox onClose={props.onClose}>
-            {basketProducts}
-            <div className={css.baskettotal}>
-
-                <span>Total Price:</span>
-                <span>{totalPrice} DKK</span>
-            </div>
-            <div style={{ height: '320px' }}>
-                <div style={myComponent}>
-                    {displayBasket && <ConfirmSendOrder onConfirm={submitOrderHandler} onClose= {props.onClose}/> }
-
-                    {!displayBasket && basketButton && modalActions}
-                </div>
-            </div>
-        </BasketBox>);
-*/
 
     const basketBoxContent = (
         <BasketBox>
