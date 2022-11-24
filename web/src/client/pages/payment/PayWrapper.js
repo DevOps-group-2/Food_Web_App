@@ -24,7 +24,7 @@ function PayWrapper(){
     return(
         <div>
             <h2>This is a temporary payment button</h2>
-            <h2>Click the button to go to payment page</h2>
+            <h2>Click the button to go to payment page.</h2>
 
             <form onSubmit={handleSubmit}>
                 <button type="">Click here</button>
