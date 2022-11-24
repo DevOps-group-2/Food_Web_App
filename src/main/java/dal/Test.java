@@ -30,7 +30,6 @@ public class Test {
         session.close();
     }
 
-
     @org.junit.Test
     public void testCreate1(){
         HibernateController hibernateController =
@@ -39,16 +38,18 @@ public class Test {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         Order order = new Order();
-        System.out.println("ORDERID before commit: " + order.getId());
+        System.out.println("ORDERID before commit: " + order.getIdOrder());
         int i = 1;
-        order.setMenu("Kebab Menu");
-        order.setAmount(String.valueOf(i));
-        order.setPrice(String.valueOf(i));
+        /*order.setId(Collections.singletonList("Food1"));
+        order.setMenu(Collections.singletonList("Lasagne"));
+        order.setPrice(i);
+        order.setAmount(i);*/
+        //order.setOrderedFoodProducts();
         session.persist(order);
         transaction.commit();
-        System.out.println("ORDERID after commit: " + order.getId());
+        System.out.println("ORDERID after commit: " + order.getIdOrder());
         Transaction readTransaction = session.beginTransaction();
-        Order readOrder = session.get(Order.class, order.getId());
+        Order readOrder = session.get(Order.class, order.getIdOrder());
         System.out.println("Read ORDER back: " + readOrder.toString());
         readTransaction.commit();
         session.close();
