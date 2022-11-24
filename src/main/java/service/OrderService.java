@@ -17,7 +17,7 @@ import java.util.List;
 public class OrderService {
     private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
-    @POST
+    /*@POST
     //@Path("createOrder")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createOrder(Order order){
@@ -26,10 +26,9 @@ public class OrderService {
         session.persist(order);
         transaction.commit();
         return Response.ok(getOrders()).build();
-    }
+    }*/
 
-    /*
-    *   @POST
+    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createOrder(Order order){
         Session session = sessionFactory.openSession();
@@ -40,7 +39,7 @@ public class OrderService {
         readTransaction.commit();
         session.close();
         return Response.ok(getOrders()).build();
-    }*/
+    }
 
     @GET
     public List<Order> getOrders() {
