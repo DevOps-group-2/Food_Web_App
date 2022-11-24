@@ -15,7 +15,7 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 @Path("orders")
 public class OrderService {
-    private SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
+    private final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
     /*@POST
     //@Path("createOrder")
