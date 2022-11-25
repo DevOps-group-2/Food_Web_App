@@ -88,7 +88,7 @@ class CustomerForm extends Component {
                                 onChange={this.handleInputChange}
                             />
                         </div>
-
+                            
                         <div className="add-rowSpace">
                             <input
                                 name="date" type="date"
@@ -96,6 +96,8 @@ class CustomerForm extends Component {
                                 onChange={this.handleInputChange}
                             />
                         </div>
+
+
 
                             {/*
                         <input
