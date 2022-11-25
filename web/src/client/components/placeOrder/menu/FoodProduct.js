@@ -1,9 +1,8 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { useContext } from 'react';
 import css from './Style.module.css';
 import FoodProductAmount from './FoodProductAmount';
 import ContextOfBasket from '../basket/Context';
-import Basket from "../basket/Basket";
 
 const FoodProduct = (props) => {
 
@@ -34,14 +33,7 @@ const FoodProduct = (props) => {
        <div className={css.price}> {price} DKK</div>
        </>
       </div>
-         <div className={contextOfBasket.foodProducts <= 1 ? 'item active' : 'item'}>
-             <div><FoodProductAmount onAddToCart={addToBasket} /></div>
-         </div>
-         {/*{(this.contextOfBasket.foodProducts <= 1 ?
-                 ( <div><FoodProductAmount onAddToCart={addToBasket} /></div>)
-                 : (<h1>Message..</h1>)
-         )}*/}
-      
+         <div><FoodProductAmount onAddToCart={addToBasket} /></div>
     </li>
     </>
   )
