@@ -82,15 +82,15 @@ public class Test {
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Question question = new Question();
-        System.out.println("Question ID before commit: " + question.getId());
-        question.setEmail("test@mail.com");
-        session.persist(question);
+        Message message = new Message();
+        System.out.println("Question ID before commit: " + message.getId());
+        message.setEmail("test@mail.com");
+        session.persist(message);
         transaction.commit();
-        System.out.println("Question ID after commit: " + question.getId());
+        System.out.println("Question ID after commit: " + message.getId());
         Transaction readTransaction = session.beginTransaction();
-        Question readQuestion = session.get(Question.class, question.getId());
-        System.out.println("Read quesiton back: " + readQuestion.toString());
+        Message readMessage = session.get(Message.class, message.getId());
+        System.out.println("Read quesiton back: " + readMessage.toString());
         readTransaction.commit();
         session.close();
     }

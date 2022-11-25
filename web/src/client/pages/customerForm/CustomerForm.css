@@ -1,25 +1,12 @@
-.App {
-    text-align: center;
+
+.add-rowSpace {
+    padding: 10px;
+    width: 100%;
+
 }
-form {
-    border:2px solid green;
-    padding: 30px;
-}
-img{
-    height: 120px;
-    margin-left: 90px;
-    margin-bottom: 10px;
-    display: block;
-    border:1px solid black;
-    border-radius: 50%;
-}
-.App-header {
-    background-color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: black;
+
+form-column{
+    column-span: 5;
+    font-size:14pt;
+    padding-right: 5px;
 }

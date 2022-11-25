@@ -4,7 +4,7 @@ import css from './Style.module.css';
 import BasketBox from '../layout/BasketBox';
 import ContextOfBasket from './Context';
 import BasketProduct from './BasketProduct';
-import CustomerForm from "../../../pages/customerForm/CustomerForm";
+import NotUsedForm from "../../../pages/customerForm/notUsed/NotUsedForm";
 import ConfirmSendOrder from "./ConfirmSendOrder";
 import axios from "axios";
 import {tokenStore} from "../../../stores/TokenStore";
@@ -119,7 +119,7 @@ const Basket = (props) => {
             </div>
             <p>Please fill the information so your order will be placed!</p>
             <div style={myComponent}>
-            <CustomerForm />
+            <NotUsedForm />
             </div>
         </BasketBox>);
 

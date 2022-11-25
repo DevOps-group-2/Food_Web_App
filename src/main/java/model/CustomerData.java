@@ -5,6 +5,8 @@ import lombok.*;
 
 import java.util.Date;
 
+import static jakarta.persistence.TemporalType.DATE;
+
 @Entity
 @Data
 @Table(name = "test") //WATCH out  USER is a reserved name!
@@ -26,7 +28,11 @@ public class CustomerData {
     @Column
     private int number;
     @Column
-    static String DATE_PATTERN = "dd.MM.yyyy HH:mm:ss";
+    @Temporal(DATE)
+    //static String DATE_PATTERN = "dd.MM.yyyy HH:mm:ss";
     private Date date;
+
     //public CustomerData();
+
+
 }
