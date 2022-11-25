@@ -9,6 +9,7 @@ import ConfirmSendOrder from "./ConfirmSendOrder";
 import axios from "axios";
 import {tokenStore} from "../../../stores/TokenStore";
 import foodProduct from "../menu/FoodProduct";
+import CustomerForm from "../../../pages/customerForm/CustomerForm";
 
 const myComponent = {
     width: '800px',
@@ -119,7 +120,7 @@ const Basket = (props) => {
             </div>
             <p>Please fill the information so your order will be placed!</p>
             <div style={myComponent}>
-            <NotUsedForm />
+                <CustomerForm/>
             </div>
         </BasketBox>);
 
