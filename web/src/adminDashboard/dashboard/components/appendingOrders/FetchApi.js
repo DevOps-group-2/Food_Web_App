@@ -3,30 +3,34 @@ import * as React from 'react';
 import axios from "axios";
 
 function FetchApi(){
-    const [orders, setOrders] = useState('')
 
-    useEffect = () => {
-        getAllOrders();
-    }
+    fetch('http://localhost:8080/api/orders')
+        .then(res => res.json())
+        .then(data => console.log(data))
 
-    const getAllOrders = () => {
-        axios.get('http://localhost:8080/api/orders')
-            .then((response) =>{
-            const allOrders = response.data.idOrders;
-            setOrders(allOrders);
-        })
-            .catch(error => console.error('Error: ${error}'));
-    }
-
-    return(
-        <div>
-            <ul>
-                {orders.map(post => <li key={post.id}>{post.id}</li> )
-            }
-            </ul>
-        </div>
-    )
 
 }
+/*   const [posts, setPosts] = useState('')
+
+   //Used to fetch the data
+   useEffect = () => {
+       getAllOrders();
+   }
+
+   const getAllOrders = () => {
+       axios.get('https://food-webapp.grp2.diplomportal.dk/api/orders')
+           .then(res =>{console.log(res)}).catch(err => {console.log(err)})
+   }
+
+   return(
+       <div>
+           <ul>
+               {posts.map(post => <li key={post.idOrder}>{post.idOrder}</li> )
+           }
+           </ul>
+       </div>
+   )
+
+}*/
 
 export default FetchApi

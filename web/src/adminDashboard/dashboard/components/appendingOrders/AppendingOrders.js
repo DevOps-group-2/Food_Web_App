@@ -82,6 +82,7 @@ function Row(props: { row: ReturnType<typeof createOrder> }) {
     return (
         <>
             <TableRow>
+                <FetchApi/>
                 <TableCell onClick={() => {setOpen(!open)}} >
                     <ChevronDown />
                 </TableCell>

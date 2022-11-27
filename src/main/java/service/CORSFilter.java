@@ -31,3 +31,5 @@ public class CORSFilter implements ContainerRequestFilter {
 
     }
 }
+
+
