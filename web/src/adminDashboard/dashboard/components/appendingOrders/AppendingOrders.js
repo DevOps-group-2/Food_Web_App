@@ -18,6 +18,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import { ChevronDown } from 'react-feather';
+import FetchApi from "./FetchApi";
 
 function createOrder(orderNumber: number, customerName: string, phoneNr: number, date: string, time: string, status_accept: string, status_reject: string, subTotal: number) {
     return {
@@ -80,6 +81,7 @@ function Row(props: { row: ReturnType<typeof createOrder> }) {
 
     return (
         <>
+            <FetchApi/>
             <TableRow>
                 <TableCell onClick={() => {setOpen(!open)}} >
                     <ChevronDown />
