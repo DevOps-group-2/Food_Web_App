@@ -22,7 +22,7 @@ function NavigationBar() {
                     <Link to="/form">CustomerForm</Link>
                 </li>
                 <li>
-                    <Link to="/pay">Pay</Link>
+                    <Link to="/pay2">Pay2</Link>
                 </li>
                 <li>
                     <Link to="/contact">Contact Us</Link>

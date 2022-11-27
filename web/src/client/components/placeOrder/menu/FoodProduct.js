@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { useContext } from 'react';
 import css from './Style.module.css';
 import FoodProductAmount from './FoodProductAmount';
@@ -10,13 +10,15 @@ const FoodProduct = (props) => {
   const price = `${props.price.toFixed(2)}`;
 
   const addToBasket = (amount) => {
-    contextOfBasket.addProduct({
-      id: props.id,
-      menu: props.menu,
-      price: props.price,
-      time: props.time,
-      amount: amount
-    });
+      /*Only one foodtype can be added.*/
+      if(contextOfBasket.foodProducts <= 0) {
+          contextOfBasket.addProduct({
+              id: props.id,
+              menu: props.menu,
+              price: props.price,
+              amount: amount,
+          });
+      }
   };
   
   return (
@@ -26,15 +28,12 @@ const FoodProduct = (props) => {
        <h2> {props.menu} </h2>
        <div className={css.info}> {props.info} </div>
        <>{"\u00a0"}
-       <div className={css.time}> {props.time} </div>
        </>
        <>{"\u00a0"}
        <div className={css.price}> {price} DKK</div>
        </>
       </div>
-
-        <div><FoodProductAmount onAddToCart={addToBasket} /></div>
-      
+         <div><FoodProductAmount onAddToCart={addToBasket} /></div>
     </li>
     </>
   )

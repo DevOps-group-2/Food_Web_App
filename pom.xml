@@ -90,7 +90,7 @@
             <version>6.1.4.Final</version>
         </dependency>
         <!-- connection pool NOTE: Error in maven dependency causes connection pool to fail -->
-               <!-- connection pool -->
+        <!-- connection pool -->
         <!--        <dependency>-->
         <!--            <groupId>org.hibernate.orm</groupId>-->
         <!--            <artifactId>hibernate-c3p0</artifactId>-->
@@ -131,6 +131,12 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
         </dependency>
         <!-- Until here -->
 

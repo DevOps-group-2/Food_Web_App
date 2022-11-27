@@ -1,5 +1,6 @@
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.File;
 

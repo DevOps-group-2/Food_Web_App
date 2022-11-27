@@ -4,11 +4,13 @@ package service.payment;
 import com.stripe.Stripe;
 import com.stripe.exception.*;
 import com.stripe.model.Charge;
+import dal.PaymentDal;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,26 +21,25 @@ import java.util.Map;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 
-public class CheckoutResource {
-    public CheckoutResource() {}
+public class Checkout {
+    public Checkout() {}
 
     @POST
-    @Path(("webhook"))
-    public String submitPayment(Payment payment) {
-        System.out.println("HER");
+    @Path(("pay"))
+    public Response submitPayment(Payment payment) {
+        boolean status = false;
+        System.out.println(payment.amount);
         // TODO: create an env file to save stripe key
-        Stripe.apiKey = "sk_test_51Ll7jrJEhBAUpm4sHtsg9Z42vInZmUbNpEEQp9E3qCFTGXIPid4d2viPZRC7HDS1VmYJFP1hz4zkAybr27M98oRM00MJssGfbp";
+        Stripe.apiKey = System.getenv( "MY_SECRET_KEY");
         Map<String, Object> params = new HashMap<>();
-        params.put("amount", payment.amount);
+        params.put("amount", payment.amount * 100);
         params.put("currency", "dkk");
         params.put("description", "Example charge");
         params.put("source", payment.tokenId);
-
         try {
             Charge.create(params);
             System.out.println("Payment success.");
-            return "Payment success(from backend)";
-
+            status = true;
         } catch (AuthenticationException e) {
             System.out.println("Error 1");
             e.printStackTrace();
@@ -53,7 +54,13 @@ public class CheckoutResource {
             e.printStackTrace();
         }
 
-        return "Payment failed";
+        PaymentDal paymentDal = new PaymentDal(payment.customerId);
+        if (status) {
+            paymentDal.createCheckoutDB(payment, status);
+            return Response.ok().build();
+        }
+
+        return Response.serverError().build();
     }
 
 }

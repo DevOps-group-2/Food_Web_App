@@ -1,52 +1,63 @@
-import React, {Component} from "react";
+import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 
+let data;
+function Pay(props) {
+    data = props.children
+    return (
+        <div>
+            <h1></h1>
+            <h1></h1>
+            <StripeCheckout
+                token={handleToken}
+                stripeKey={"pk_test_51Ll7jrJEhBAUpm4shjFR2nezg1jK24pK7XdcovEOeogK4m2HZDdsQITlPVeXromKZoZjHrJO8iWlKhkrDyuOXy8Q00Fv9OdcdE"}
+                billingAddress={false}
+                shippingAddress={false}
+                email={props.children.email}
+                amount={props.children.amount * 100}
+                currency={"DKK"}
+                name={props.children.name}
+            />
+        </div>
+    );
 
-class Pay extends Component{
-    render() {
-        return (
-            <div>
-                <h1>This is a temporary payment button</h1>
-
-                <StripeCheckout
-                    token={handleToken}
-                    stripeKey={"pk_test_51Ll7jrJEhBAUpm4shjFR2nezg1jK24pK7XdcovEOeogK4m2HZDdsQITlPVeXromKZoZjHrJO8iWlKhkrDyuOXy8Q00Fv9OdcdE"}
-                    billingAddress
-                    shippingAddress
-                    amount={stripePrice}
-                    currency={"dkk"}
-                    name={"Information"}
-                />
-            </div>
-
-        );
-    }
 }
 
-const stripePrice = 15 * 100;
 const baseUrl = process.env.NODE_ENV === 'development' ?  "http://localhost:8080/":""; //Check if dev environment
 
 const handleToken = (token) => {
-    // TODO
-
-
-    fetch(baseUrl + "api/stripe/webhook", {
+    if (data.amount < 3) {
+        return alert("Amount must be at least 3kr.")
+    }
+    fetch(baseUrl + "api/stripe/pay", {
         method: "POST",
         headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({amount:5000,tokenId: token.id}),
+        body: JSON.stringify({
+            email: data.email,
+            name: data.name,
+            customerId: data.id,
+            amount: data.amount,
+            tokenId: token.id
+        }),
         credentials: "same-origin"
     }).then(function(response) {
-
-        response.json().then(r => console.log(r))
+        if (response.ok) {
+            alert('Payment success')
+        } else {
+            alert('Payment failed')
+        }
         console.log(response)
-        alert('payment success' + {response})
         return response.text()
+
     }, function(error) {
-        alert('Payment failed' + {error})
-        console.log(error.message) ;
+        alert('Payment failed')
+        console.log(error.message);
     })
 
 }
+
+
+
 
 
 export default Pay;

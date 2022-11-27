@@ -1,7 +1,6 @@
 import React from 'react';
 
-let ContextOfBasket;
-ContextOfBasket = React.createContext({
+const ContextOfBasket = React.createContext({
     foodProducts: [],
     totalAmount: 0,
     addProduct: (item) => {},

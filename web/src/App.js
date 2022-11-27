@@ -10,6 +10,7 @@ import AboutUsPage from "./client/pages/aboutPage/AboutUsPage"
 import ContactPage from "./client/pages/contactPage/ContactPage";
 import Home from "./client/pages/homePage/Home";
 import TestForm from "./client/pages/customerForm/final/TestForm";
+import PayWrapper from "./client/pages/payment/PayWrapper";
 
 
 
@@ -25,8 +26,10 @@ function App() {
                     <Route path={"form"} element={<TestForm/>}/>
 
                     <Route path={"form2"} element={<CustomerForm/>}/>
-
-                    <Route path={"/pay"} element={<Pay/>}/>
+                    <Route path={"/pay2"} element={<PayWrapper/>}/>
+{/*
+                    <Route path={"/pay"} element={<Pay></Pay>}/>
+*/}
                     <Route path={"/contact"} element={<ContactPage/>}/>
                     <Route path={"/about"} element={<AboutUsPage/>}/>
                     <Route path={"/login"} element= {<LoginPage/>}/>

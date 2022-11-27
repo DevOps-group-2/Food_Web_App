@@ -19,7 +19,8 @@ function LoginPage() {
         var bcrypt = require('bcryptjs');
         const {uname, pass} = document.forms[0];
         const hashedPassword = bcrypt.hashSync(pass.value, '$2a$10$CwTycUXWue0Thq9StjUM0u')
-        let token = await fetch("https://food-webapp.grp2.diplomportal.dk/api/auth/login", {
+        console.log(hashedPassword)
+        let response = await fetch("https://food-webapp.grp2.diplomportal.dk/api/auth/login", {
             "headers" : {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -30,7 +31,10 @@ function LoginPage() {
                 password: hashedPassword
             })
         })
-        if (token != null) {
+        let token = await response.text()
+        console.log(token)
+        if (token !==  '') {
+            console.log(token)
             setIsSubmitted(true);
             //setting tokenStore states, and saving token
             tokenStore.token = token
