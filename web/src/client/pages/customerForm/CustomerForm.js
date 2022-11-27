@@ -54,7 +54,7 @@ class CustomerForm extends Component {
     render() {
 
         return (
-            <div className="App">
+            <div className="Form">
                 <header>
                     <h1>Din Oplysning</h1>
                 </header>
@@ -64,40 +64,42 @@ class CustomerForm extends Component {
                         <div className="add-rowSpace">
                             <label>
                             <input
+                                className="input-text"
                                 type="email"
                                 name="email"
-                                placeholder="Email"
+                                placeholder="Email..."
                                 onChange={this.handleInputChange}
                             />
                             </label>
                         </div>
                         <div className="add-rowSpace">
                             <input
+                                className="input-text"
                                 type="text"
                                 name="name"
-                                placeholder="Name"
+                                placeholder="Name..."
                                 onChange={this.handleInputChange}
                             />
                         </div>
 
                         <div className="add-rowSpace">
                             <input
+                                className="input-text"
                                 type="phone-number"
                                 name="number"
-                                placeholder="Number"
+                                placeholder="Number..."
                                 onChange={this.handleInputChange}
                             />
                         </div>
-                            
+
                         <div className="add-rowSpace">
                             <input
+                                className="input-text"
                                 name="date" type="date"
                                 min={new Date().toISOString().slice(0,10)}
                                 onChange={this.handleInputChange}
                             />
                         </div>
-
-
 
                             {/*
                         <input
@@ -107,7 +109,7 @@ class CustomerForm extends Component {
                         />
                         */}
                         </div>
-                        <button type="submit">
+                        <button className="submitBtn" type="submit">
                             Submit information
                         </button>
 
