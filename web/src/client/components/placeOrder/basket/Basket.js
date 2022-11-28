@@ -100,7 +100,7 @@ const Basket = (props) => {
 
             {hasProducts && (
                 <button className={css.button} onClick={orderHandler}>
-                    Order
+                    That's It
                 </button>
             )}
         </div>
