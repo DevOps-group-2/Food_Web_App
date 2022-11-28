@@ -56,7 +56,7 @@ class CustomerForm extends Component {
         return (
             <div className="Form">
                 <header>
-                    <h1>Din Oplysning</h1>
+                    <h1>Your information</h1>
                 </header>
                 <div>
                     <form onSubmit={this.handleSubmit}>

@@ -48,8 +48,8 @@ class ContactUs extends Component{
                     <form onSubmit={this.handleSubmit}>
                         <div><h1>Feel free to leave a message for the restaurant</h1></div>
 
-                        <div><b>Email:</b></div>
-                        <div>
+                        <div><label> Email: </label></div>
+                        <div className="add-rowSpace">
                             <input
                                 type="email"
                                 name="email"
@@ -57,9 +57,9 @@ class ContactUs extends Component{
                                 onChange={this.handleInputChange}
                             />
                         </div>
-                        <div><b>Message:</b></div>
+                        <div><label> Message: </label></div>
                         <div>
-                            <div>
+                            <div className="add-rowSpace">
                                 <textarea id = "messageBox"
                                     name="message"
                                     placeholder="Please write your message here"
