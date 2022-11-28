@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import model.*;
+import org.mindrot.jbcrypt.BCrypt;
 import utility.GlobalVariable;
 
 
@@ -31,7 +32,7 @@ public class Test {
     }
 
     @org.junit.Test
-    public void testCreate1(){
+    public void testCreateOrder(){
         HibernateController hibernateController =
                 new HibernateController(HOST);
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
@@ -94,7 +95,20 @@ public class Test {
         readTransaction.commit();
         session.close();
     }
-    
+
+   /* @org.junit.Test
+    public void createAdmin() {
+        HibernateController hibernateController = new HibernateController(HOST);
+        SessionFactory sessionFactory = hibernateController.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        LoginData user = new LoginData();
+        user.setUsername("admin");
+        user.setPassword(BCrypt.hashpw("password", "$2a$10$CwTycUXWue0Thq9StjUM0u"));
+        session.persist(user);
+        transaction.commit();
+        session.close();
+    }*/
 
 
 }

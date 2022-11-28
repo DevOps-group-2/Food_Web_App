@@ -65,8 +65,8 @@ const Basket = (props) => {
         console.log(contextOfBasket.foodProducts);
         //event.preventDefault();
         //console.log(data);
-        //let fetching = await fetch("http://localhost:8080/api/orders", {
-        let fetching = await fetch("https://food-webapp.grp2.diplomportal.dk/api/orders", {
+        let fetching = await fetch("http://localhost:8080/api/orders", {
+        //let fetching = await fetch("https://food-webapp.grp2.diplomportal.dk/api/orders", {
             headers : {
                 'Content-Type': 'application/json'},
             //mode : "no-cors",
@@ -101,7 +101,7 @@ const Basket = (props) => {
 
             {hasProducts && (
                 <button className={css.button} onClick={orderHandler}>
-                    Order
+                    That's It
                 </button>
             )}
         </div>
