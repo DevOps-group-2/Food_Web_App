@@ -4,11 +4,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import model.*;
+import org.mindrot.jbcrypt.BCrypt;
+import utility.GlobalVariable;
 
 
 public class Test {
-    final static String HOST = "pgtest.grp2.diplomportal.dk:5432/pg";
-
+    final static String HOST = GlobalVariable.HOST;
 
     @org.junit.Test
     public void testCreate(){
@@ -31,7 +32,7 @@ public class Test {
     }
 
     @org.junit.Test
-    public void testCreate1(){
+    public void testCreateOrder(){
         HibernateController hibernateController =
                 new HibernateController(HOST);
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
@@ -82,19 +83,32 @@ public class Test {
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Question question = new Question();
-        System.out.println("Question ID before commit: " + question.getId());
-        question.setEmail("test@mail.com");
-        session.persist(question);
+        Message message = new Message();
+        System.out.println("Question ID before commit: " + message.getId());
+        message.setEmail("test@mail.com");
+        session.persist(message);
         transaction.commit();
-        System.out.println("Question ID after commit: " + question.getId());
+        System.out.println("Question ID after commit: " + message.getId());
         Transaction readTransaction = session.beginTransaction();
-        Question readQuestion = session.get(Question.class, question.getId());
-        System.out.println("Read quesiton back: " + readQuestion.toString());
+        Message readMessage = session.get(Message.class, message.getId());
+        System.out.println("Read quesiton back: " + readMessage.toString());
         readTransaction.commit();
         session.close();
     }
-    
+
+   /* @org.junit.Test
+    public void createAdmin() {
+        HibernateController hibernateController = new HibernateController(HOST);
+        SessionFactory sessionFactory = hibernateController.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        LoginData user = new LoginData();
+        user.setUsername("admin");
+        user.setPassword(BCrypt.hashpw("password", "$2a$10$CwTycUXWue0Thq9StjUM0u"));
+        session.persist(user);
+        transaction.commit();
+        session.close();
+    }*/
 
 
 }
