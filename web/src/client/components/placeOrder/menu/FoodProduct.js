@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import { useContext } from 'react';
 import css from './Style.module.css';
 import FoodProductAmount from './FoodProductAmount';
