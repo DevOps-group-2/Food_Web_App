@@ -47,6 +47,7 @@ public class OrderService {
         JpaCriteriaQuery<Order> query = session.getCriteriaBuilder().createQuery(Order.class);
         query.from(Order.class);
         List<Order> data = session.createQuery(query).getResultList();
+        session.close();
         return data;
     }
 }
