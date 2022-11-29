@@ -10,7 +10,8 @@ import org.hibernate.Session;
 import org.hibernate.query.criteria.JpaCriteriaQuery;
 import java.util.List;
 
-import static service.QuestionService.sessionFactory;
+import static service.CustomerDataService.sessionFactory;
+
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

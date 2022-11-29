@@ -5,7 +5,6 @@ import {DataGrid} from "@mui/x-data-grid";
 
 const columns = [
     {field: 'idOrder', headerName: 'ID', width: 100},
-    {field: 'menu', headerName: 'Menu', width: 100},
     {field: 'orderedTotalPrice', headerName: 'Total price', width: 100}
 
 /*    {field: 'idOrder', headerName: 'ID'},
@@ -18,12 +17,12 @@ const AppendingOrders = (setSelectedLink, link ) =>{
     const [tableData, setTableData] = useState([])
 
 
-
     useEffect(() => {
-        fetch("http://localhost:8080/api/orders")
+        fetch("http://localhost:8080/api/items")
             .then(data => data.json())
             .then(data => setTableData(data))
     })
+
 
     return(
         <div style={{ width: '100%'}}>

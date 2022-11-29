@@ -19,7 +19,7 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Path("data")
 public class CustomerDataService {
-    private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
+    static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
