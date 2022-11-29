@@ -17,9 +17,10 @@ import java.util.UUID;
 @Table(name="DBItems") //!!WATCH out this is a reserved name!
 public class Items {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name="idOrder")
-    private int idOrder;
+    public int idOrder;
 
     //@GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")
@@ -39,7 +40,7 @@ public class Items {
     private int amount;
 
     @ManyToOne(targetEntity = Order.class, cascade=CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn()
     @JsonIgnore
     private Order order;
 
