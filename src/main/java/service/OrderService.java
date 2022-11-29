@@ -18,17 +18,6 @@ import java.util.List;
 public class OrderService {
     private final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
-    /*@POST
-    //@Path("createOrder")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response createOrder(Order order){
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        session.persist(order);
-        transaction.commit();
-        return Response.ok(getOrders()).build();
-    }*/
-
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createOrder(Order order){
