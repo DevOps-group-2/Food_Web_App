@@ -1,3 +1,47 @@
+import * as React from 'react';
+import './AppendingOrders.css';
+import {useEffect, useState} from "react";
+import {DataGrid} from "@mui/x-data-grid";
+
+const columns = [
+    {field: 'idOrder', headerName: 'Price', width: 100},
+
+    {field: 'orderedTotalPrice', headerName: 'Total price', width: 100}
+
+/*    {field: 'idOrder', headerName: 'ID'},
+    {field: 'menu', headerName: 'Menu', width: 100},
+    {field: 'price', headerName: 'Price', width: 100},
+    {field: 'amount', headerName: 'Amount', width: 100}*/
+]
+
+const AppendingOrders = (setSelectedLink, link ) =>{
+    const [tableData, setTableData] = useState([])
+
+
+
+    useEffect(() => {
+        fetch("http://localhost:8080/api/orders")
+            .then(data => data.json())
+            .then(data => setTableData(data))
+    })
+
+    return(
+        <div style={{height: 700, width: '100%'}}>
+            <DataGrid
+                getRowId={(row) => row.idOrder}
+                rows={tableData}
+                columns={columns}
+                checkboxSelection
+
+            />
+
+        </div>
+
+    )
+}
+
+export default AppendingOrders;
+/*
 //Create with inspiration from following links:
 // https://mui.com/x/react-data-grid/getting-started/
 //https://mui.com/material-ui/react-table/
@@ -31,16 +75,16 @@ function createOrder(orderNumber: number, customerName: string, phoneNr: number,
     };
 }
 
-/*function createProduct(productNumber: number, productName: string, amount: number, price: price){
+/!*function createProduct(productNumber: number, productName: string, amount: number, price: price){
     return {
         productNumber: productNumber,
         productName: productName,
         amount: amount,
         price: price,
     };
-}*/
+}*!/
 
-/*function FoldOutRow(props: { foldOutRow: ReturnType<typeof createProduct> }) {
+/!*function FoldOutRow(props: { foldOutRow: ReturnType<typeof createProduct> }) {
     const { foldOutRow } = props;
     const [open, setOpen] = React.useState(false);
 
@@ -62,7 +106,7 @@ function createOrder(orderNumber: number, customerName: string, phoneNr: number,
         </TableBody>
 
     )
-}*/
+}*!/
 
 
 
@@ -82,18 +126,16 @@ function Row(props: { row: ReturnType<typeof createOrder> }) {
     return (
         <>
             <TableRow>
-                <FetchApi/>
+
                 <TableCell onClick={() => {setOpen(!open)}} >
                     <ChevronDown />
                 </TableCell>
-                <TableCell >
-                    {row.orderNumber}
-                </TableCell>
+               <TableCell >{row.orderNumber}</TableCell>
                 <TableCell >{row.customerName}</TableCell>
                 <TableCell align="right">{row.phoneNr}</TableCell>
                 <TableCell align="right">{row.date}</TableCell>
                 <TableCell align="right">{row.time}</TableCell>
-                <TableCell align="right" >
+                <TableCell align="right" >*!/}
                     <span>
                         <button style={{padding: "8px", borderRadius: "13px", width: "fit-content", marginLeft: "8px", }}
                         >
@@ -108,7 +150,7 @@ function Row(props: { row: ReturnType<typeof createOrder> }) {
                 </TableCell>
                 <TableCell align="right">{row.subTotal}</TableCell>
             </TableRow>
-            {/*Table that folds out*/}
+            {/!*Table that folds out*!/}
             <TableRow className="subtable">
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
@@ -158,7 +200,7 @@ const rows = [
 
 ];
 
-/*const makeStyles=(status)=> {
+/!*const makeStyles=(status)=> {
     if (status === 'Approved'){
         return(
             background: 'rgb(145 254 159 / 47%)',
@@ -176,7 +218,7 @@ const rows = [
             color: 'green',
     )
 
-}*/
+}*!/
 
 function appendingOrders() {
 
@@ -212,3 +254,4 @@ function appendingOrders() {
 }
 
 export default appendingOrders;
+*/
