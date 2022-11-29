@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import model.*;
+import org.mindrot.jbcrypt.BCrypt;
 import utility.GlobalVariable;
 
 
@@ -31,7 +32,7 @@ public class Test {
     }
 
     @org.junit.Test
-    public void testCreate1(){
+    public void testCreateOrder(){
         HibernateController hibernateController =
                 new HibernateController(HOST);
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
@@ -40,17 +41,25 @@ public class Test {
         Order order = new Order();
         System.out.println("ORDERID before commit: " + order.getIdOrder());
         int i = 1;
-        /*order.setId(Collections.singletonList("Food1"));
-        order.setMenu(Collections.singletonList("Lasagne"));
-        order.setPrice(i);
-        order.setAmount(i);*/
-        //order.setOrderedFoodProducts();
+        order.setIdOrder(1);
+        order.setOrderedTotalPrice(111);
+
         session.persist(order);
         transaction.commit();
         System.out.println("ORDERID after commit: " + order.getIdOrder());
         Transaction readTransaction = session.beginTransaction();
         Order readOrder = session.get(Order.class, order.getIdOrder());
         System.out.println("Read ORDER back: " + readOrder.toString());
+
+        Items items = new Items();
+        int ii = 1;
+        order.setIdOrder(1);
+        order.setOrderedTotalPrice(111);
+
+        session.persist(items);
+        transaction.commit();
+        Order readItems = session.get(Items.class, items.getIdOrder()).getOrder();
+
         readTransaction.commit();
         session.close();
     }
@@ -82,19 +91,32 @@ public class Test {
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Question question = new Question();
-        System.out.println("Question ID before commit: " + question.getId());
-        question.setEmail("test@mail.com");
-        session.persist(question);
+        Message message = new Message();
+        System.out.println("Question ID before commit: " + message.getId());
+        message.setEmail("test@mail.com");
+        session.persist(message);
         transaction.commit();
-        System.out.println("Question ID after commit: " + question.getId());
+        System.out.println("Question ID after commit: " + message.getId());
         Transaction readTransaction = session.beginTransaction();
-        Question readQuestion = session.get(Question.class, question.getId());
-        System.out.println("Read quesiton back: " + readQuestion.toString());
+        Message readMessage = session.get(Message.class, message.getId());
+        System.out.println("Read quesiton back: " + readMessage.toString());
         readTransaction.commit();
         session.close();
     }
-    
+
+   /* @org.junit.Test
+    public void createAdmin() {
+        HibernateController hibernateController = new HibernateController(HOST);
+        SessionFactory sessionFactory = hibernateController.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        LoginData user = new LoginData();
+        user.setUsername("admin");
+        user.setPassword(BCrypt.hashpw("password", "$2a$10$CwTycUXWue0Thq9StjUM0u"));
+        session.persist(user);
+        transaction.commit();
+        session.close();
+    }*/
 
 
 }

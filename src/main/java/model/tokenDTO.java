@@ -1,10 +1,11 @@
 package model;
 
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class OrderDTO {
-    private String orderedFoodProducts;
+public class tokenDTO {
+    private String token;
 }

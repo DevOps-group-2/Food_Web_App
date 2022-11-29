@@ -67,11 +67,16 @@ const BasketProvider = (props) => {
     sendBasketChanges({type: 'remove-product', id: id});
   };
 
+  const clearBasket = () => {
+    sendBasketChanges({type: 'clear'});
+  }
+
   const contextOfBasket = {
     foodProducts: basketState.foodProducts,
     totalAmount: basketState.totalAmount,
     addProduct: addProductToBasket,
     removeProduct: removeProductFromBasket,
+    clearBasket: clearBasket
   };
 
   return (
