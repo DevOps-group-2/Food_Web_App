@@ -40,6 +40,7 @@ public class PaymentTest {
         assertEquals(payment.name, paymentDB.getName());
         assertEquals(payment.email, paymentDB.getEmail());
         assertEquals(payment.customerId, paymentDB.getCustomerId());
+
         assertEquals(paymentDB.getPaymentSuccess(), "false");
         session.close();
 
