@@ -54,7 +54,7 @@ public class Checkout {
             e.printStackTrace();
         }
 
-        PaymentDal paymentDal = new PaymentDal(payment.customerId);
+        PaymentDal paymentDal = new PaymentDal();
         if (status) {
             paymentDal.createCheckoutDB(payment, status);
             return Response.ok().build();
