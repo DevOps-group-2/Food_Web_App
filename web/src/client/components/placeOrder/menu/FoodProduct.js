@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import css from './Style.module.css';
 import FoodProductAmount from './FoodProductAmount';
 import ContextOfBasket from '../basket/Context';
-import AppendingOrders from "../../../../adminDashboard/dashboard/components/appendingOrders/AppendingOrders";
+import Orders from "../../../../adminDashboard/dashboard/components/appendingOrders/Orders";
 
 const FoodProduct = (props) => {
 
@@ -19,7 +19,6 @@ const FoodProduct = (props) => {
               menu: props.menu,
               price: props.price,
               amount: amount,
-              status: appending
           });
       }
   };
