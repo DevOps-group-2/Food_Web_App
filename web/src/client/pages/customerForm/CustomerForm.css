@@ -1,26 +1,25 @@
-
-.Form{
+.App {
     text-align: center;
+}
+form {
+    border:2px solid green;
+    padding: 30px;
+}
+img{
+    height: 120px;
+    margin-left: 90px;
+    margin-bottom: 10px;
+    display: block;
+    border:1px solid black;
+    border-radius: 50%;
+}
+.App-header {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    background-color: #c6d3b0;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: black;
 }
-
-.submitBtn{
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    display: inline-block;
-    height: 2rem;
-    color: white;
-    background-color: #4b543d;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-.add-rowSpace {
-    padding: 10px;
-}
-.input-text {
-    font-size: 20px;
-}
-
-

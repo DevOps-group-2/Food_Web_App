@@ -13,9 +13,9 @@ import org.hibernate.query.criteria.JpaCriteriaQuery;
 import java.util.List;
 
 @Produces(MediaType.APPLICATION_JSON)
-@Path("message")
-public class MessageService {
-    private static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
+@Path("question")
+public class QuestionService {
+    static final SessionFactory sessionFactory = new HibernateController("pgtest.grp2.diplomportal.dk:5432/pg").getSessionFactory();
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

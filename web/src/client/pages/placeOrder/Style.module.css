@@ -7,12 +7,6 @@
   pointer-events: none;
 }
 
-.foodproducts {
-  max-width: 50rem;
-  width: 60%;
-  margin: 2rem auto;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

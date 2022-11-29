@@ -4,12 +4,11 @@ import css from './Style.module.css';
 import BasketBox from '../layout/BasketBox';
 import ContextOfBasket from './Context';
 import BasketProduct from './BasketProduct';
-import NotUsedForm from "../../../pages/customerForm/notUsed/NotUsedForm";
+import CustomerForm from "../../../pages/customerForm/CustomerForm";
 import ConfirmSendOrder from "./ConfirmSendOrder";
 import axios from "axios";
 import {tokenStore} from "../../../stores/TokenStore";
 import foodProduct from "../menu/FoodProduct";
-import CustomerForm from "../../../pages/customerForm/CustomerForm";
 
 const myComponent = {
     width: '800px',
@@ -82,7 +81,6 @@ const Basket = (props) => {
         if (fetching != null) {
             setIsSending(false);
             setDidSend(true);
-            contextOfBasket.clearBasket();
         } else {
             setErrorMessage("Invalid");
             renderErrorMessage()
@@ -102,7 +100,7 @@ const Basket = (props) => {
 
             {hasProducts && (
                 <button className={css.button} onClick={orderHandler}>
-                    That's It
+                    Order
                 </button>
             )}
         </div>
@@ -121,7 +119,7 @@ const Basket = (props) => {
             </div>
             <p>Please fill the information so your order will be placed!</p>
             <div style={myComponent}>
-                <CustomerForm/>
+            <CustomerForm />
             </div>
         </BasketBox>);
 

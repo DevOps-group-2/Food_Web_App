@@ -1,9 +1,6 @@
 
-#messageBox
+#questionBox
 {
-    resize: none;
     height:200px;
-    
-    font-size:12pt;
-
+    font-size:14pt;
 }

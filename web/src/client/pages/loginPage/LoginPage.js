@@ -16,37 +16,34 @@ function LoginPage() {
         //logging in
         tokenStore.state = tokenStore?.Loginstates?.indexOf(0);
         event.preventDefault();
+        var bcrypt = require('bcryptjs');
         const {uname, pass} = document.forms[0];
-
-        try {
-            let response = await fetch("https://food-webapp.grp2.diplomportal.dk/api/auth/login", {
-                "headers" : {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                "method": "POST",
-                "body": JSON.stringify({
-                    username: uname.value,
-                    password: pass.value
-                })
+        const hashedPassword = bcrypt.hashSync(pass.value, '$2a$10$CwTycUXWue0Thq9StjUM0u')
+        console.log(hashedPassword)
+        let response = await fetch("https://food-webapp.grp2.diplomportal.dk/api/auth/login", {
+            "headers" : {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            "method": "POST",
+            "body": JSON.stringify({
+                username: uname.value,
+                password: hashedPassword
             })
-            if (response.ok) {
-                let token = await response.text()
-                if (token !== '') {
-                    console.log(token)
-                    setIsSubmitted(true);
-                    //setting tokenStore states, and saving token
-                    tokenStore.setToken(token)
-                    tokenStore.state = tokenStore?.Loginstates?.indexOf(2);
-                    console.log(tokenStore.getToken())
-                }
-            }
-        }
-       catch (e){
-           setErrorMessage({name: "invalid name or password"});
-           renderErrorMessage()
-       }
+        })
+        let token = await response.text()
+        console.log(token)
+        if (token !==  '') {
+            console.log(token)
+            setIsSubmitted(true);
+            //setting tokenStore states, and saving token
+            tokenStore.token = token
+            tokenStore.state = tokenStore?.Loginstates?.indexOf(2);
 
+        } else {
+            setErrorMessage({name: "invalid name or password"});
+            renderErrorMessage()
+        }
     };
 
     const renderErrorMessage = (name) =>

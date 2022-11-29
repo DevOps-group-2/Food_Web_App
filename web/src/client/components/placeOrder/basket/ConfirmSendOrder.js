@@ -13,16 +13,15 @@ export default function ConfirmSendOrder(props) {
 
     return (
         <form onSubmit={sendHandler}>
-            {/*<div className={comment}>
+            <div className={comment}>
                 Comments:<div></div>
                 <input type='text' id='text'/>
-            </div>*/}
-            <h4>You can now go to the checkout for payment.</h4>
+            </div>
             <div className={css.styles}>
                 <button onClick={props.onClose}>
                     Close
                 </button>
-                <button className={css.send}>Checkout</button>
+                <button className={css.send}>Continue</button>
             </div>
         </form>
     );

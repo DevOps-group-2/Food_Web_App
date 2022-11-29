@@ -8,7 +8,7 @@ class ContactUs extends Component{
 
         this.state = {
             email: '',
-            message: '',
+            question: '',
             data: [],
         };
     }
@@ -22,15 +22,15 @@ class ContactUs extends Component{
     handleSubmit = event => {
         event.preventDefault();
 
-        const {email, message} = this.state;
+        const {email, question} = this.state;
 
         const customerQuestion = {
             email,
-            message
+            question
         };
 
         axios
-            .post('http://localhost:8080/api/message', customerQuestion)
+            .post('http://localhost:8080/api/question', customerQuestion)
             .then(() => console.log('Question created'),
                 //this.callAPI()
             )
@@ -40,33 +40,38 @@ class ContactUs extends Component{
             });
     };
     render() {
-
         return (
             <div>
                 <br />
                 <div>
                     <form onSubmit={this.handleSubmit}>
-                        <div><h1>Feel free to leave a message for the restaurant</h1></div>
-
-                        <div><label> Email: </label></div>
-                        <div className="add-rowSpace">
+                        <h2>Question:</h2>
+                        <div>
                             <input
                                 type="email"
                                 name="email"
-                                placeholder="Please write your email here"
+                                placeholder="Email"
                                 onChange={this.handleInputChange}
                             />
                         </div>
-                        <div><label> Message: </label></div>
-                        <div>
-                            <div className="add-rowSpace">
-                                <textarea id = "messageBox"
-                                    name="message"
-                                    placeholder="Please write your message here"
-                                    onChange={this.handleInputChange}
-                                />
-                            </div>
 
+                        <div>
+
+                            <textarea id="" placeholder="Add Your Comment" value=" "></textarea>
+
+                            <div className="comments">
+                                <h2>Comments</h2>
+                                <div id="comment-box">
+                                </div>
+                            </div>
+                            {/*
+                            <input id ="questionBox"
+                                type="text"
+                                name="question"
+                                placeholder="Question"
+                                onChange={this.handleInputChange}
+                            />
+                            */}
                         </div>
 
                         <button type="submit">
