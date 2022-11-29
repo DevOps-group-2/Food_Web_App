@@ -24,14 +24,14 @@ class ContactUs extends Component{
 
         const {email, message} = this.state;
 
-        const customerQuestion = {
+        const customerMessage = {
             email,
             message
         };
 
         axios
-            .post('http://localhost:8080/api/message', customerQuestion)
-            .then(() => console.log('Question created'),
+            .post('http://localhost:8080/api/message', customerMessage)
+            .then(() => console.log('Message created'),
                 //this.callAPI()
             )
 
@@ -42,13 +42,13 @@ class ContactUs extends Component{
     render() {
 
         return (
-            <div>
+            <div className="Form">
                 <br />
                 <div>
                     <form onSubmit={this.handleSubmit}>
                         <div><h1>Feel free to leave a message for the restaurant</h1></div>
 
-                        <div><label> Email: </label></div>
+                        <div><b>Email:</b></div>
                         <div className="add-rowSpace">
                             <input
                                 type="email"
@@ -57,13 +57,13 @@ class ContactUs extends Component{
                                 onChange={this.handleInputChange}
                             />
                         </div>
-                        <div><label> Message: </label></div>
+                        <div><b>Message:</b></div>
                         <div>
                             <div className="add-rowSpace">
                                 <textarea id = "messageBox"
-                                    name="message"
-                                    placeholder="Please write your message here"
-                                    onChange={this.handleInputChange}
+                                          name="message"
+                                          placeholder="Please write your message here"
+                                          onChange={this.handleInputChange}
                                 />
                             </div>
 

@@ -58,7 +58,7 @@ public class Test {
 
         session.persist(items);
         transaction.commit();
-        Order readItems = session.get(Items.class, items.getIdOrder()).getOrder();
+        Order readItems = session.get(Items.class, items.getId()).getOrder();
 
         readTransaction.commit();
         session.close();

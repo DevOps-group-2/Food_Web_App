@@ -16,7 +16,9 @@ function LoginPage() {
         //logging in
         tokenStore.state = tokenStore?.Loginstates?.indexOf(0);
         event.preventDefault();
+        var bcrypt = require('bcryptjs');
         const {uname, pass} = document.forms[0];
+        const hashedPassword = bcrypt.hashSync(pass.value, '$2a$10$CwTycUXWue0Thq9StjUM0u')
 
         try {
             let response = await fetch("https://food-webapp.grp2.diplomportal.dk/api/auth/login", {
@@ -27,7 +29,7 @@ function LoginPage() {
                 "method": "POST",
                 "body": JSON.stringify({
                     username: uname.value,
-                    password: pass.value
+                    password: hashedPassword
                 })
             })
             if (response.ok) {
@@ -40,6 +42,10 @@ function LoginPage() {
                     tokenStore.state = tokenStore?.Loginstates?.indexOf(2);
                     console.log(tokenStore.getToken())
                 }
+            }
+            else {
+                setErrorMessage({name: "invalid name or password"});
+                renderErrorMessage()
             }
         }
        catch (e){

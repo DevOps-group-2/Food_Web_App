@@ -5,7 +5,9 @@ import lombok.*;
 
 @Entity
 @Data
-@Table(name = "MESSAGE") //WATCH out  USER is a reserved name!
+
+@Table(name = "message") //WATCH out  USER is a reserved name!
+
 @Getter
 @Setter
 @Builder

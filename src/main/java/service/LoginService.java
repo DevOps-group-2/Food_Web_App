@@ -32,7 +32,7 @@ public class LoginService {
         AdminUser adminUser = session.createQuery(query).getSingleResult();
 
         if (login!=null){
-            if(adminUser.getUsername().equals(login.getUsername()) && adminUser.getPassword().equals(BCrypt.hashpw(login.getPassword(), "$2a$10$CwTycUXWue0Thq9StjUM0u")) ){
+            if(adminUser.getUsername().equals(login.getUsername()) && adminUser.getPassword().equals(login.getPassword()) ){
             return JWTHandler.generateJwtToken(new User(login.getUsername(), login.getPassword()));
             }
         }
