@@ -3,11 +3,13 @@ import { useContext } from 'react';
 import css from './Style.module.css';
 import FoodProductAmount from './FoodProductAmount';
 import ContextOfBasket from '../basket/Context';
+import AppendingOrders from "../../../../adminDashboard/dashboard/components/appendingOrders/AppendingOrders";
 
 const FoodProduct = (props) => {
 
   const contextOfBasket = useContext(ContextOfBasket);
   const price = `${props.price.toFixed(2)}`;
+  const appending = "appending";
 
   const addToBasket = (amount) => {
       /*Only one foodtype can be added.*/
@@ -17,6 +19,7 @@ const FoodProduct = (props) => {
               menu: props.menu,
               price: props.price,
               amount: amount,
+              status: appending
           });
       }
   };

@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -38,6 +40,10 @@ public class Items {
     @Column(name="amount")
     @NotNull
     private int amount;
+
+    @Column(name="status")
+    @NotNull
+    private String status;
 
     @ManyToOne(targetEntity = Order.class, cascade=CascadeType.ALL)
     @JoinColumn()
