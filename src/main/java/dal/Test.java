@@ -41,17 +41,25 @@ public class Test {
         Order order = new Order();
         System.out.println("ORDERID before commit: " + order.getIdOrder());
         int i = 1;
-        /*order.setId(Collections.singletonList("Food1"));
-        order.setMenu(Collections.singletonList("Lasagne"));
-        order.setPrice(i);
-        order.setAmount(i);*/
-        //order.setOrderedFoodProducts();
+        order.setIdOrder(1);
+        order.setOrderedTotalPrice(111);
+
         session.persist(order);
         transaction.commit();
         System.out.println("ORDERID after commit: " + order.getIdOrder());
         Transaction readTransaction = session.beginTransaction();
         Order readOrder = session.get(Order.class, order.getIdOrder());
         System.out.println("Read ORDER back: " + readOrder.toString());
+
+        Items items = new Items();
+        int ii = 1;
+        order.setIdOrder(1);
+        order.setOrderedTotalPrice(111);
+
+        session.persist(items);
+        transaction.commit();
+        Order readItems = session.get(Items.class, items.getIdOrder()).getOrder();
+
         readTransaction.commit();
         session.close();
     }

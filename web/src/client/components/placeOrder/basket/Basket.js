@@ -82,6 +82,7 @@ const Basket = (props) => {
         if (fetching != null) {
             setIsSending(false);
             setDidSend(true);
+            contextOfBasket.clearBasket();
         } else {
             setErrorMessage("Invalid");
             renderErrorMessage()

@@ -16,9 +16,10 @@ import java.util.List;
 @AllArgsConstructor
 public class Order {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue()
     @Column(name="idOrder")
-    private int idOrder;
+    public int idOrder;
 
     @Column(name="orderedTotalPrice")
     private int orderedTotalPrice;
