@@ -19,15 +19,15 @@ public class MessageService {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response createCustomerData(Message question){
+    public Response createCustomerData(Message message){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.persist(question);
+        session.persist(message);
         transaction.commit();
         Transaction readTransaction = session.beginTransaction();
         readTransaction.commit();
         session.close();
-        return Response.ok(question.getId()).build();
+        return Response.ok(message.getId()).build();
     }
 
     @GET
