@@ -8,10 +8,6 @@ import java.sql.Time;
 import java.util.Date;
 
 import static jakarta.persistence.TemporalType.DATE;
-<<<<<<< HEAD
-=======
-import static jakarta.persistence.TemporalType.TIME;
->>>>>>> Azmi
 
 @Entity
 @Data
@@ -24,7 +20,8 @@ import static jakarta.persistence.TemporalType.TIME;
 @AllArgsConstructor
 
 public class CustomerData {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column
     private int id;
     @Column
@@ -35,15 +32,10 @@ public class CustomerData {
     private int number;
     // Saves as EPOCH if this dara needs to be pulled there need to be converted
     @Column
-<<<<<<< HEAD
     // Saves as EPOCH if this data needs to be pulled there need to be converted
     @Temporal(DATE)
     private Date date;
     @Column
     private String time;
     //public CustomerData();
-=======
-    @Temporal(DATE)
-    private Date date;
->>>>>>> Azmi
 }
