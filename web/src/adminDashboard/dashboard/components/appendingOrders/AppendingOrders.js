@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {DataGrid} from "@mui/x-data-grid";
 
 const columns = [
-    {field: 'idOrder', headerName: 'Price', width: 100},
+    {field: 'idOrder', headerName: 'ID', width: 100},
 
     {field: 'orderedTotalPrice', headerName: 'Total price', width: 100}
 
@@ -26,8 +26,14 @@ const AppendingOrders = (setSelectedLink, link ) =>{
     })
 
     return(
-        <div style={{height: 700, width: '100%'}}>
-            <DataGrid
+        <div style={{ width: '100%'}}>
+            <DataGrid sx={{
+                backgroundColor: 'whitesmoke',
+                borderRadius: 3,
+                height: 400,
+                marginBottom: 4,
+                boxShadow: 1
+            }}
                 getRowId={(row) => row.idOrder}
                 rows={tableData}
                 columns={columns}
