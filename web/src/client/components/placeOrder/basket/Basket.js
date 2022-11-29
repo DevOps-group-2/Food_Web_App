@@ -61,24 +61,18 @@ const Basket = (props) => {
 
     const [errorMessage, setErrorMessage] = useState({});
 
-    const submitOrderHandler = async (event) => {
+    const submitOrderHandler = async () => {
         console.log(contextOfBasket.foodProducts);
-        //event.preventDefault();
-        //console.log(data);
         let fetching = await fetch("http://localhost:8080/api/orders", {
         //let fetching = await fetch("https://food-webapp.grp2.diplomportal.dk/api/orders", {
-            headers : {
-                'Content-Type': 'application/json'},
-            //mode : "no-cors",
-            method: "POST",
-            body: JSON.stringify({
-                orderedFoodProducts: contextOfBasket.foodProducts,
-                orderedTotalPrice: contextOfBasket.totalAmount
+                headers : {
+                    'Content-Type': 'application/json'},
+                method: "POST",
+                body: JSON.stringify({
+                    orderedFoodProducts: contextOfBasket.foodProducts,
+                    orderedTotalPrice: contextOfBasket.totalAmount
             })
         })
-        /*.then(function(response){
-            repsonse.json().then
-        })*/
         if (fetching != null) {
             setIsSending(false);
             setDidSend(true);
@@ -129,10 +123,11 @@ const Basket = (props) => {
         <BasketBox>
             {basketProducts}
             <div className= {css.baskettotal}>
-                <span>Total Amount</span>
+                <span>Total Price</span>
                 <span>{totalPrice}</span>
             </div>
-            {displayBasket && <ConfirmSendOrder onConfirm={submitOrderHandler} onClose= {props.onClose}/> }
+            {displayBasket && <ConfirmSendOrder
+                onConfirm={submitOrderHandler} onClose= {props.onClose}/> }
             {!displayBasket && basketBoxHandler}
         </BasketBox>);
 
