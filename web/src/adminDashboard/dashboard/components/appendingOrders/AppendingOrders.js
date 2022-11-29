@@ -8,7 +8,7 @@ const columns = [
     {field: 'menu', headerName: 'Menu', width: 100},
     {field: 'orderedTotalPrice', headerName: 'Total price', width: 100}
 
-/*    {field: 'idOrder', headerName: 'ID'},
+/*  {field: 'idOrder', headerName: 'ID'},
     {field: 'menu', headerName: 'Menu', width: 100},
     {field: 'price', headerName: 'Price', width: 100},
     {field: 'amount', headerName: 'Amount', width: 100}*/
