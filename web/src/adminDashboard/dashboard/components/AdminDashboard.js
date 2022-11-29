@@ -8,7 +8,7 @@ async function AdminDashboard() {
 
     return (
         <div>
-            {(tokenStore?.state === tokenStore?.Loginstates?.indexOf(2) && await tokenStore?.validate()) ?
+            {(tokenStore?.state === tokenStore?.Loginstates?.indexOf(2) && await tokenStore.validate()) ?
                 <div className="dashBoard">
                     <SideBar/>
                     <MainDash/>
