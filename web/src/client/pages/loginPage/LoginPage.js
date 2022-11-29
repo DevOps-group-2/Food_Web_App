@@ -38,8 +38,9 @@ function LoginPage() {
                     console.log(token)
                     setIsSubmitted(true);
                     //setting tokenStore states, and saving token
-                    tokenStore.token = token
+                    tokenStore.setToken(token)
                     tokenStore.state = tokenStore?.Loginstates?.indexOf(2);
+                    console.log(tokenStore.getToken())
                 }
             }
             else {
