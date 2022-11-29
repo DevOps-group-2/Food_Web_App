@@ -8,7 +8,7 @@ function AdminDashboard(){
 
     return(
         <div>
-            {(tokenStore?.state === tokenStore?.Loginstates?.indexOf(2))?   <div className="dashBoard">
+            {(tokenStore?.state === tokenStore?.Loginstates?.indexOf(2) && tokenStore.validate())?   <div className="dashBoard">
                     <SideBar  />
                     <MainDash />
                 </div>
