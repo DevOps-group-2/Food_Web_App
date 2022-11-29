@@ -54,7 +54,7 @@ class CustomerForm extends Component {
     render() {
 
         return (
-            <div className="App">
+            <div className="Form">
                 <header>
                     <h1>Din Oplysning</h1>
                 </header>
@@ -64,6 +64,7 @@ class CustomerForm extends Component {
                             <div className="add-rowSpace">
                                 <label>
                                     <input
+                                        className="input-text"
                                         type="email"
                                         name="email"
                                         placeholder="Email"
@@ -73,6 +74,7 @@ class CustomerForm extends Component {
                             </div>
                             <div className="add-rowSpace">
                                 <input
+                                    className="input-text"
                                     type="text"
                                     name="name"
                                     placeholder="Name"
@@ -82,6 +84,7 @@ class CustomerForm extends Component {
 
                             <div className="add-rowSpace">
                                 <input
+                                    className="input-text"
                                     type="phone-number"
                                     name="number"
                                     placeholder="Number"
@@ -91,6 +94,7 @@ class CustomerForm extends Component {
 
                             <div className="add-rowSpace">
                                 <input
+                                    className="input-text"
                                     name="date" type="date"
                                     min={new Date().toISOString().slice(0,10)}
                                     onChange={this.handleInputChange}
