@@ -37,11 +37,11 @@ public class OrderService {
         //Session.persist() creates the order and alters the id
         session.persist(order);
         //we alter the items object in the db for each item in the order
- /*       for (Items item: order.getOrderedFoodProducts()) {
+        for (Items item: order.getOrderedFoodProducts()) {
             //Defines the foreign key to the value of the order
             item.setOrder(order);
             session.persist(item);
-        }*/
+        }
         transaction.commit();
         Transaction readTransaction = session.beginTransaction();
         readTransaction.commit();
