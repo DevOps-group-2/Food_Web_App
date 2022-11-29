@@ -1,14 +1,9 @@
 import React, {useContext, useState} from 'react';
 import css from './Style.module.css';
-
 import BasketBox from '../layout/BasketBox';
 import ContextOfBasket from './Context';
 import BasketProduct from './BasketProduct';
-import NotUsedForm from "../../../pages/customerForm/notUsed/NotUsedForm";
 import ConfirmSendOrder from "./ConfirmSendOrder";
-import axios from "axios";
-import {tokenStore} from "../../../stores/TokenStore";
-import foodProduct from "../menu/FoodProduct";
 import CustomerForm from "../../../pages/customerForm/CustomerForm";
 
 const myComponent = {

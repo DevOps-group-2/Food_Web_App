@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './Style.module.css';
-import Header from '../../components/placeOrder/basket/header/Header';
+import Header from '../../components/placeOrder/basket/Header';
 import BuyableFoodProducts from '../../components/placeOrder/menu/BuyableFoodProducts';
 import Basket from '../../components/placeOrder/basket/Basket';
 import BasketProvider from '../../components/placeOrder/basket/BasketProvider';

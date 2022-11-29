@@ -10,7 +10,7 @@ const Backdrop = () => {
     return (
 
         <div className={css.basketbox}>
-            <div className={css.content}> {props.children} </div>
+            <div> {props.children} </div>
         </div>
     )
 }, Element = document.getElementById('overlays'), BasketBox = (props) => {
