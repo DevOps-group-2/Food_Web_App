@@ -31,14 +31,16 @@ function LoginPage() {
                     password: hashedPassword
                 })
             })
-            let token = await response.text()
-            if (token !==  '') {
-                console.log(token)
-                setIsSubmitted(true);
-                //setting tokenStore states, and saving token
-                tokenStore.token = token
-                tokenStore.state = tokenStore?.Loginstates?.indexOf(2);
+            if (response.ok) {
+                let token = await response.text()
+                if (token !== '') {
+                    console.log(token)
+                    setIsSubmitted(true);
+                    //setting tokenStore states, and saving token
+                    tokenStore.token = token
+                    tokenStore.state = tokenStore?.Loginstates?.indexOf(2);
 
+                }
             }
         } catch (e) {
             setErrorMessage({name: "invalid name or password"});
