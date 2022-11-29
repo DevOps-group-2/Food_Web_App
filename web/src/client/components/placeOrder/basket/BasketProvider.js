@@ -68,7 +68,7 @@ const BasketProvider = (props) => {
   };
 
   const clearBasket = () => {
-    sendBasketChanges({type: 'CLEAR'});
+    sendBasketChanges({type: 'clear'});
   }
 
   const contextOfBasket = {
