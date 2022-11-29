@@ -3,7 +3,7 @@ import ContactUs from "./ContactUs";
 
 function Home() {
     return(
-        <div>
+        <div className="Form">
             <ContactUs/>
         </div>
     )
