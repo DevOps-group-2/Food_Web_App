@@ -17,7 +17,7 @@
     "rc-time-picker": "^3.7.3",
     "react-datepicker": "^4.8.0",
     "react-dropdown-timepicker": "^1.0.4",
-    "react-time-picker": "^5.1.0"
+    "react-time-picker": "^5.1.0",
     "@mui/material": "^5.10.12",
     "mobx-react-lite": "^3.4.0"
   },

@@ -35,14 +35,6 @@ public class Items {
     @NotNull
     private double price;
 
-    @Column(name="status")
-    @NotNull
-    private boolean status;
-
-    @Column(name="created")
-    @NotNull
-    private String created;
-
     @Column(name="amount")
     @NotNull
     private int amount;
