@@ -5,14 +5,14 @@ import lombok.*;
 
 @Entity
 @Data
-@Table(name = "QUESTIONS") //WATCH out  USER is a reserved name!
+@Table(name = "message") //WATCH out  USER is a reserved name!
 @Getter
 @Setter
 @Builder
 @ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class Question {
+public class Message {
     @Id
     @GeneratedValue
     @Column
@@ -20,5 +20,5 @@ public class Question {
     @Column
     private String email;
     @Column
-    private String question;
+    private String message;
 }
