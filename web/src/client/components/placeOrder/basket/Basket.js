@@ -49,11 +49,7 @@ const Basket = (props) => {
                 />
             ))}
             </ul>
-        ), basketButton = (
-            <div className={css.do}>
-                <button onClick={props.onClose}> Close</button>
-                {hasProducts && <button className={css.button} onClick={basketHandler}> Order </button>}
-            </div>);
+        );
 
     const orderHandler = () => {
         setDisplayBasket(true);
@@ -129,6 +125,7 @@ const Basket = (props) => {
             {displayBasket && <ConfirmSendOrder
                 onConfirm={submitOrderHandler} onClose= {props.onClose}/> }
             {!displayBasket && basketBoxHandler}
+
         </BasketBox>);
 
     return (
