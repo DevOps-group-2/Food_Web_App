@@ -4,7 +4,7 @@ import css from './Style.module.css';
 import BasketBox from '../layout/BasketBox';
 import ContextOfBasket from './Context';
 import BasketProduct from './BasketProduct';
-import NotUsed from "../../../pages/customerForm/notUssed/NotUsed";
+import NotUsedForm from "../../../pages/customerForm/notUsed/NotUsedForm";
 import ConfirmSendOrder from "./ConfirmSendOrder";
 import axios from "axios";
 import {tokenStore} from "../../../stores/TokenStore";
@@ -82,6 +82,7 @@ const Basket = (props) => {
         if (fetching != null) {
             setIsSending(false);
             setDidSend(true);
+            contextOfBasket.clearBasket();
         } else {
             setErrorMessage("Invalid");
             renderErrorMessage()
@@ -101,7 +102,7 @@ const Basket = (props) => {
 
             {hasProducts && (
                 <button className={css.button} onClick={orderHandler}>
-                    Order
+                    That's It
                 </button>
             )}
         </div>
@@ -120,7 +121,7 @@ const Basket = (props) => {
             </div>
             <p>Please fill the information so your order will be placed!</p>
             <div style={myComponent}>
-            <CustomerForm/>
+                <CustomerForm/>
             </div>
         </BasketBox>);
 

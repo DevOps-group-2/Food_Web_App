@@ -1,11 +1,16 @@
 package dal;
 
-import model.Items;
+import model.*;
 import model.PaymentDB;
+<<<<<<< HEAD
 import model.Order;
 import model.CustomerData;
 import model.Message;
 import model.User;
+=======
+import model.Message;
+//import org.glassfish.jersey.message.internal.TracingInfo;
+>>>>>>> Azmi
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -18,7 +23,13 @@ public class HibernateController {//Should be a singleton…
         configuration.addAnnotatedClass(Order.class); //remember to do this for all DB entities
         configuration.addAnnotatedClass(Items.class);//NB org.hibernate.cfg.Configuration
         configuration.addAnnotatedClass(CustomerData.class);
+<<<<<<< HEAD
         configuration.addAnnotatedClass(Message.class);
+=======
+        //configuration.addAnnotatedClass(Question.class);
+        configuration.addAnnotatedClass(AdminUser.class);
+        //configuration.addAnnotatedClass(TracingInfo.Message.class);
+>>>>>>> Azmi
 
         configuration.addAnnotatedClass(PaymentDB.class);
         configuration.setProperty("hibernate.connection.username", System.getenv("devopse22user"));

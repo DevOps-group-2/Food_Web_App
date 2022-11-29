@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -17,11 +19,12 @@ import java.util.UUID;
 @Table(name="DBItems") //!!WATCH out this is a reserved name!
 public class Items {
 
-    @Id @GeneratedValue
-    @Column(name="idOrder")
-    private int idOrder;
-
+    @Id
     @GeneratedValue
+    @Column(name="idOrder")
+    public int idOrder;
+
+    //@GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")
     @NotNull
     private String id; // = UUID.randomUUID().toString();
@@ -38,8 +41,12 @@ public class Items {
     @NotNull
     private int amount;
 
+    @Column(name="status")
+    @NotNull
+    private String status;
+
     @ManyToOne(targetEntity = Order.class, cascade=CascadeType.ALL)
-    @JoinColumn
+    @JoinColumn()
     @JsonIgnore
     private Order order;
 
