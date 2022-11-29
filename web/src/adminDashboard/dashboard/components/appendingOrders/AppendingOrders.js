@@ -1,9 +1,60 @@
+import * as React from 'react';
+import './AppendingOrders.css';
+import {useEffect, useState} from "react";
+import {DataGrid} from "@mui/x-data-grid";
+
+const columns = [
+    {field: 'idOrder', headerName: 'ID', width: 100},
+    {field: 'menu', headerName: 'Menu', width: 100},
+    {field: 'orderedTotalPrice', headerName: 'Total price', width: 100}
+
+/*    {field: 'idOrder', headerName: 'ID'},
+    {field: 'menu', headerName: 'Menu', width: 100},
+    {field: 'price', headerName: 'Price', width: 100},
+    {field: 'amount', headerName: 'Amount', width: 100}*/
+]
+
+const AppendingOrders = (setSelectedLink, link ) =>{
+    const [tableData, setTableData] = useState([])
+
+
+
+    useEffect(() => {
+        fetch("http://localhost:8080/api/orders")
+            .then(data => data.json())
+            .then(data => setTableData(data))
+    })
+
+    return(
+        <div style={{ width: '100%'}}>
+            <DataGrid sx={{
+                backgroundColor: 'whitesmoke',
+                borderRadius: 3,
+                height: 400,
+                marginBottom: 4,
+                boxShadow: 1
+            }}
+                getRowId={(row) => row.idOrder}
+                rows={tableData}
+                columns={columns}
+                checkboxSelection
+
+            />
+
+        </div>
+
+    )
+}
+
+export default AppendingOrders;
+/*
 //Create with inspiration from following links:
 // https://mui.com/x/react-data-grid/getting-started/
 //https://mui.com/material-ui/react-table/
 
 import * as React from 'react';
 import './AppendingOrders.css';
+import { useState } from "react";
 
 //import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
 
@@ -16,6 +67,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
+import { ChevronDown } from 'react-feather';
+import FetchApi from "./FetchApi";
 
 function createOrder(orderNumber: number, customerName: string, phoneNr: number, date: string, time: string, status_accept: string, status_reject: string, subTotal: number) {
     return {
@@ -24,22 +77,20 @@ function createOrder(orderNumber: number, customerName: string, phoneNr: number,
         phoneNr: phoneNr,
         date: date,
         time: time,
-        status_accept: status_accept,
-        status_reject: status_reject,
         subTotal: subTotal
     };
 }
 
-/*function createProduct(productNumber: number, productName: string, amount: number, price: price){
+/!*function createProduct(productNumber: number, productName: string, amount: number, price: price){
     return {
         productNumber: productNumber,
         productName: productName,
         amount: amount,
         price: price,
     };
-}*/
+}*!/
 
-/*function FoldOutRow(props: { foldOutRow: ReturnType<typeof createProduct> }) {
+/!*function FoldOutRow(props: { foldOutRow: ReturnType<typeof createProduct> }) {
     const { foldOutRow } = props;
     const [open, setOpen] = React.useState(false);
 
@@ -61,39 +112,51 @@ function createOrder(orderNumber: number, customerName: string, phoneNr: number,
         </TableBody>
 
     )
-}*/
+}*!/
+
+
+
 
 function Row(props: { row: ReturnType<typeof createOrder> }) {
     const { row } = props;
     const [open, setOpen] = React.useState(false);
+    const [active, setActive] = React.useState(false);
+    const [acceptText, setAcceptText] = React.useState("Accept");
+    const [rejectText, setRejectText] = React.useState("Reject");
+    const handleAcceptClick = () => {
+        setActive(!active);
+        setAcceptText("Done");
+    };
 
 
     return (
         <>
-            <TableRow
-                onClick={() => setOpen(!open)}>
-                <TableCell >
-                    {row.orderNumber}
+            <TableRow>
+
+                <TableCell onClick={() => {setOpen(!open)}} >
+                    <ChevronDown />
                 </TableCell>
+               <TableCell >{row.orderNumber}</TableCell>
                 <TableCell >{row.customerName}</TableCell>
                 <TableCell align="right">{row.phoneNr}</TableCell>
                 <TableCell align="right">{row.date}</TableCell>
                 <TableCell align="right">{row.time}</TableCell>
-                <TableCell align="right" >
-                    <span >
-                        <button style={{padding: "8px", borderRadius: "13px", width: "fit-content"}} className={row.status_accept}>
-                        {row.status_accept}
-                        </button>
+                <TableCell align="right" >*!/}
+                    <span>
+                        <button style={{padding: "8px", borderRadius: "13px", width: "fit-content", marginLeft: "8px", }}
+                        >
+                        {rejectText}
+                    </button>
                     </span>
                     <span >
-                        <button style={{padding: "8px", borderRadius: "13px", width: "fit-content", marginLeft: "8px"}} className={row.status_reject}>
-                        {row.status_reject}
+                        <button onClick={handleAcceptClick} style={{padding: "8px", borderRadius: "13px", width: "fit-content", marginLeft: "8px", backgroundColor: active ? "#7db277" : "#e5e096"}}>
+                        {acceptText}
                         </button>
                     </span>
                 </TableCell>
                 <TableCell align="right">{row.subTotal}</TableCell>
             </TableRow>
-            {/*Table that folds out*/}
+            {/!*Table that folds out*!/}
             <TableRow className="subtable">
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
@@ -139,11 +202,11 @@ const rows = [
     createOrder(783429, "Hanne Marie Ibsen", 38204932, "14/09", "12:33", "Accept", "Reject",10),
     createOrder(251637, "Bo Carlsen", 78432888, "13/09", "9:28", "Accept", "Reject",7),
     createOrder(123994, "Jørgen Rasmussen", 93204002, "13/09", "22:10", "Accept", "Reject",11.5),
-    createOrder(124455, "Karl Hansen", 27890245, "11/09", "17:42", "Accept", "Reject",7),
+    createOrder(124455, "Karl Hansen", 27890245, "11/09", "17:42",7),
 
 ];
 
-/*const makeStyles=(status)=> {
+/!*const makeStyles=(status)=> {
     if (status === 'Approved'){
         return(
             background: 'rgb(145 254 159 / 47%)',
@@ -161,7 +224,7 @@ const rows = [
             color: 'green',
     )
 
-}*/
+}*!/
 
 function appendingOrders() {
 
@@ -173,6 +236,7 @@ function appendingOrders() {
                     <Table stickyHeader>
                         <TableHead>
                             <TableRow>
+                                <TableCell><i data-feather="chevron_down"></i></TableCell>
                                 <TableCell>Order number</TableCell>
                                 <TableCell>Customer name</TableCell>
                                 <TableCell align="right">Phone nr.</TableCell>
@@ -196,3 +260,4 @@ function appendingOrders() {
 }
 
 export default appendingOrders;
+*/

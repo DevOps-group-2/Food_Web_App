@@ -22,7 +22,7 @@ public class Items {
     @Column(name="idOrder")
     public int idOrder;
 
-    //@GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name="id")
     @NotNull
     private String id; // = UUID.randomUUID().toString();
