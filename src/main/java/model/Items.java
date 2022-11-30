@@ -22,7 +22,7 @@ public class Items {
     @Id
     @GeneratedValue
     @Column(name="idOrder")
-    public int idOrder;
+    private int idOrder;
 
     //@GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")
@@ -40,10 +40,6 @@ public class Items {
     @Column(name="amount")
     @NotNull
     private int amount;
-
-    @Column(name="status")
-    @NotNull
-    private String status;
 
     @ManyToOne(targetEntity = Order.class, cascade=CascadeType.ALL)
     @JoinColumn()
