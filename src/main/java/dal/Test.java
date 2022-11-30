@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import model.*;
 import org.mindrot.jbcrypt.BCrypt;
+import service.LoginService;
+import service.NotAuthorizedException;
 import utility.GlobalVariable;
 
 
@@ -117,6 +119,27 @@ public class Test {
         transaction.commit();
         session.close();
     }*/
+   @org.junit.Test
+   public void testLogin(){
+
+       LoginData login = new LoginData();
+       login.setUsername("not admin");
+       login.setPassword("something wrong");
+
+       LoginService service = new LoginService();
+
+       try {
+           String token = service.postLoginData(login);
+           System.out.println(token);
+           //if token given, the test fails
+           assert false;
+       }
+       catch (NotAuthorizedException e){
+           //we actually want to throw exception for wrong username/password
+           assert true;
+       }
+
+   }
 
 
 }
