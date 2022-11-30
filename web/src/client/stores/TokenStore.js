@@ -25,14 +25,7 @@ class TokenStore {
                 token: this.getToken()
             })
         })
-        if (response.ok) {
-            let isValid = await response
-            if (isValid) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        return response.ok;
     }
 }
 
