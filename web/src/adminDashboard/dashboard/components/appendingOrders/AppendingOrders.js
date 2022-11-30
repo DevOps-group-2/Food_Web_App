@@ -3,7 +3,7 @@
 import * as React from 'react';
 import './AppendingOrders.css';
 import {useEffect, useState} from "react";
-import {DataGrid} from "@mui/x-data-grid";
+import { DataGrid } from '@mui/x-data-grid'
 
 const columns = [
     {field: 'idOrder', headerName: 'ID', sortable: false, filterable: false},
