@@ -8,7 +8,7 @@ function AdminDashboard() {
 
     return (
         <div>
-            {(tokenStore?.state == "loggedIn") ?
+            {(tokenStore?.state === tokenStore?.Loginstates?.indexOf(2)) ?
                 <div className="dashBoard">
                     <SideBar/>
                     <MainDash/>

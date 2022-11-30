@@ -1,10 +1,9 @@
 
-const Loginstates = ["loading", "logged out", "loggedIn"]
+
 class TokenStore {
+    Loginstates = ["loading", "logged out", "loggedIn"]
     state = Loginstates[1];
     token = null;
-    logindata = {username: "", password: ""};
-
     setToken(token) {
         this.token = token
         localStorage.setItem("adminToken", token)
