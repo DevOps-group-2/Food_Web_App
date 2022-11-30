@@ -22,7 +22,7 @@ const PlaceOrder = () => {
         <BasketProvider>
             {basketController && <Basket onClose={closeBasketController} />}
             <Header onOpen={openBasketController} />
-            <section className={css.foodproducts}>
+            <section className={css.foodProducts}>
             <Layout>
                 <center>
                     <h2>The Homepage is Under Development</h2>
