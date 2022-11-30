@@ -6,14 +6,12 @@ function PayWrapper(){
     const [buttonClicked, setButtonClicked] = React.useState(false);
 
     if (buttonClicked) {
-        //return <Navigate to={"/pay"}/
         const customer = {
             name: "My Name",
-            id: Math.random(),
+            id: "orderId" + Math.random(),
             email: "unknownemail@gmail.com",
             amount: 100
         }
-
         return (
             <div>
                 <Pay>{customer}</Pay>
@@ -41,3 +39,6 @@ function PayWrapper(){
 
 
 export default PayWrapper;
+
+
+// id: new Date().toLocaleTimeString("en-US"),

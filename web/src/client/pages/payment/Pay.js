@@ -20,7 +20,6 @@ function Pay(props) {
             />
         </div>
     );
-
 }
 
 const baseUrl = process.env.NODE_ENV === 'development' ?  "http://localhost:8080/":""; //Check if dev environment
