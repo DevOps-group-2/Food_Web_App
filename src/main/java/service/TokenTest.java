@@ -11,10 +11,16 @@ import model.tokenDTO;
 
 
 @Path("validate")
-public class TokenTest {
+public class TokenTest{
     @POST
     @Path("tokenTest")
-    public User postToken(tokenDTO token){
-        return JWTHandler.validate(token.getToken());
+    public User postToken(tokenDTO token) throws NotAuthorizedException{
+        try {
+            User user =  JWTHandler.validate(token.getToken());
+            return user;
+        }
+        catch (RuntimeException e){
+            throw new NotAuthorizedException("bad token");
+        }
     }
 }
