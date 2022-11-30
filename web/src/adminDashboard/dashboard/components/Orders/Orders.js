@@ -25,7 +25,7 @@ const Orders = (setSelectedLink, link ) =>{
         <div style={{
             width: '100%',
             backgroundColor: 'whitesmoke',
-            borderRadius: 100,
+            borderRadius: 20,
             height: 400,
             marginBottom: 40,
             boxShadow: 20,
