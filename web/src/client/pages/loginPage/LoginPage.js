@@ -14,7 +14,6 @@ function LoginPage() {
     const [errorMessage, setErrorMessage] = useState({});
     const handleSubmit = async (event) => {
         //logging in
-        tokenStore.state = tokenStore?.Loginstates?.indexOf(0);
         event.preventDefault();
         const {uname, pass} = document.forms[0];
 
@@ -38,7 +37,7 @@ function LoginPage() {
                     setIsSubmitted(true);
                     //setting tokenStore states, and saving token
                     tokenStore.setToken(token)
-                    tokenStore.state = tokenStore?.Loginstates?.indexOf(2);
+                    tokenStore.state = "loggedIn";
                     console.log(tokenStore.getToken())
                 }
             }
