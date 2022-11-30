@@ -8,11 +8,11 @@ import service.payment.Payment;
 import utility.GlobalVariable;
 
 public class PaymentDal {
-    private String customerId;
+/*    private String customerId;
 
     public PaymentDal(String customerId) {
         this.customerId = customerId;
-    }
+    }*/
 
 
     public void createCheckoutDB(Payment payment, boolean status){

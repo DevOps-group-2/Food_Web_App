@@ -5,6 +5,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import model.*;
 import org.mindrot.jbcrypt.BCrypt;
+import service.CustomerDataService;
+import service.LoginService;
+import service.NotAuthorizedException;
 import utility.GlobalVariable;
 
 
@@ -64,24 +67,15 @@ public class Test {
         session.close();
     }
 
+    //Unit testing for createCustomerData
     @org.junit.Test
-    public void testCreate2(){
-        HibernateController hibernateController =
-                new HibernateController(HOST);
-        SessionFactory sessionFactory = hibernateController.getSessionFactory();
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
+    public void CustomerDataTest(){
+        CustomerDataService customerDataService = new CustomerDataService();
         CustomerData customerData = new CustomerData();
-        System.out.println("UserID before commit: " + customerData.getId());
-        customerData.setEmail("usernametest@");
-        session.persist(customerData);
-        transaction.commit();
-        System.out.println("UserID after commit: " + customerData.getId());
-        Transaction readTransaction = session.beginTransaction();
-        CustomerData readCustomerData = session.get(CustomerData.class, customerData.getId());
-        System.out.println("Read user back: " + readCustomerData.toString());
-        readTransaction.commit();
-        session.close();
+        customerData.setEmail("unitTest@mail.com");
+        customerData.setName("Unit Test");
+        customerData.setNumber(12345678);
+        customerDataService.createCustomerData(customerData);
     }
 
     @org.junit.Test
@@ -117,6 +111,42 @@ public class Test {
         transaction.commit();
         session.close();
     }*/
+   @org.junit.Test
+   public void testLogin(){
+
+       LoginData login = new LoginData();
+       login.setUsername("not admin");
+       login.setPassword("something wrong");
+
+       LoginService service = new LoginService();
+
+       try {
+           String token = service.postLoginData(login);
+           System.out.println(token);
+           //if token given, the test fails
+           assert false;
+       }
+       catch (NotAuthorizedException e){
+           //we actually want to throw exception for wrong username/password
+           assert true;
+       }
+
+   }
+
+   //Test for checking if an order is being displayed in the orderTable at the admin page
+    @org.junit.Test
+    public void testFetchOrder(){
+        HibernateController hibernateController =
+                new HibernateController(HOST);
+        SessionFactory sessionFactory = hibernateController.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Items items = new Items();
+        System.out.println(items.getIdOrder());
+        session.persist(items);
+        transaction.commit();
+        session.close();
+    }
 
 
 }

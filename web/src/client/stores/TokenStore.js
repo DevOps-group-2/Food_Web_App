@@ -1,10 +1,8 @@
 
-const Loginstates = ["loading", "logged out", "loggedIn"]
-class TokenStore {
-    state = Loginstates[1];
-    token = null;
-    logindata = {username: "", password: ""};
 
+class TokenStore {
+    state = "logged out";
+    token = null;
     setToken(token) {
         this.token = token
         localStorage.setItem("adminToken", token)
@@ -25,14 +23,7 @@ class TokenStore {
                 token: this.getToken()
             })
         })
-        if (response.ok) {
-            let isValid = await response
-            if (isValid) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        return response.ok;
     }
 }
 
