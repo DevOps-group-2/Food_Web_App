@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import model.*;
 import org.mindrot.jbcrypt.BCrypt;
+import service.CustomerDataService;
 import utility.GlobalVariable;
 
 
@@ -64,24 +65,15 @@ public class Test {
         session.close();
     }
 
+    //Unit testing for createCustomerData
     @org.junit.Test
-    public void testCreate2(){
-        HibernateController hibernateController =
-                new HibernateController(HOST);
-        SessionFactory sessionFactory = hibernateController.getSessionFactory();
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
+    public void CustomerDataTest(){
+        CustomerDataService customerDataService = new CustomerDataService();
         CustomerData customerData = new CustomerData();
-        System.out.println("UserID before commit: " + customerData.getId());
-        customerData.setEmail("usernametest@");
-        session.persist(customerData);
-        transaction.commit();
-        System.out.println("UserID after commit: " + customerData.getId());
-        Transaction readTransaction = session.beginTransaction();
-        CustomerData readCustomerData = session.get(CustomerData.class, customerData.getId());
-        System.out.println("Read user back: " + readCustomerData.toString());
-        readTransaction.commit();
-        session.close();
+        customerData.setEmail("unitTest@mail.com");
+        customerData.setName("Unit Test");
+        customerData.setNumber(12345678);
+        customerDataService.createCustomerData(customerData);
     }
 
     @org.junit.Test
