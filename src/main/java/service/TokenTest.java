@@ -16,13 +16,13 @@ public class TokenTest{
     @Path("tokenTest")
     public User postToken(tokenDTO token) throws NotAuthorizedException{
         try {
-            try {
                 User user =  JWTHandler.validate(token.getToken());
-                return user;
-            }
-            catch (RuntimeException e){
-                throw new NotAuthorizedException("bad token");
-            }
+                if (user.getPassword() != null && user.getUsername() != null) {
+                    return user;
+                }
+                else {
+                    throw new NotAuthorizedException("bad token");
+                }
         }
         catch (RuntimeException e){
             throw new NotAuthorizedException("bad token");
