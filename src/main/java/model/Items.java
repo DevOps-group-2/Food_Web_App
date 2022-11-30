@@ -22,7 +22,7 @@ public class Items {
     @Id
     @GeneratedValue
     @Column(name="idOrder")
-    public int idOrder;
+    private int idOrder;
 
     //@GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")

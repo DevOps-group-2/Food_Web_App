@@ -118,5 +118,20 @@ public class Test {
         session.close();
     }*/
 
+   //Test for checking if an order is being displayed in the orderTable at the admin page
+    @org.junit.Test
+    public void testFetchOrder(){
+        HibernateController hibernateController =
+                new HibernateController(HOST);
+        SessionFactory sessionFactory = hibernateController.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Items items = new Items();
+        System.out.println(items.getIdOrder());
+        session.persist(items);
+        transaction.commit();
+        session.close();
+    }
+
 
 }
