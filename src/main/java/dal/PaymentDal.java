@@ -25,7 +25,7 @@ public class PaymentDal {
         PaymentDB paymentDB = new PaymentDB();
         paymentDB.setName(payment.name);
         paymentDB.setEmail(payment.email);
-        paymentDB.setCustomerId(payment.customerId);
+        paymentDB.setCustomerId(payment.orderId);
         paymentDB.setTokenId(payment.tokenId);
         paymentDB.setAmount(payment.amount);
         paymentDB.setPaymentSuccess(""+status);
