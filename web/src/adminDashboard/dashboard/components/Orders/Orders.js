@@ -11,7 +11,7 @@ const columns = [
     {field: 'amount', headerName: 'Amount', width: 200, filterable: false}
 ]
 
-const Orders = (setSelectedLink, link ) =>{
+const Orders = () =>{
     const [tableData, setTableData] = useState([])
 
     useEffect(() => {
@@ -34,7 +34,6 @@ const Orders = (setSelectedLink, link ) =>{
                 getRowId={(row) => row.idOrder}
                 rows={tableData}
                 columns={columns}
-                // loading={!tableData.length}
             />
 
         </div>
