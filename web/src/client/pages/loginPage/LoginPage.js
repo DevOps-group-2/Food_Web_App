@@ -30,7 +30,7 @@ function LoginPage() {
                     password: pass.value
                 })
             })
-            if (response.ok) {
+            if (response.ok && response.type !== "error") {
                 let token = await response.text()
                 if (token !== '') {
                     console.log(token)
