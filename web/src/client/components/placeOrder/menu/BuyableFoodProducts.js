@@ -10,23 +10,23 @@ const BuyableFoodProducts = () => {
 
   useEffect(() => {
       const loadFoodProducts = async() => {
-      const response = await Food;
-      const foodProducts = await response;
-      const fetchedFoodProducts = [];
+          const response = await Food;
+          const foodProducts = await response;
+          const fetchedFoodProducts = [];
 
-        for (const key in foodProducts) {
-          fetchedFoodProducts.push({
-            id: key,
-            menu: foodProducts[key].menu,
-            info: foodProducts[key].info,
-            price: foodProducts[key].price,
-          });
+          for (const key in foodProducts) {
+              fetchedFoodProducts.push({
+                  id: key,
+                  menu: foodProducts[key].menu,
+                  info: foodProducts[key].info,
+                  price: foodProducts[key].price,
+              });
         }
         setFoods(fetchedFoodProducts);
         setIsLoading(false);
       }
-      loadFoodProducts();
-      console.log(Food);
+      loadFoodProducts(); //shows the food in ui.
+      console.log(Food); //shows on the console
     }, []);
 
     const listOfFood = Foods.map((val) => {
@@ -43,7 +43,7 @@ const BuyableFoodProducts = () => {
 
     return (
         <>
-          <section className={css.foodproducts}>
+          <section className={css.foodProducts}>
             <Layout>
               {isLoading ? <div className={css.loading}><p>Loading...</p></div> : <ul>{listOfFood}</ul>}
             </Layout>

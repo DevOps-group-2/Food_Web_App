@@ -1,19 +1,21 @@
 import css from './Style.module.css';
 
 const BasketProduct = (props) => {
-  const price =`${props.price.toFixed(2)}`;
-  return (
+    /*Price displaying with 2 decimalnumbers.*/
+    let price = `${props.price.toFixed(2)}`;
+
+    return (
     <li className={css['basket-product']}>
       <div>
         <h2>{props.menu}</h2>
-        <div className={css.text}>
-          <span className={css.price}>{price} DKK</span>
-          <span className={css.amount}>x {props.amount}</span>
+        <div>
+          <span className={css.text}>{props.price} DKK</span>
+          <span className={css.text}> x {props.amount}</span>
         </div>
       </div>
-      <div className={css.actions}>
-        <button onClick={props.onRemove}>-</button>
-        <button onClick={props.onAdd}>+</button>
+      <div>
+        <button onClick={props.minusOneAmount}>-</button>
+        <button onClick={props.plusOneAmount}>+</button>
       </div>
     </li>
   );

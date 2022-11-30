@@ -1,14 +1,9 @@
 import React, {useContext, useState} from 'react';
 import css from './Style.module.css';
-
 import BasketBox from '../layout/BasketBox';
 import ContextOfBasket from './Context';
 import BasketProduct from './BasketProduct';
-import NotUsedForm from "../../../pages/customerForm/notUsed/NotUsedForm";
 import ConfirmSendOrder from "./ConfirmSendOrder";
-import axios from "axios";
-import {tokenStore} from "../../../stores/TokenStore";
-import foodProduct from "../menu/FoodProduct";
 import CustomerForm from "../../../pages/customerForm/CustomerForm";
 
 const myComponent = {
@@ -17,23 +12,21 @@ const myComponent = {
     overflow: 'scroll'
 };
 
-function CompletedPage() {
+/*function CompletedPage() {
     setTimeout(function() {
         window.location.replace('form');
     }, 3000);
     console.log("Selecting Food completed..");
     return <h2>You'll now be redirected to fill out contact informations.</h2>;
-}
-
+})*/
 
 const Basket = (props) => {
     const [isSending, setIsSending] = useState(false);
     const [didSend, setDidSend] = useState(false);
 
     const [displayBasket, setDisplayBasket] = useState(false), contextOfBasket = useContext(ContextOfBasket),
-        totalPrice = `${contextOfBasket.totalAmount.toFixed(2)}`, basketHandler = () => {
-            setDisplayBasket(true);
-        }, basketRemove = (id) => {
+        totalPrice = `${contextOfBasket.totalPrice.toFixed(2)}`,
+        basketRemove = (id) => {
             contextOfBasket.removeProduct(id);
         }, basketAdd = (item) => {
             contextOfBasket.addProduct({...item, amount: 1});
@@ -44,16 +37,12 @@ const Basket = (props) => {
                                menu={item.menu}
                                amount={item.amount}
                                price={item.price}
-                               onRemove={basketRemove.bind(null, item.id)}
-                               onAdd={basketAdd.bind(null, item)}
+                               minusOneAmount={basketRemove.bind(null, item.id)}
+                               plusOneAmount={basketAdd.bind(null, item)}
                 />
             ))}
             </ul>
-        ), basketButton = (
-            <div className={css.do}>
-                <button onClick={props.onClose}> Close</button>
-                {hasProducts && <button className={css.button} onClick={basketHandler}> Order </button>}
-            </div>);
+        );
 
     const orderHandler = () => {
         setDisplayBasket(true);
@@ -61,24 +50,17 @@ const Basket = (props) => {
 
     const [errorMessage, setErrorMessage] = useState({});
 
-    const submitOrderHandler = async (event) => {
+    const submitOrderHandler = async () => {
         console.log(contextOfBasket.foodProducts);
-        //event.preventDefault();
-        //console.log(data);
         let fetching = await fetch("http://localhost:8080/api/orders", {
-        //let fetching = await fetch("https://food-webapp.grp2.diplomportal.dk/api/orders", {
             headers : {
-                'Content-Type': 'application/json'},
-            //mode : "no-cors",
+                    'Content-Type': 'application/json'},
             method: "POST",
             body: JSON.stringify({
                 orderedFoodProducts: contextOfBasket.foodProducts,
-                orderedTotalPrice: contextOfBasket.totalAmount
+                orderedTotalPrice: contextOfBasket.totalPrice
             })
         })
-        /*.then(function(response){
-            repsonse.json().then
-        })*/
         if (fetching != null) {
             setIsSending(false);
             setDidSend(true);
@@ -101,7 +83,7 @@ const Basket = (props) => {
             </button>
 
             {hasProducts && (
-                <button className={css.button} onClick={orderHandler}>
+                <button onClick={orderHandler}>
                     That's It
                 </button>
             )}
@@ -115,7 +97,7 @@ const Basket = (props) => {
     const didSendOrderHandler = (
         <BasketBox>
             <div className={css.styles}>
-                <button className={css.button} onClick={props.onClose}>
+                <button onClick={props.onClose}>
                     Cancel
                 </button>
             </div>
@@ -128,12 +110,14 @@ const Basket = (props) => {
     const basketBoxContent = (
         <BasketBox>
             {basketProducts}
-            <div className= {css.baskettotal}>
-                <span>Total Amount</span>
+            <div className= {css.basketTotal}>
+                <span>Total Price</span>
                 <span>{totalPrice}</span>
             </div>
-            {displayBasket && <ConfirmSendOrder onConfirm={submitOrderHandler} onClose= {props.onClose}/> }
+            {displayBasket && <ConfirmSendOrder
+                onConfirm={submitOrderHandler} onClose= {props.onClose}/> }
             {!displayBasket && basketBoxHandler}
+
         </BasketBox>);
 
     return (

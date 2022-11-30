@@ -1,9 +1,28 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import { useContext } from 'react';
 import css from './Style.module.css';
-import FoodProductAmount from './FoodProductAmount';
 import ContextOfBasket from '../basket/Context';
+<<<<<<< HEAD
 import Orders from "../../../../adminDashboard/dashboard/components/Orders/Orders";
+=======
+
+const FoodProductAmount = (props) => {
+
+    function sendRequest(event) {
+        event.preventDefault();
+        /*You're only able to add one dish at a time.*/
+        props.onAddToCart(1);
+    }
+
+    return (
+        <>
+            <form className={css.form} onSubmit={sendRequest}>
+                <button>Add To Basket</button>
+            </form>
+        </>
+    )
+}
+>>>>>>> Azmi
 
 const FoodProduct = (props) => {
 
@@ -25,10 +44,10 @@ const FoodProduct = (props) => {
   
   return (
     <>
-     <li className={css.foodproduct}>
+     <li className={css.foodProduct}>
       <div>
        <h2> {props.menu} </h2>
-       <div className={css.info}> {props.info} </div>
+       <div> {props.info} </div>
        <>{"\u00a0"}
        </>
        <>{"\u00a0"}

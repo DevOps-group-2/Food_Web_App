@@ -25,6 +25,6 @@ public class Order {
     private int orderedTotalPrice;
 
     @OneToMany(mappedBy="order",cascade = CascadeType.ALL)
-    //@Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Items> orderedFoodProducts;
 }
+
