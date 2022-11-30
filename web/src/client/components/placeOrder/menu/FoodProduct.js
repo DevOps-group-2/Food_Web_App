@@ -2,10 +2,6 @@ import React from 'react'
 import { useContext } from 'react';
 import css from './Style.module.css';
 import ContextOfBasket from '../basket/Context';
-<<<<<<< HEAD
-import Orders from "../../../../adminDashboard/dashboard/components/Orders/Orders";
-=======
-
 const FoodProductAmount = (props) => {
 
     function sendRequest(event) {
@@ -22,8 +18,6 @@ const FoodProductAmount = (props) => {
         </>
     )
 }
->>>>>>> Azmi
-
 const FoodProduct = (props) => {
 
   const contextOfBasket = useContext(ContextOfBasket);
@@ -38,6 +32,7 @@ const FoodProduct = (props) => {
               menu: props.menu,
               price: props.price,
               amount: amount,
+              status: appending
           });
       }
   };

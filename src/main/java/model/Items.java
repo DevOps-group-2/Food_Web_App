@@ -40,6 +40,10 @@ public class Items {
     @NotNull
     private int amount;
 
+    @Column(name="status")
+    @NotNull
+    private String status;
+
     @ManyToOne(targetEntity = Order.class, cascade=CascadeType.ALL)
     @JoinColumn()
     @JsonIgnore
