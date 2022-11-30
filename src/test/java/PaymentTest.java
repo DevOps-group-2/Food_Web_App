@@ -48,7 +48,7 @@ public class PaymentTest {
 
     }
 
-
+/*
     @Test
     public void updateTest(){
         PaymentDal paymentDal = new PaymentDal();
@@ -67,5 +67,5 @@ public class PaymentTest {
         assertEquals(paymentDB.getPaymentSuccess(), "true");
         session.close();
 
-    }
+    }*/
 }
