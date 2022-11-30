@@ -24,10 +24,9 @@ public class Items {
     @Column(name="idOrder")
     public int idOrder;
 
-    //@GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")
     @NotNull
-    private String id; // = UUID.randomUUID().toString();
+    private String id;
 
     @Column(name="menu")
     @NotNull
@@ -49,5 +48,5 @@ public class Items {
     @JoinColumn()
     @JsonIgnore
     private Order order;
-
 }
+

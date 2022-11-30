@@ -1,13 +1,12 @@
-import { useRef } from 'react';
 import css from './Style.module.css';
 
 export default function ConfirmSendOrder(props) {
-    const commentInputs = useRef(), sendHandler = (event) => {
+    const sendHandler = (event) => {
         event.preventDefault();
-        const typedComment = commentInputs.current;
+        const sendOrderFinal = true;
 
         props.onConfirm({
-            comment: typedComment
+            sendOrderFinal
         });
     };
 

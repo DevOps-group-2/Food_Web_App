@@ -12,23 +12,21 @@ const myComponent = {
     overflow: 'scroll'
 };
 
-function CompletedPage() {
+/*function CompletedPage() {
     setTimeout(function() {
         window.location.replace('form');
     }, 3000);
     console.log("Selecting Food completed..");
     return <h2>You'll now be redirected to fill out contact informations.</h2>;
-}
-
+})*/
 
 const Basket = (props) => {
     const [isSending, setIsSending] = useState(false);
     const [didSend, setDidSend] = useState(false);
 
     const [displayBasket, setDisplayBasket] = useState(false), contextOfBasket = useContext(ContextOfBasket),
-        totalPrice = `${contextOfBasket.totalAmount.toFixed(2)}`, basketHandler = () => {
-            setDisplayBasket(true);
-        }, basketRemove = (id) => {
+        totalPrice = `${contextOfBasket.totalAmount.toFixed(2)}`,
+        basketRemove = (id) => {
             contextOfBasket.removeProduct(id);
         }, basketAdd = (item) => {
             contextOfBasket.addProduct({...item, amount: 1});
@@ -55,13 +53,12 @@ const Basket = (props) => {
     const submitOrderHandler = async () => {
         console.log(contextOfBasket.foodProducts);
         let fetching = await fetch("http://localhost:8080/api/orders", {
-        //let fetching = await fetch("https://food-webapp.grp2.diplomportal.dk/api/orders", {
-                headers : {
+            headers : {
                     'Content-Type': 'application/json'},
-                method: "POST",
-                body: JSON.stringify({
-                    orderedFoodProducts: contextOfBasket.foodProducts,
-                    orderedTotalPrice: contextOfBasket.totalAmount
+            method: "POST",
+            body: JSON.stringify({
+                orderedFoodProducts: contextOfBasket.foodProducts,
+                orderedTotalPrice: contextOfBasket.totalAmount
             })
         })
         if (fetching != null) {

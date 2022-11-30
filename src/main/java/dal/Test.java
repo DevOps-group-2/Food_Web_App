@@ -1,11 +1,14 @@
 package dal;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import model.*;
-import org.mindrot.jbcrypt.BCrypt;
 import utility.GlobalVariable;
+
+import java.util.List;
 
 
 public class Test {
@@ -30,40 +33,51 @@ public class Test {
         readTransaction.commit();
         session.close();
     }
-
+/*
     @org.junit.Test
-    public void testCreateOrder(){
-        HibernateController hibernateController =
-                new HibernateController(HOST);
+    public void testCreate1Order(){
+        HibernateController hibernateController = new HibernateController(HOST);
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         Order order = new Order();
-        System.out.println("ORDERID before commit: " + order.getIdOrder());
-        int i = 1;
-        order.setIdOrder(1);
-        order.setOrderedTotalPrice(111);
-
+        order.setIdOrder(123);
+        order.setOrderedTotalPrice(123);
+        System.out.println("UserID before commit: " + order.getIdOrder());
         session.persist(order);
         transaction.commit();
-        System.out.println("ORDERID after commit: " + order.getIdOrder());
+        System.out.println("UserID after commit: " + order.getIdOrder());
         Transaction readTransaction = session.beginTransaction();
         Order readOrder = session.get(Order.class, order.getIdOrder());
-        System.out.println("Read ORDER back: " + readOrder.toString());
-
-        Items items = new Items();
-        int ii = 1;
-        order.setIdOrder(1);
-        order.setOrderedTotalPrice(111);
-
-        session.persist(items);
-        transaction.commit();
-        Order readItems = session.get(Items.class, items.getId()).getOrder();
-
+        System.out.println("Read user back: " + readOrder.toString());
         readTransaction.commit();
         session.close();
     }
 
+    @org.junit.Test
+    public void testCreate1Items(){
+        HibernateController hibernateController = new HibernateController(HOST);
+        SessionFactory sessionFactory = hibernateController.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Items items = new Items();
+        items.setIdOrder(123);
+        items.setId("Food123");
+        items.setMenu("Menu123");
+        items.setPrice(123);
+        items.setAmount(123);
+        items.setStatus("Appending");
+        System.out.println("UserID before commit: " + items.getIdOrder());
+        session.persist(items);
+        transaction.commit();
+        System.out.println("UserID after commit: " + items.getIdOrder());
+        Transaction readTransaction = session.beginTransaction();
+        Items readItems = session.get(Items.class, items.getIdOrder());
+        System.out.println("Read user back: " + readItems.toString());
+        readTransaction.commit();
+        session.close();
+    }
+*/
     @org.junit.Test
     public void testCreate2(){
         HibernateController hibernateController =
@@ -84,6 +98,7 @@ public class Test {
         session.close();
     }
 
+/*
     @org.junit.Test
     public void testQuestion(){
         HibernateController hibernateController =
@@ -103,7 +118,7 @@ public class Test {
         readTransaction.commit();
         session.close();
     }
-
+*/
    /* @org.junit.Test
     public void createAdmin() {
         HibernateController hibernateController = new HibernateController(HOST);
