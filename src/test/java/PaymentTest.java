@@ -32,7 +32,6 @@ public class PaymentTest {
     public void setPaymentStatusDBTest(){
         paymentDal.createCheckoutDB(payment, true);
 
-
         String HOST = GlobalVariable.HOST;
         HibernateController hibernateController = new HibernateController(HOST);
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
@@ -48,24 +47,4 @@ public class PaymentTest {
 
     }
 
-/*
-    @Test
-    public void updateTest(){
-        PaymentDal paymentDal = new PaymentDal();
-        paymentDal.setPaymentSuccessDB(payment.customerId, true);
-
-
-        String HOST = GlobalVariable.HOST;
-        HibernateController hibernateController = new HibernateController(HOST);
-        SessionFactory sessionFactory = hibernateController.getSessionFactory();
-        Session session = sessionFactory.openSession();
-        PaymentDB paymentDB = session.get(PaymentDB.class, payment.customerId);
-
-        assertEquals(payment.name, paymentDB.getName());
-        assertEquals(payment.email, paymentDB.getEmail());
-        assertEquals(payment.customerId, paymentDB.getCustomerId());
-        assertEquals(paymentDB.getPaymentSuccess(), "true");
-        session.close();
-
-    }*/
 }
