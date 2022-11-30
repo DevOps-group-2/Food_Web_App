@@ -25,7 +25,7 @@ const Basket = (props) => {
     const [didSend, setDidSend] = useState(false);
 
     const [displayBasket, setDisplayBasket] = useState(false), contextOfBasket = useContext(ContextOfBasket),
-        totalPrice = `${contextOfBasket.totalAmount.toFixed(2)}`,
+        totalPrice = `${contextOfBasket.totalPrice.toFixed(2)}`,
         basketRemove = (id) => {
             contextOfBasket.removeProduct(id);
         }, basketAdd = (item) => {
@@ -37,8 +37,8 @@ const Basket = (props) => {
                                menu={item.menu}
                                amount={item.amount}
                                price={item.price}
-                               onRemove={basketRemove.bind(null, item.id)}
-                               onAdd={basketAdd.bind(null, item)}
+                               minusOneAmount={basketRemove.bind(null, item.id)}
+                               plusOneAmount={basketAdd.bind(null, item)}
                 />
             ))}
             </ul>
@@ -58,7 +58,7 @@ const Basket = (props) => {
             method: "POST",
             body: JSON.stringify({
                 orderedFoodProducts: contextOfBasket.foodProducts,
-                orderedTotalPrice: contextOfBasket.totalAmount
+                orderedTotalPrice: contextOfBasket.totalPrice
             })
         })
         if (fetching != null) {
@@ -83,7 +83,7 @@ const Basket = (props) => {
             </button>
 
             {hasProducts && (
-                <button className={css.button} onClick={orderHandler}>
+                <button onClick={orderHandler}>
                     That's It
                 </button>
             )}
@@ -97,7 +97,7 @@ const Basket = (props) => {
     const didSendOrderHandler = (
         <BasketBox>
             <div className={css.styles}>
-                <button className={css.button} onClick={props.onClose}>
+                <button onClick={props.onClose}>
                     Cancel
                 </button>
             </div>
@@ -110,7 +110,7 @@ const Basket = (props) => {
     const basketBoxContent = (
         <BasketBox>
             {basketProducts}
-            <div className= {css.baskettotal}>
+            <div className= {css.basketTotal}>
                 <span>Total Price</span>
                 <span>{totalPrice}</span>
             </div>

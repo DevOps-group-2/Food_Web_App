@@ -4,7 +4,6 @@ export default function ConfirmSendOrder(props) {
     const sendHandler = (event) => {
         event.preventDefault();
         const sendOrderFinal = true;
-
         props.onConfirm({
             sendOrderFinal
         });

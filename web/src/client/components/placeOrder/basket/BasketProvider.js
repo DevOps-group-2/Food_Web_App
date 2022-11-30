@@ -3,11 +3,11 @@ import ContextOfBasket from './Context';
 
 const stateOfBasket = {
   foodProducts: [],
-  totalAmount: 0
+  totalPrice: 0
 };
 
 /*Add and remove function related to the basket.*/
-const basketReducer = (state, activity) => {
+const basketUpdater = (state, activity) => {
   if (activity.type !== 'add-product') {
     if (activity.type === 'remove-product') {
       /*BasketProducts are meant to be inside the basket.*/
@@ -15,7 +15,7 @@ const basketReducer = (state, activity) => {
           (item) => item.id === activity.id
       );
       const BasketProduct = state.foodProducts[IndexOfBasketProducts];
-      const newTotalPrice = state.totalAmount - BasketProduct.price;
+      const newTotalPrice = state.totalPrice - BasketProduct.price;
       let newBasketItems;
 
       if (BasketProduct.amount !== 1) {
@@ -27,12 +27,12 @@ const basketReducer = (state, activity) => {
       }
       return {
         foodProducts: newBasketItems,
-        totalAmount: newTotalPrice
+        totalPrice: newTotalPrice
       };
     }
     return stateOfBasket;
   } else {
-    const newTotalPrice = state.totalAmount + activity.item.price * activity.item.amount,
+    const newTotalPrice = state.totalPrice + activity.item.price * activity.item.amount,
         BasketProductIndex = state.foodProducts.findIndex((item) => item.id === activity.item.id),
         BasketProduct = state.foodProducts[BasketProductIndex];
     let newBasketItems;
@@ -49,12 +49,13 @@ const basketReducer = (state, activity) => {
     }
     return {
       foodProducts: newBasketItems,
-      totalAmount: newTotalPrice,
+      totalPrice: newTotalPrice,
     };
   }
 };
+
 const BasketProvider = (props) => {
-  const [basketState, sendBasketChanges] = useReducer(basketReducer, stateOfBasket);
+  const [basketState, sendBasketChanges] = useReducer(basketUpdater, stateOfBasket);
 
   /*Add function*/
   const addProductToBasket = (item) => {
@@ -72,7 +73,7 @@ const BasketProvider = (props) => {
 
   const contextOfBasket = {
     foodProducts: basketState.foodProducts,
-    totalAmount: basketState.totalAmount,
+    totalPrice: basketState.totalPrice,
     addProduct: addProductToBasket,
     removeProduct: removeProductFromBasket,
     clearBasket: clearBasket

@@ -10,7 +10,7 @@ const BasketButtonHeader = (props) => {
     return (
         <button className={css.buttonH} onClick={props.onClick}>
             <span>Basket</span>
-            <span className={css.amountshowing}> {amountBasketProducts} </span>
+            <span className={css.amountShowing}> {amountBasketProducts} </span>
         </button>
     )
 };
