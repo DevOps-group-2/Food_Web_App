@@ -28,8 +28,6 @@ public class Checkout {
     @Path(("pay"))
     public Response submitPayment(Payment payment) {
         boolean status = false;
-        System.out.println(payment.amount);
-        // TODO: create an env file to save stripe key
         Stripe.apiKey = System.getenv( "MY_SECRET_KEY");
         Map<String, Object> params = new HashMap<>();
         params.put("amount", payment.amount * 100);
@@ -41,19 +39,18 @@ public class Checkout {
             System.out.println("Payment success.");
             status = true;
         } catch (AuthenticationException e) {
-            System.out.println("Error 1");
+            System.out.println("Authentication exception.");
             e.printStackTrace();
         } catch (InvalidRequestException e) {
-            System.out.println("Error 2");
+            System.out.println("Invalid Request exception.");
             e.printStackTrace();
         } catch (CardException e) {
-            System.out.println("Error 3");
+            System.out.println("Card exception");
             e.printStackTrace();
         } catch (StripeException e) {
-            System.out.println("Error 4");
+            System.out.println("Stripe Exception");
             e.printStackTrace();
         }
-
         PaymentDal paymentDal = new PaymentDal();
         if (status) {
             paymentDal.createCheckoutDB(payment, status);

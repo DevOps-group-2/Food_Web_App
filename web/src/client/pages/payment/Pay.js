@@ -10,7 +10,8 @@ function Pay(props) {
             <h1></h1>
             <StripeCheckout
                 token={handleToken}
-                stripeKey={"pk_test_51Ll7jrJEhBAUpm4shjFR2nezg1jK24pK7XdcovEOeogK4m2HZDdsQITlPVeXromKZoZjHrJO8iWlKhkrDyuOXy8Q00Fv9OdcdE"}
+                stripeKey={"pk_test_51Ll7jrJEhBAUpm4shjFR2nezg1jK24pK7XdcovE" +
+                    "OeogK4m2HZDdsQITlPVeXromKZoZjHrJO8iWlKhkrDyuOXy8Q00Fv9OdcdE"}
                 billingAddress={false}
                 shippingAddress={false}
                 email={props.children.email}
@@ -25,9 +26,7 @@ function Pay(props) {
 const baseUrl = process.env.NODE_ENV === 'development' ?  "http://localhost:8080/":""; //Check if dev environment
 
 const handleToken = (token) => {
-    if (data.amount < 3) {
-        return alert("Amount must be at least 3kr.")
-    }
+    if (data.amount < 3) return alert("Amount must be at least 3kr.")
     fetch(baseUrl + "api/stripe/pay", {
         method: "POST",
         headers: {"Content-Type":"application/json"},
@@ -40,19 +39,14 @@ const handleToken = (token) => {
         }),
         credentials: "same-origin"
     }).then(function(response) {
-        if (response.ok) {
-            alert('Payment success')
-        } else {
-            alert('Payment failed')
-        }
+        if (response.ok) alert('Payment success')
+        else alert('Payment failed')
         console.log(response)
         return response.text()
-
     }, function(error) {
         alert('Payment failed')
         console.log(error.message);
     })
-
 }
 
 
