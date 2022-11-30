@@ -1,6 +1,6 @@
 
 import "./MainDash.css"
-import Orders from "../appendingOrders/Orders";
+import Orders from "../Orders/Orders";
 
 
 

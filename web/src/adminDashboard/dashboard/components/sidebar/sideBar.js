@@ -5,7 +5,6 @@ function SideBar(){
 
     const SidebarData = [
         {heading: "Dashboard"},
-        {heading: "Orders"}
     ]
 
     const [selected, setSelected] = useState(0)

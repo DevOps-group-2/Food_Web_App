@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import css from './Style.module.css';
 import FoodProductAmount from './FoodProductAmount';
 import ContextOfBasket from '../basket/Context';
-import Orders from "../../../../adminDashboard/dashboard/components/appendingOrders/Orders";
+import Orders from "../../../../adminDashboard/dashboard/components/Orders/Orders";
 
 const FoodProduct = (props) => {
 

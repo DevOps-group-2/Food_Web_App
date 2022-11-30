@@ -1,15 +1,14 @@
-//Inspiration from this turorial
 
 import * as React from 'react';
-import './Orders.css';
+
 import {useEffect, useState} from "react";
 import {DataGrid} from "@mui/x-data-grid";
 
 const columns = [
     {field: 'idOrder', headerName: 'ID', sortable: false, filterable: false},
-    {field: 'menu', headerName: 'Menu', width: 300, sortable: false, filterable: false},
-    {field: 'price', headerName: 'Price', width: 100, sortable: false, filterable: false},
-    {field: 'amount', headerName: 'Amount'}
+    {field: 'menu', headerName: 'Menu', width: 300, sortable: false},
+    {field: 'price', headerName: 'Price', width: 200, sortable: false, filterable: false},
+    {field: 'amount', headerName: 'Amount', width: 200, filterable: false}
 ]
 
 const Orders = (setSelectedLink, link ) =>{
@@ -26,7 +25,7 @@ const Orders = (setSelectedLink, link ) =>{
         <div style={{
             width: '100%',
             backgroundColor: 'whitesmoke',
-            borderRadius: 20,
+            borderRadius: 100,
             height: 400,
             marginBottom: 40,
             boxShadow: 20,
