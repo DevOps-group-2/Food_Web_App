@@ -67,6 +67,51 @@ public class Test {
         session.close();
     }
 
+    /*
+    @org.junit.Test
+    public void testCreate1Order(){
+        HibernateController hibernateController = new HibernateController(HOST);
+        SessionFactory sessionFactory = hibernateController.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Order order = new Order();
+        order.setIdOrder(123);
+        order.setOrderedTotalPrice(123);
+        System.out.println("UserID before commit: " + order.getIdOrder());
+        session.persist(order);
+        transaction.commit();
+        System.out.println("UserID after commit: " + order.getIdOrder());
+        Transaction readTransaction = session.beginTransaction();
+        Order readOrder = session.get(Order.class, order.getIdOrder());
+        System.out.println("Read user back: " + readOrder.toString());
+        readTransaction.commit();
+        session.close();
+    }
+    @org.junit.Test
+    public void testCreate1Items(){
+        HibernateController hibernateController = new HibernateController(HOST);
+        SessionFactory sessionFactory = hibernateController.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Items items = new Items();
+        items.setIdOrder(123);
+        items.setId("Food123");
+        items.setMenu("Menu123");
+        items.setPrice(123);
+        items.setAmount(123);
+        items.setStatus("Appending");
+        System.out.println("UserID before commit: " + items.getIdOrder());
+        session.persist(items);
+        transaction.commit();
+        System.out.println("UserID after commit: " + items.getIdOrder());
+        Transaction readTransaction = session.beginTransaction();
+        Items readItems = session.get(Items.class, items.getIdOrder());
+        System.out.println("Read user back: " + readItems.toString());
+        readTransaction.commit();
+        session.close();
+    }
+*/
+
     //Unit testing for createCustomerData
     @org.junit.Test
     public void CustomerDataTest(){
