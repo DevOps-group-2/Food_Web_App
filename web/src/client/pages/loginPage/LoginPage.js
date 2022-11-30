@@ -42,6 +42,10 @@ function LoginPage() {
                     console.log(tokenStore.getToken())
                 }
             }
+            else {
+
+                return ''
+            }
         }
        catch (e){
            setErrorMessage({name: "invalid name or password"});
