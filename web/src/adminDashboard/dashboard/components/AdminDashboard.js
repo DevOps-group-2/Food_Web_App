@@ -4,11 +4,11 @@ import SideBar from "./sidebar/sideBar"
 import MainDash from "./mainDash/MainDash";
 import {tokenStore} from "../../../client/stores/TokenStore";
 
-function AdminDashboard() {
+async function AdminDashboard() {
 
     return (
         <div>
-            {(tokenStore?.state === tokenStore?.Loginstates?.indexOf(2) && tokenStore.validate()) ?
+            {(tokenStore?.state === tokenStore?.Loginstates?.indexOf(2) && await tokenStore.validate()) ?
                 <div className="dashBoard">
                     <SideBar/>
                     <MainDash/>
