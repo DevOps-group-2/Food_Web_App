@@ -26,7 +26,7 @@ const BuyableFoodProducts = () => {
         setIsLoading(false);
       }
       loadFoodProducts(); //shows the food in ui.
-      console.log(Food);
+      console.log(Food); //shows on the console
     }, []);
 
     const listOfFood = Foods.map((val) => {
@@ -43,7 +43,7 @@ const BuyableFoodProducts = () => {
 
     return (
         <>
-          <section className={css.foodproducts}>
+          <section className={css.foodProducts}>
             <Layout>
               {isLoading ? <div className={css.loading}><p>Loading...</p></div> : <ul>{listOfFood}</ul>}
             </Layout>
