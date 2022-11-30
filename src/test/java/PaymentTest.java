@@ -29,7 +29,6 @@ public class PaymentTest {
 
 
 
-
         paymentDal.createCheckoutDB(payment, true);
 
 /*        String HOST = GlobalVariable.HOST;
