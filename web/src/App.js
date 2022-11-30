@@ -4,7 +4,7 @@ import NavigationBar from "./client/components/navigationBar/NavigationBar";
 import {Route, Routes} from "react-router-dom";
 import LoginPage from "./client/pages/loginPage/LoginPage";
 import PlaceOrder from "./client/pages/placeOrder/PlaceOrder";
-import AdminDashboard from "./adminDashboard/dashboard/components/AdminDashboard"
+import AdminDashboard from "./client/components/adminDashboard/dashboard/components/AdminDashboard"
 import AboutUsPage from "./client/pages/aboutPage/AboutUsPage"
 import ContactPage from "./client/pages/contactPage/ContactPage";
 import Home from "./client/pages/homePage/Home";

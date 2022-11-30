@@ -2,7 +2,7 @@ import * as React from 'react';
 import './AdminDashboard.css'
 import SideBar from "./sidebar/sideBar"
 import MainDash from "./mainDash/MainDash";
-import {tokenStore} from "../../../client/stores/TokenStore";
+import {tokenStore} from "../../../../stores/TokenStore";
 
 function AdminDashboard() {
 

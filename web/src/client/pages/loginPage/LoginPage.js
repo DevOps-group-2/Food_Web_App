@@ -4,7 +4,6 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
 import {tokenStore} from "../../stores/TokenStore";
-import AdminDashboard from "../../../adminDashboard/dashboard/components/AdminDashboard";
 import {Route} from "react-router-dom";
 
 function LoginPage() {

@@ -1,4 +1,3 @@
-import Menu from "./Menu";
 import ContactUs from "./ContactUs";
 
 function Home() {
