@@ -2,7 +2,7 @@
 
 class TokenStore {
     Loginstates = ["loading", "logged out", "loggedIn"]
-    state = Loginstates[1];
+    state = this.Loginstates[1];
     token = null;
     setToken(token) {
         this.token = token
