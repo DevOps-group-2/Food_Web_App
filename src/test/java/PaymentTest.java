@@ -1,12 +1,15 @@
+/*
 import dal.PaymentDal;
 import service.payment.Payment;
 import org.junit.jupiter.api.Test;
 
 public class PaymentTest {
+*/
 /*
     Payment payment;
     PaymentDal paymentDal;
-*/
+*//*
+
 
     public PaymentTest() {
         //String id = "" + Math.random();
@@ -31,6 +34,7 @@ public class PaymentTest {
 
         paymentDal.createCheckoutDB(payment, true);
 
+*/
 /*        String HOST = GlobalVariable.HOST;
         HibernateController hibernateController = new HibernateController(HOST);
         SessionFactory sessionFactory = hibernateController.getSessionFactory();
@@ -42,11 +46,13 @@ public class PaymentTest {
         assertEquals(payment.customerId, paymentDB.getCustomerId());
 
         assertEquals(paymentDB.getPaymentSuccess(), "true");
-        session.close();*/
+        session.close();*//*
+
 
     }
 
 
+*/
 /*    @Test
     public void updateTest(){
         PaymentDal paymentDal = new PaymentDal();
@@ -65,5 +71,7 @@ public class PaymentTest {
         assertEquals(paymentDB.getPaymentSuccess(), "true");
         session.close();
 
-    }*/
+    }*//*
+
 }
+*/
