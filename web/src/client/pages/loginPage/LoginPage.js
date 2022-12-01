@@ -2,54 +2,64 @@
 // utilizes usestates and a login form
 
 import React, { useState } from "react";
-
 import "./LoginPage.css";
+import {tokenStore} from "../../stores/TokenStore";
+import {Route} from "react-router-dom";
 
 function LoginPage() {
-
-    const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
-
-    const database = [
-        {
-            username: "admin",
-            password: "password"
-        },
-    ];
-
-    const errors = {
-        invalidName: "invalid username",
-        pinvalidPass: "invalid password"
-        //note missing username/password not needed as input is required by the input component ex: <input type="text" name="uname" required />
-    };
-    const handleSubmit = (event) => {
+    //"https://localhost8080"
+    //"https://food-webapp.grp2.diplomportal.dk"
+    const [errorMessage, setErrorMessage] = useState({});
+    const handleSubmit = async (event) => {
+        //logging in
         event.preventDefault();
+        const {uname, pass} = document.forms[0];
 
-        var { uname, pass } = document.forms[0];
-
-        //todo, make a backend login authentication instead of using frontend dummy data
-        const userData = database.find((user) => user.username === uname.value);
-
-        if (userData) {
-            if (userData.password !== pass.value) {
-
-                setErrorMessages({ name: "invalidPass", message: errors.pass });
-            } else {
-                setIsSubmitted(true);
+        try {
+            let response = await fetch("https://food-webapp.grp2.diplomportal.dk/api/auth/login", {
+                "headers" : {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                "method": "POST",
+                "body": JSON.stringify({
+                    username: uname.value,
+                    password: pass.value
+                })
+            })
+            let status = response.status
+            if (status === 200) {
+                let token = await response.text()
+                if (token !== '') {
+                    console.log(token)
+                    setIsSubmitted(true);
+                    //setting tokenStore states, and saving token
+                    tokenStore.setToken(token)
+                    tokenStore.state = "loggedIn";
+                    console.log(tokenStore.getToken())
+                }
             }
-        } else {
-            setErrorMessages({ name: "invalidNam", message: errors.uname });
+            else {
+                return ''
+            }
         }
+       catch (e){
+           setErrorMessage({name: "invalid name or password"});
+           renderErrorMessage()
+       }
+
     };
 
     const renderErrorMessage = (name) =>
-        name === errorMessages.name && (
-            <div className="error">{errorMessages.message}</div>
+        name === errorMessage.name && (
+            <div className="error">{errorMessage.message}</div>
         );
 
     //login form
     const renderForm = (
         <div className="form">
+            <div className="title">Sign In</div>
             <form onSubmit={handleSubmit}>
                 <div className="input-container">
                     <label>Username </label>
@@ -65,14 +75,14 @@ function LoginPage() {
                     <input type="submit" />
                 </div>
             </form>
+
         </div>
     );
 
     return (
         <div className="app">
             <div className="login-form">
-                <div className="title">Sign In</div>
-                {isSubmitted ? <div>Admin is logged in</div> : renderForm}
+                {isSubmitted ? <div>logged in</div> : renderForm}
             </div>
         </div>
     );

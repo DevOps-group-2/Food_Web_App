@@ -1,22 +1,57 @@
-import React from 'react';
-import FoodProductAmount from './FoodProductAmount';
+import React from 'react'
+import { useContext } from 'react';
 import css from './Style.module.css';
+import ContextOfBasket from '../basket/Context';
+const FoodProductAmount = (props) => {
 
+    function sendRequest(event) {
+        event.preventDefault();
+        /*You're only able to add one dish at a time.*/
+        props.onAddToCart(1);
+    }
+
+    return (
+        <>
+            <form className={css.form} onSubmit={sendRequest}>
+                <button>Add To Basket</button>
+            </form>
+        </>
+    )
+}
 const FoodProduct = (props) => {
-  /*Adding two decimals to the prices.*/
-  const price = `${props["price"].toFixed(2)}`;
 
-  /*Showing the food products..*/
+  const contextOfBasket = useContext(ContextOfBasket);
+  const price = `${props.price.toFixed(2)}`;
+  const appending = "appending";
+
+  const addToBasket = (amount) => {
+      /*Only one foodtype can be added.*/
+      if(contextOfBasket.foodProducts <= 0) {
+          contextOfBasket.addProduct({
+              id: props.id,
+              menu: props.menu,
+              price: props.price,
+              amount: amount,
+              status: appending
+          });
+      }
+  };
+  
   return (
-    <><li>
+    <>
+     <li className={css.foodProduct}>
       <div>
        <h2> {props.menu} </h2>
        <div> {props.info} </div>
-       <div> {props.time} </div>
-       <div className={css.text}> {price} DKK</div>
+       <>{"\u00a0"}
+       </>
+       <>{"\u00a0"}
+       <div className={css.price}> {price} DKK</div>
+       </>
       </div>
-        <div><FoodProductAmount /></div>
-    </li></>
+         <div><FoodProductAmount onAddToCart={addToBasket} /></div>
+    </li>
+    </>
   )
 }
 
