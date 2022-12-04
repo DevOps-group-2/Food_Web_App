@@ -16,7 +16,7 @@ export default function ConfirmSendOrder(props) {
                 <button onClick={props.onClose}>
                     Close
                 </button>
-                <button className={css.send}>Checkout</button>
+                <button>Checkout</button>
             </div>
         </form>
     );
