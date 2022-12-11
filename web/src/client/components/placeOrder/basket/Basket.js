@@ -53,8 +53,8 @@ const Basket = (props) => {
     const submitOrderHandler = async () => {
         setCustomerData(contextOfBasket);
         console.log(contextOfBasket.foodProducts);
-        let fetching = await fetch("http://localhost:8080/api/orders", {
-            headers : {
+        let fetching = await fetch("https://food-webapp.grp2.diplomportal.dk/api/orders", {
+        headers : {
                     'Content-Type': 'application/json'},
             method: "POST",
             body: JSON.stringify({

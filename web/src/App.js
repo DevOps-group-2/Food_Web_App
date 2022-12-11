@@ -22,7 +22,7 @@ function App() {
                 <Routes>
                     <Route path={"/"} element={<Home/>}/>
                     <Route path={"/order"} element={<PlaceOrder/>}/>
-                    <Route path={"form"} element={<CustomerForm/>}/>
+                    {/*<Route path={"form"} element={<CustomerForm/>}/>*/}
                     <Route path={"/pay2"} element={<PayWrapper/>}/>
 {/*
                     <Route path={"/pay"} element={<Pay></Pay>}/>

@@ -15,7 +15,7 @@ const Orders = () =>{
     const [tableData, setTableData] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:8080/api/items")
+        fetch("https://food-webapp.grp2.diplomportal.dk/api/items")
             .then(data => data.json())
             .then(data => setTableData(data))
     })
