@@ -1,10 +1,9 @@
-import Menu from "./Menu";
+import ContactUs from "./ContactUs";
 
 function Home() {
     return(
-        <div>
-            Home Page
-            <Menu />
+        <div className="Form">
+            <ContactUs/>
         </div>
     )
 }

@@ -37,7 +37,7 @@ input[type="submit"]:hover {
 }
 
 .login-form {
-    background-color: grey;
+    background-color: #8c8c8c;
     padding: 2rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -51,7 +51,7 @@ input[type="submit"]:hover {
 }
 
 .error {
-    color: red;
+    color: #7e7c7c;
     font-size: 12px;
 }
 

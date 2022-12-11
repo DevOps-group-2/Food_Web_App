@@ -1,5 +1,5 @@
 /*back-drop do make some grey lines behind the basket box.*/
-.backdrop {
+.imageShownOnStage {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@
     background-color: rgba(0, 0, 0, 0.60);
 }
 
-.basketbox {
+.basketBox {
     position: fixed;
     top: 2vh;
     background-color: white;
@@ -20,7 +20,7 @@
 
 /*To keep it in middle and center using calc*/
 @media (min-width: 700px) {
-    .basketbox {
+    .basketBox {
         width: 50rem;
         left: calc(44% - 20rem);
     }
@@ -34,7 +34,7 @@
 
 .layout {
     padding: 0.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.99);
+    box-shadow: 0 1px 10px rgba(1, 1, 1, 1);
     border-radius: 20px;
     background-color: #c6d3b0;
 }

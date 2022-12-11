@@ -1,11 +1,14 @@
 import React from 'react';
 
-let ContextOfBasket;
-ContextOfBasket = React.createContext({
-  foodProducts: [], totalAmount: 0,
-  addProduct: () => {
-  }, removeProduct: () => {
-  }
+const ContextOfBasket = React.createContext({
+    foodProducts: [],
+    totalPrice: 0,
+    clearBasket() {
+    },
+    addProduct() {
+    },
+    removeProduct() {
+    }
 });
 
 export default ContextOfBasket;

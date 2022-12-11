@@ -1,26 +1,30 @@
 package model;
 
 import jakarta.persistence.*;
-/*
-key={data.id}
-menu={data.menu}
-amount={data.amount}
-price={data.price}
-*/
+import lombok.*;
+import org.hibernate.annotations.Cascade;
+
+import java.util.List;
 
 @Entity
-@Table(name = "DBUSER") //WATCH out  USER is a reserved name!
+@Table(name="DBOrders") //!!WATCH out this is a reserved name!
+@Getter
+@Setter
+@Builder
+@ToString
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class Order {
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private int data;
-    @Column(name = "menu")
-    private String menu;
-    @Column(name = "amount")
-    private String amount;
-    @Column(name = "price")
-    private String price;
 
+    @Id
+    @GeneratedValue()
+    @Column(name="idOrder")
+    public int idOrder;
+
+    @Column(name="orderedTotalPrice")
+    private int orderedTotalPrice;
+
+    @OneToMany(mappedBy="order",cascade = CascadeType.ALL)
+    private List<Items> orderedFoodProducts;
 }
-// TODO: Remember Getters and setters as well
+

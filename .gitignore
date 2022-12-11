@@ -23,3 +23,6 @@ app/coverage
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/lection1_final.iml
+/target/
+/web/package-lock.json
