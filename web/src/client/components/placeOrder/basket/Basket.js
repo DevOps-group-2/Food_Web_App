@@ -5,6 +5,7 @@ import ContextOfBasket from './Context';
 import BasketProduct from './BasketProduct';
 import ConfirmSendOrder from "./ConfirmSendOrder";
 import CustomerForm from "../../../pages/customerForm/CustomerForm";
+import Pay from "../../../pages/payment/Pay";
 
 const myComponent = {
     width: '800px',
@@ -49,11 +50,11 @@ const Basket = (props) => {
     }
 
     const [errorMessage, setErrorMessage] = useState({});
-
     const submitOrderHandler = async () => {
+        setCustomerData(contextOfBasket);
         console.log(contextOfBasket.foodProducts);
-        let fetching = await fetch("http://localhost:8080/api/orders", {
-            headers : {
+        let fetching = await fetch("https://food-webapp.grp2.diplomportal.dk/api/orders", {
+        headers : {
                     'Content-Type': 'application/json'},
             method: "POST",
             body: JSON.stringify({
@@ -94,9 +95,13 @@ const Basket = (props) => {
         <p>Being working on the order.</p>
     </BasketBox>
 
+
+
+
     const didSendOrderHandler = (
         <BasketBox>
             <div className={css.styles}>
+                <Pay>{customer}</Pay>
                 <button onClick={props.onClose}>
                     Cancel
                 </button>
@@ -128,5 +133,17 @@ const Basket = (props) => {
         </BasketBox>
   )
 };
+
+function setCustomerData(contextOfBasket) {
+    customer.amount = contextOfBasket.totalPrice;
+    customer.id = contextOfBasket.totalPrice + " " + new Date().toLocaleTimeString("en-US");
+}
+
+const customer = {
+    name: "",
+    id: "",
+    email: "unk@gmail.com",
+    amount: ""
+}
 
 export default Basket;

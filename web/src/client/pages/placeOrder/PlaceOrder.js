@@ -25,7 +25,7 @@ const PlaceOrder = () => {
             <section className={css.foodProducts}>
             <Layout>
                 <center>
-                    <h2>The Homepage is Under Development</h2>
+                    <h2>The Page is Under Development</h2>
                     The website is still under development, so there may be some features that will not work, or rather are not implemented.
                     <div>
                         <u>Currently you can only add one dish at a time.</u>

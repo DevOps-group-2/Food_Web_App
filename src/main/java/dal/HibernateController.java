@@ -33,6 +33,7 @@ public class HibernateController {//Should be a singleton…
 
 
 
+
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }

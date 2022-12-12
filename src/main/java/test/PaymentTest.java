@@ -1,11 +1,14 @@
+package test;
+
 import dal.HibernateController;
 import dal.PaymentDal;
 import model.PaymentDB;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.junit.Test;
 import service.payment.Payment;
 import utility.GlobalVariable;
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 
 import static org.testng.AssertJUnit.*;
 
