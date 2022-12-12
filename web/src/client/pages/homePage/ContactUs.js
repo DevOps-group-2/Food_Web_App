@@ -30,7 +30,7 @@ class ContactUs extends Component{
         };
 
         axios
-            .post('http://localhost:8080/api/message', customerMessage)
+            .post('https://food-webapp.grp2.diplomportal.dk/api/message', customerMessage)
             .then(() => console.log('Message created'),
                 //this.callAPI()
             )

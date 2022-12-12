@@ -42,7 +42,7 @@ class CustomerForm extends Component {
         };
 
         axios
-            .post('http://localhost:8080/api/data', customerData)
+            .post('https://food-webapp.grp2.diplomportal.dk/api/data', customerData)
             .then(() => console.log('data created'),
 
                 //this.callAPI()
